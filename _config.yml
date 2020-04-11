@@ -65,7 +65,7 @@ plugins:
 
 author:
   name   : "Tobias V. Langhoff"
-  avatar : "/assets/images/bio-photo.jpg"
+  avatar : "/assets/images/tvl-photo.jpg"
   bio    : "Software developer from Norway"
   links:
     - label: "Website"
