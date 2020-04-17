@@ -10,16 +10,16 @@ tags:
   - M6800
 ---
 
-In which I learn M6800 assembly in order to hack CHIPOS.
+In which I learn 6800 assembly in order to hack CHIPOS.
 
 <!--more-->
 
 This post is part of a series on writing an emulator for the DREAM 6800 computer. Read [the DREAM 6800 posts](/tags/#dream-6800) and look at [the emulator's repository](https://github.com/tobiasvl/drom).
 {: .notice--info}
 
-OK, this is a long post. There's a table of contents to the right. I'll get into the nitty-gritty of writing short M6800 assembly, and even though I'm an amateur on that subject, I'm apparently better at it than writing short posts.
+OK, this is a long post. There's a table of contents to the right. I'll get into the nitty-gritty of writing short 6800 assembly, and even though I'm an amateur on that subject, I'm apparently better at it than writing short posts.
 
-Quick recap: The DREAM 6800 was created in 1978 by Michael J. Bauer, and it came with a small, 1024 byte operating system called <abbr title="Compact Hexadecimal Interpretive Programming and Operating System">CHIPOS</abbr>. CHIPOS incorporates an interpreter for a bytecode <abbr title="Virtual Machine">VM</abbr> called CHIP-8, which originally appeared on RCA's CDP1802-based COSMAC VIP computer in 1977. You can read more about [CHIP-8 on Wikipedia](https://en.wikipedia.org/wiki/CHIP-8).
+Quick recap: The [DREAM 6800](http://www.mjbauer.biz/DREAM6800.htm). was created in 1978 by Michael J. Bauer, and it came with a small, 1024 byte operating system called <abbr title="Compact Hexadecimal Interpretive Programming and Operating System">CHIPOS</abbr>. CHIPOS incorporates an interpreter for a bytecode <abbr title="Virtual Machine">VM</abbr> called CHIP-8, which originally appeared on RCA's CDP1802-based COSMAC VIP computer in 1977. You can read more about [CHIP-8 on Wikipedia](https://en.wikipedia.org/wiki/CHIP-8).
 
 [I've written a couple of CHIP-8 games myself](https://itch.io/c/747687/my-chip-8-games), so I obviously wanted to see them run in my brand new emulator. However, I targeted those games for the original COSMAC VIP implementation, and that posed a problem for running them on the DREAM:
 
@@ -31,20 +31,20 @@ Undocumented CHIP-8 instructions
 CHIP-8's arithmetic and logic instructions are two bytes (like all instructions) and start with `8`, followed by two nibbles that refer to two of the 16 "V" variables/registers, and ending with one nibble which denotes the operation. They look like this, where X and Y can be any hexadecimal number:
 
 * `8XY0`: `VX = VY`
-* `8XY1`: `VX \|= VY`
-* `8XY2`: `VX &= VY`
-* `8XY4`: `VX += VY` (VF is set to 1 if there's a carry, and 0 if there's not)
-* `8XY5`: `VX -= VY` (VF is set to 0 if there's a borrow, and 1 if there's not)
+* `8XY1`: `VX = VX OR VY`
+* `8XY2`: `VX = VX AND VY`
+* `8XY4`: `VX = VX + VY` (VF is set to 1 if there's a carry, and 0 if there's not)
+* `8XY5`: `VX = VX - VY` (VF is set to 0 if there's a borrow, and 1 if there's not)
 
 Notice the inverted use of the carry flag for the subtraction. That's how the 1802's carry flag worked, but it's the opposite of the way it works on the 6800, necessitating some extra work later.
 {: .notice--warning}
 
 For the instructions that don't specify what happens to VF, the resulting value in VF is undefined. 1802's ALU would mangle it.
-{: notice}
+{: .notice}
 
 Due to the way the original CHIP-8 interpreter dispatches these instructions to the 1802's ALU ([details in this great blog post](http://laurencescotford.co.uk/?p=266)), it actually had four undocumented instructions. They are as follows:
 
-* `8XY3`: `VX ^= VY`
+* `8XY3`: `VX = VX XOR VY`
 * `8XY6`: `VX = VY - VX` (VF is set to 0 if there's a borrow, and 1 if there's not)
 * `8XY7`: `VX = VY >> 1` (VF is set to the bit that's shifted out)
 * `8XYE`: `VX = VY << 1` (VF is set to the bit that's shifted out)
@@ -64,8 +64,11 @@ The DREAM 6800's CHIP-8 interpreter and monitor program, CHIPOS, fits in 1K of m
 CHIPOS code
 -----------
 
-You can download CHIPOS from [Michael J. Bauer's website](http://www.mjbauer.biz/DREAM6800.htm).
-{: notice--success}
+You can download the CHIPOS code and ROM from [Michael J. Bauer's website](http://www.mjbauer.biz/DREAM6800.htm).
+{: .notice--success}
+
+Here's a nice [opcode table for 6800 assembly](http://www.8bit-era.cz/6800.html) which I used as a reference during development.
+{: .notice--info}
 
 The original CHIPOS interpreter uses the first nibble in the CHIP-8 instruction to index a jump table, and it jumps here when it encounters an opcode that starts with 8 (labels are Michael J. Bauer's, comments are mine):
 
@@ -167,7 +170,7 @@ So there you have it: I'd successfully shaved off as many bytes as I could in CH
 Take two: Dynamic programming
 -----------------------------
 
-Try as I might, I wasn't able to find another byte to optimize away. There probably is one somewhere, but I can't find it. If you do, please leave a comment, because the above code is much cleaner and elegant than the monstrosity I'm about to unveil.
+Try as I might, I wasn't able to find another byte to optimize away. And not all bytes are equal; if possible, I wanted to stay compatible with CHIPOS's subroutines and calling sequences (CHIPOS provides several of its subroutines for use by DREAM programs and games). There probably is one somewhere, but I can't find it. If you do, please leave a comment, because the above code is much cleaner and elegant than the monstrosity I'm about to unveil.
 
 I noticed that many of the CHIP-8 instructions here map cleanly to a single MC6800 instruction each. However, some need an operand (VY before, VX in my revised routine), so that's two bytes, and some don't need an operand. Hardcoded jump tables can get pretty big, since each case needs a return. I tried to make a jump table, but that approach was much larger than the 1025 byte switch/case above. (It was 1040 bytes when I abandoned it.)
 
@@ -244,7 +247,7 @@ loop:  INX         ; Loop to find byte in lookup table
 PUTVX: LDX  VXLOC
        STAA 0,X    ; Replace VX with result
        RTS         ; Return from this whole thing
-INVF:  BCS  next   ; Invert VF if needed
+INVF:  BCS  next   ; Invert carry if needed
        SEC
        RTS
 next:  CLC
@@ -254,9 +257,9 @@ JUMP8: .byte $9A   ; ORAA 8XY1
        .byte $98   ; EORA 8XY3
        .byte $9B   ; ADDA 8XY4
        .byte $90   ; SUBA 8XY5
-       .byte $48   ; ASLA 8XY6
+       .byte $44   ; LSRA 8XY6
        .byte $90   ; SUBA 8XY7
-      ;.byte $48   ; LSRA 8XYE (byte found in code below)
+      ;.byte $48   ; ASLA 8XYE (byte found in code below)
 ~~~
 
 Whoo boy. Okay. So we build a subroutine in zero-page RAM that consists of the opcode for the instruction we want at `$0040`, followed by `$0A` which is the address of VX for those instructions that require that _or_ it's `CLV` for those that don't _or_ it's `$09` for VY since one instruction requires that, followed by either a `$39` to return or a `$7E` to jump to `INVF`. Then we call that thing.
@@ -270,7 +273,16 @@ Success
 
 Building instructions in RAM like a crazy person only saved me _one byte_ compared to the switch/case, but it was one crucial byte.
 
-I'm sure there's more to be done here, but I've worked on this for far too long. **Please leave a comment** if you find anything. I know I could invert the carry flag more easily with `TPA`, `EORA 1`, `TAP` but that would require me to switch A and B in a lot of places.
+<del>I'm sure there's more to be done here, but I've worked on this for far too long. **Please leave a comment** if you find anything. I know I could invert the carry flag more easily with `TPA`, `EORA 1`, `TAP` but that would require me to switch A and B in a lot of places.</del>
+
+**Edit:** [Someone suggested](https://retrocomputing.stackexchange.com/questions/14439/inverting-the-carry-flag-on-an-m6800/14441?noredirect=1#comment47709_14441) the following idiom for flipping the carry flag, since I don't need to retain B, which saves another byte:
+
+~~~
+INVF:  ROLB
+       INCB
+       RORB
+       RTS
+~~~
 
 Let's fire up my [Mini Lights Out](https://tobiasvl.itch.io/mini-lights-out) game and see if all the work paid off. CHIPOS runs, and lo and behold:
 
@@ -278,4 +290,4 @@ Let's fire up my [Mini Lights Out](https://tobiasvl.itch.io/mini-lights-out) gam
 
 Beautiful. As a bonus for reading all of this you get to see the clunky UI of my emulator so far too. Time to get back to working on that!
 
-I hope to release my version of CHIPOS, but I need permission from Michael J. Bauer first. I also need to clean it up something good, and to find a better 6800 emulator than I've been using (suggestions welcome). Maybe I'll name it CHIPOS with Logic Operations, or CHIPOSLO for short, after my home town!
+I hope to release my version of CHIPOS, if I get permission. I also need to clean it up something good, and to find a better 6800 assembler than I've been using (suggestions welcome). Maybe I'll name it CHIPOS with Logic Operations, or CHIPOSLO for short, after my home town!
