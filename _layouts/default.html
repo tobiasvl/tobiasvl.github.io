@@ -7,7 +7,21 @@
     {% include head/custom.html %}
   </head>
 
-  <body class="layout--{{ page.layout | default: layout.layout }}{% if (page.classes or layout.classes) and not page.toc %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
+  {% unless page.toc %}
+    {% if page.classes or layout.classes %}
+      {% assign classes = page.classes | default: layout.classes | push: 'wide' %}
+    {% else %}
+      {% assign classes = 'wide,' | split: ',' %}
+    {% endif %}
+  {% else %}
+    {% if page.classes or layout.classes %}
+      {% assign classes = page.classes | default: layout.classes %}
+    {% else %}
+      {% assign classes = '' | split: '' %}
+    {% endif %}
+  {% endunless %}
+
+  <body class="layout--{{ page.layout | default: layout.layout }}{{ classes | join: ' ' | prepend: ' ' }}">
     {% include_cached skip-links.html %}
     {% include_cached browser-upgrade.html %}
     {% include_cached masthead.html %}
