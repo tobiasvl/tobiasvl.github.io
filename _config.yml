@@ -17,6 +17,7 @@ title: Tobias V. Langhoff
 email: tobias@langhoff.no
 description: >- # this means to ignore newlines until "baseurl:"
   Tobias V. Langhoff's personal home page and blog
+og_image : "/assets/images/tvl-photo.jpg"
 twitter_username: Spug
 github_username: tobiasvl
 minimal_mistakes_skin: default
@@ -32,6 +33,20 @@ paginate_path: /page:num/
 timezone: # https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 repository: "tobiasvl/tobiasvl.github.io"
+
+social:
+  type: "person"
+  links:
+    - "https://twitter.com/Spug"
+    - "https://github.com/tobiasvl"
+    - "https://tobiasvl.itch.io"
+    - "https://instagram.com/spugster"
+
+twitter:
+  username: "Spug"
+
+facebook:
+  username: "tobiasvl"
 
 analytics:
   provider: "google-gtag"
