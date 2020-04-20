@@ -103,6 +103,15 @@ author:
     - label: "spugster"
       icon: "fab fa-fw fa-instagram"
       url: "https://instagram.com/spugster"
+    - label: "tobiasvl"
+      icon: "fab fa-fw fa-xbox"
+      url: "https://www.trueachievements.com/gamer/tobiasvl/gamecollection"
+    - label: "Spug"
+      icon: "fab fa-fw fa-lastfm-square"
+      url: "https://https://www.last.fm/user/Spug"
+    - label: "Goodreads"
+      icon: "fab fa-fw fa-goodreads"
+      url: "https://www.goodreads.com/user/show/11408214-tobias-langhoff"
 
 footer:
   links:
@@ -118,6 +127,15 @@ footer:
     - label: "spugster"
       icon: "fab fa-fw fa-instagram"
       url: "https://instagram.com/spugster"
+    - label: "tobiasvl"
+      icon: "fab fa-fw fa-xbox"
+      url: "https://www.trueachievements.com/gamer/tobiasvl/gamecollection"
+    - label: "Spug"
+      icon: "fab fa-fw fa-lastfm-square"
+      url: "https://https://www.last.fm/user/Spug"
+    - label: "Goodreads"
+      icon: "fab fa-fw fa-goodreads"
+      url: "https://www.goodreads.com/user/show/11408214-tobias-langhoff"
 
 defaults:
   # _posts

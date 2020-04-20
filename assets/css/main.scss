@@ -8,6 +8,15 @@
   .fa-itch-io {
     color: #fa5c5c;
   }
+  .fa-lastfm-square {
+    color: #b90000;
+  }
+  .fa-xbox {
+    color: #0e7a0d;
+  }
+  .fa-goodreads {
+    color: #9a7144;
+  }
 }
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
