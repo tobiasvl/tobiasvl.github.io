@@ -118,6 +118,46 @@ In the code block above, `LDAB PIR+1` sets the B accumulator to the second byte 
 
 This actually turned out to save me a lot of bytes. It also let me simplify that initial jump table a little; some of the jumps were to small routines, like the one for `VX = KK` (where `KK` is a one-byte constant) only loaded A with that last nibble, and then immediately branched to the `PUTVX` routine, for example. Now that could be a simple jump to `PUTVX`.
 
+I changed some other things too. To give one (perhaps idiomatic?) example, I changed this:
+
+~~~
+EXCALL: LDAB 	PIR         ; GET INSTR FIRST BYTE
+        BNE     CALL        ; IF != 0, CALL IT
+        LDAA    PIR+1       ; GET INSTR LAST BYTE
+        CMPA  	#$E0        ; IF 00E0 (CLEAR SCREEN)
+        BEQ     ERASE
+        CMPA  	#$EE        ; IF 00EE (RETURN)
+        BEQ     RETDO
+        RTS                 ; NOP, BACK TO FETCH
+ERASE:  CLRA                ; WRITE ZEROS TO SCREEN
+        LDX 	#DISBUF     ; POTNT TO DISPLAY BUFF
+FILL:   STAA 	0,X         ; FILL SCREEN WITH ACC-A
+        INX
+        CPX  	#ENDBUF     ; DONE?
+        BNE     FILL
+        RTS
+~~~
+
+To this:
+
+~~~
+EXCALL: LDAB 	PIR         ; GET INSTR FIRST BYTE
+        BNE     CALL        ; IF != 0, CALL IT
+        CMPA  	#$EE        ; IF 00EE (RETURN)
+        BEQ     RETDO
+        CMPA  	#$E0        ; IF 00E0 (CLEAR SCREEN)
+	BNE     RET         ; NOP, BACK TO FETCH
+ERASE:  CLRA                ; WRITE ZEROS TO SCREEN
+        LDX     #DISBUF     ; POTNT TO DISPLAY BUFF
+FILL:   STAA    0,X         ; FILL SCREEN WITH ACC-A
+        INX
+        CPX     #ENDBUF     ; DONE?
+        BNE     FILL
+RET:    RTS
+~~~
+
+Notice how I replace two branches and a return with two branches, where one of them is just a branch to an existing return. Seems silly, but you can't conditionally return on the MC6800, so this saves one whole byte (plus the aforementioned `LDAA PIR+1`).
+
 When all was said and done, it actually looked like I had room to insert all the new cases in the original switch. It ended up looking like this:
 
 ~~~
@@ -231,20 +271,20 @@ LETVV: TAB         ; B = final byte of instruction
        ANDB #$0F   ; Pseudo-"opcode" in final nibble
        BEQ  PUTVX  ; 8XY0
        LDX  #$0A39 ; Load X with the sequence VX RTS
-       CMPB #$05   ; 8XY5
-       BNE  not5
+LETV5: CMPB #$05   ; 8XY5
+       BNE  LETV7
        LDAA VX     ; Swap operand to VX
-       LDX  #$097E ; Load X with the sequence VY JMP
-not5:  CMPB #$07   ; 8XY7
+       LDX  #$2F7E ; Load X with the sequence VY JMP
+LETV7: CMPB #$07   ; 8XY7
        BNE  done
        LDX  #$0A7E ; Load X with the sequence VX JMP
-done:  STX  $0041  ; Store X at address $0041
-       LDX  #INVF  ; Load X with address to invert VF
+LETV:  STX  $0041  ; Store X at address $0041
+       LDX  #INVC  ; Load X with address to invert carry
        STX  $0043  ; Store X at address $0043
-loop:  INX         ; Loop to find byte in lookup table
+FINDV: INX         ; Loop to find byte in lookup table
        DECB
        BNE  loop
-       LDAB 5,X    ; B = address in X, plus an offset of 5
+       LDAB 3,X    ; B = address in X, plus an offset of 3
        STAB $0040  ; Store X's operation byte at $0040
        ROR  VF     ; Store VF in carry flag
        JSR  $0040  ; Dispatch to the RAM routine we built
@@ -252,10 +292,9 @@ loop:  INX         ; Loop to find byte in lookup table
 PUTVX: LDX  VXLOC
        STAA 0,X    ; Replace VX with result
        RTS         ; Return from this whole thing
-INVF:  BCS  next   ; Invert carry if needed
-       SEC
-       RTS
-next:  CLC
+INVC:  ROLB        ; Invert carry if needed
+       INCB
+       RORB
        RTS
 JUMP8: .byte $9A   ; ORAA 8XY1
        .byte $94   ; ANDA 8XY2
@@ -267,7 +306,7 @@ JUMP8: .byte $9A   ; ORAA 8XY1
       ;.byte $48   ; ASLA 8XYE (byte found in code below)
 ~~~
 
-Whoo boy. Okay. So we build a subroutine in zero-page RAM that consists of the opcode for the instruction we want at `$0040`, followed by `$0A` which is the address of VX for those instructions that require that _or_ it's `CLV` for those that don't _or_ it's `$09` for VY since one instruction requires that, followed by either a `$39` to return or a `$7E` to jump to `INVF`. Then we call that thing.
+Whoo boy. Okay. So we build a subroutine in zero-page RAM that consists of the opcode for the instruction we want at `$0040`, followed by `$0A` which is the address of VX for those instructions that require that _or_ it's `CLV` for those that don't _or_ it's `$2F` for VY since one instruction requires that, followed by either a `$39` to return or a `$7E` to jump to `INVF`. Then we call that thing.
 
 Doesn't look like much, but that's not important. The moment of truth: Time to assemble this baby…
 
@@ -277,17 +316,6 @@ Success
 **1024 bytes**! I'd done it!
 
 Building instructions in RAM like a crazy person only saved me _one byte_ compared to the switch/case, but it was one crucial byte.
-
-<del>I'm sure there's more to be done here, but I've worked on this for far too long. **Please leave a comment** if you find anything. I know I could invert the carry flag more easily with `TPA`, `EORA 1`, `TAP` but that would require me to switch A and B in a lot of places.</del>
-
-**Edit:** [Someone suggested](https://retrocomputing.stackexchange.com/questions/14439/inverting-the-carry-flag-on-an-m6800/14441?noredirect=1#comment47709_14441) the following idiom for flipping the carry flag, since I don't need to retain B, which saves another byte:
-
-~~~
-INVF:  ROLB
-       INCB
-       RORB
-       RTS
-~~~
 
 Let's fire up my [Mini Lights Out](https://tobiasvl.itch.io/mini-lights-out) game and see if all the work paid off. CHIPOS runs, and lo and behold:
 
