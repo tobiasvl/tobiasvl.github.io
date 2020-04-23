@@ -20,13 +20,16 @@ In which I learn 6800 assembly in order to hack CHIPOS.
 This post is part of a series on writing an emulator for the DREAM 6800 computer. Read [the DREAM 6800 posts](/tags/#dream-6800) and look at [the emulator's repository](https://github.com/tobiasvl/drom).
 {: .notice--info}
 
+The source code and binary for the modified CHIPOS ("CHIPOSLO") can be downloaded from [the CHIPOSLO GitHub repository](https://github.com/tobiasvl/chiposlo).
+{: .notice--success}
+
 OK, this is a long post. There's a table of contents to the right. I'll get into the nitty-gritty of writing short 6800 assembly, and even though I'm an amateur on that subject, I'm apparently better at it than writing short posts.
 
 ![CHIPOS logo](/assets/images/chipos_logo.png)
 
-Quick recap: The [DREAM 6800](http://www.mjbauer.biz/DREAM6800.htm). was created in 1978 by Michael J. Bauer, and it came with a small, 1024 byte operating system called <abbr title="Compact Hexadecimal Interpretive Programming and Operating System">CHIPOS</abbr>. CHIPOS incorporates an interpreter for a bytecode <abbr title="Virtual Machine">VM</abbr> called CHIP-8, which originally appeared on RCA's CDP1802-based COSMAC VIP computer in 1977. You can read more about [CHIP-8 on Wikipedia](https://en.wikipedia.org/wiki/CHIP-8).
+Quick recap: The [DREAM 6800](http://www.mjbauer.biz/DREAM6800.htm) was created in 1978 by Michael J. Bauer, and it came with a small, 1024 byte operating system called <abbr title="Compact Hexadecimal Interpretive Programming and Operating System">CHIPOS</abbr>. CHIPOS incorporates an interpreter for a bytecode <abbr title="Virtual Machine">VM</abbr> called CHIP-8, which originally appeared on RCA's CDP1802-based COSMAC VIP computer in 1977. You can read more about [CHIP-8 on Wikipedia](https://en.wikipedia.org/wiki/CHIP-8).
 
-[I've written a couple of CHIP-8 games myself](https://itch.io/c/747687/my-chip-8-games), so I obviously wanted to see them run in my brand new emulator. However, I targeted those games for the original COSMAC VIP implementation, and that posed a problem for running them on the DREAM:
+[I've written a couple of CHIP-8 games myself](https://itch.io/c/747687/my-chip-8-games), so I obviously wanted to see them run in my brand new emulator. However, I targeted those games for the original COSMAC VIP implementation, and that posed a problem for running them on the DREAM. This is my game [Mini Lights Out](https://tobiasvl.itch.io/mini-lights-out) in my DREAM emulator:
 
 ![Mini Lights Out, broken](/assets/images/mini-lights-out-broken.png)
 
@@ -317,10 +320,12 @@ Success
 
 Building instructions in RAM like a crazy person only saved me _one byte_ compared to the switch/case, but it was one crucial byte.
 
-Let's fire up my [Mini Lights Out](https://tobiasvl.itch.io/mini-lights-out) game and see if all the work paid off. CHIPOS runs, and lo and behold:
+Let's fire up my Mini Lights Out game and see if all the work paid off. CHIPOS runs, and lo and behold:
 
 ![Mini Lights Out, working](/assets/images/mini-lights-out-working.png)
 
 Beautiful. As a bonus for reading all of this you get to see the clunky UI of my emulator so far too. Time to get back to working on that!
 
-I hope to release my version of CHIPOS, if I get permission. I also need to clean it up something good, and to find a better 6800 assembler than I've been using (suggestions welcome). Maybe I'll name it CHIPOS with Logic Operations, or CHIPOSLO for short, after my home town!
+I decided to call my version of CHIPOS "CHIPOSLO", named after my home town Oslo, Norway and also short for "CHIPOS with Logical Operators". Michael J. Bauer graciously released CHIPOS into the public domain, so I here's [CHIPOSLO's GitHub repository](https://github.com/tobiasvl/chiposlo).
+
+You can view [the full diff between Michael's CHIPOS and my modifications](https://github.com/tobiasvl/chiposlo/compare/dea7bd7...master#diff-6073915b89c1340c2c8912fd94d11806) there (I didn't cover all the details in this blog post).
