@@ -57,7 +57,7 @@ comments:
   provider: "utterances"
   utterances:
     theme: "github-light" # "github-dark"
-    issue_term: "pagetitle"
+    issue_term: "og:title"
 
 include:
   - _pages
