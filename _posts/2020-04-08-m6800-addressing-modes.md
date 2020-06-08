@@ -9,6 +9,7 @@ categories:
 tags:
   - M6800
   - DREAM 6800
+  - Emulation
 ---
 The MC6800's addressing modes have a few things to be aware of.
 <!--more-->

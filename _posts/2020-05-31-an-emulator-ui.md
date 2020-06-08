@@ -8,6 +8,7 @@ categories:
   - Blog
 tags:
   - DREAM 6800
+  - Emulation
 ---
 
 The [RetroChallenge](http://www.retrochallenge.org) is over, and I finished my project, the [DREAM 6800](http://www.mjbauer.biz/DREAM6800.htm) emulator DRÖM.
