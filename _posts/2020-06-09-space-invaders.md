@@ -14,12 +14,12 @@ My attempt at making a _Space Invaders_ emulator look like the arcade cabinet.
 
 <!--more-->
 
-Check out the [the emulator's repository](https://github.com/tobiasvl/moon-invaders) if you're interested..
+Check out [the emulator's repository](https://github.com/tobiasvl/moon-invaders) if you're interested. It's called _Moon Invaders_, because the game seemingly takes place on the moon, and I wrote the emulator in Lua (which is the Portuguese name for the Moon).
 {: .notice--info}
 
 To me, emulation isn't just making a program that accurately performs the same computations that the original hardware did; it's also important to me that it captures the feeling of the original game.
 
-A popular first project for emulator developers is the original Taito/Midway _Space Invaders_ arcade machine from 1978. The hardware isn't very hard to emulate (except for the sound chip, which is usually not emulated; usually prerecorded sound files are played instead).
+A popular first project for emulator developers is the original Taito/Midway _Space Invaders_ arcade machine from 1978. The hardware isn't very hard to emulate (except for the sound chip, which is usually not emulated; prerecorded sound files are played instead).
 
 But _Space Invaders_ is more than its CPU. Inside the arcade cabinet, there's a CRT monitor. Interestingly enough, it's rotated 90 degrees counter-clockwise, as an early example of a "landscape mode" game. The monitor isn't actually visible, but there's a mirror in front of you that superimposes the light from the monitor onto illuminated background artwork. The game is in black and white, but strips of colored gel is adhered to the monitor to give some game elements color.
 
@@ -92,7 +92,9 @@ Sound
 
 Like I said at the start, the sound chip is pretty hard to emulate, and most people don't bother. I'd like to do it, but I haven't yet. So I just make my emulator play prerecorded sound effects at the right times. These sound effects can readily be downloaded online.
 
-At least most of them can. There are 9 sound effects that can be found online, but the game actually has 10 sound effects. I haven't been able to find the last one, which plays when you gain a new life (by scoring either 1000 or 1500 points). [The sound effect can be heard at 2:04 in this video](https://youtu.be/DJMr36hLY38?t=124). I'm not sure why I can't find it online, but if anyone has it, I'd be much obliged.
+At least most of them can. There are 9 sound effects that can be found online easily, but the tenth sound effect is a bit more elusive – it plays when you gain a new life (by scoring either 1000 or 1500 points), and is presumably hard to record without an overlapping "alien death" sound effect. It can, however, be found in some MAME sound packs. [The sound effect in question can be heard at 2:04 in this video.](https://youtu.be/DJMr36hLY38?t=124)
+
+Note also that some sound packs found online have seemingly swapped the file names of the "laser shot" sound and the "alien death" sound. They actually still fit somewhat when swapped, but look out for that if you want an authentic sound experience.
 
 How to emulate
 --------------
