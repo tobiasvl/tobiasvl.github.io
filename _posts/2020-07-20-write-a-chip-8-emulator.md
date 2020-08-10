@@ -421,7 +421,7 @@ Like the earlier skip instructions, these two also skip the following instructio
 
 These instructions (unlike the later `FX0A`) don't wait for input, they just check if the key is currently being held down.
 
-`EX9E` will skip one instruction (increment PC by w) if the key corresponding to the  value in `VX` is pressed.
+`EX9E` will skip one instruction (increment PC by 2) if the key corresponding to the  value in `VX` is pressed.
 
 `EXA1` skips if the key corresponding to the value in `VX` is _not_ pressed.
 
