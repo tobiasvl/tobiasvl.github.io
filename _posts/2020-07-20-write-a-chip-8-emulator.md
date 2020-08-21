@@ -242,7 +242,8 @@ A small tip here. I suggest you start out with the following instructions:
 
 * `00E0` (clear screen)
 * `1NNN` (jump)
-* `6XNN` (add value to register `VX`)
+* `6XNN` (set register `VX`)
+* `7XNN` (add value to register `VX`)
 * `ANNN` (set index register I)
 * `DXYN` (display/draw)
 
