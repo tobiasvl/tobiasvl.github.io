@@ -2,9 +2,6 @@
 title: "Things I finished in 2019"
 excerpt_separator: "<!--more-->"
 toc: true
-header:
-  teaser: /assets/images/chipos_logo.png
-  og_image: /assets/images/chipos_logo.png
 categories:
   - Blog
 tags:
