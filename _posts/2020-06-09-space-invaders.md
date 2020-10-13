@@ -36,7 +36,7 @@ However, CRT monitors don't have "pixels" in the same sense. The electron beam i
 
 Usually, this means that one CRT "pixel" is slightly wider than it's tall. The height is one scanline, which can be translated into one pixel, but the width can be more than that. That's the case for _Space Invaders_. Because its resolution of 256 x 224 isn't quite 4:3 like the monitor, the image gets stretched vertically as each pixel occupies a little more of the horizontal scanline.
 
-Note that since the CRT monitor in _Space Invaders_ is rotated, one pixel is in fact slightly _taller than wide_ instead, after rotation. This means that the iconic crab-like space invader looks too squat and flat in many emulators, for example. The enemies should in fact look more square.
+Note that since the CRT monitor in _Space Invaders_ is rotated, one pixel is in fact slightly _taller than wide_ instead, after rotation. This means that the iconic crab-like space invader looks too squat and flat in many emulators, for example. The enemies should look more or less square.
 
 Scanlines
 ---------
@@ -45,14 +45,14 @@ Since _Space Invaders_ uses an old CRT monitor, the scanlines are actually visib
 
 {% include figure image_path="/assets/images/space_invaders_scanlines.png" caption="Screenshot from [this video](https://www.youtube.com/watch?v=DJMr36hLY38)" %}
 
-This is a common visual effect, which many emulators provide. However, they often forget that the monitor in the cabinet is rotated. The scanline effect should obviously be applied before rotating, which would produce horizontal scanlines rather than vertical.
+This is a common visual effect, which many emulators provide. However, they often forget that the monitor in the cabinet is rotated. The scanline effect should obviously be applied before rotating, producing vertical scanlines rather than horizontal.
 
 In addition, the scanlines should only affect the image on the actual CRT monitor. This is projected onto artwork of a desolate moon. Some emulators apply the scanline effect to this image as well, which is incorrect.
 
 Gel overlay colors
 ------------------
 
-Most _Space Invaders_ emulators use bright, primary colors for its gel overlay, like shown above. The overlay is placed like this (image from [The Cutting Room Floor](https://tcrf.net/Space_Invaders_(Arcade)):
+Most _Space Invaders_ emulators use bright, primary colors for its gel overlay, like shown above. The overlay is placed like this (image from [The Cutting Room Floor](https://tcrf.net/Space_Invaders_(Arcade\)):
 
 ![](/assets/images/space_invaders_overlay.png)
 
