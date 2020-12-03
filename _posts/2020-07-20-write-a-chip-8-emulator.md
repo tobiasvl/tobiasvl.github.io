@@ -159,7 +159,7 @@ These keypads all had different layouts, but the COSMAC VIP used the following l
 | 7 | 8 | 9 | E |
 | A | 0 | B | F |
 
-{% include figure image_path="/assets/images/cosmac-vip-keypad.jpeg" caption="The COSMAC VIP keypad" %}
+{% include figure image_path="/assets/images/cosmac-vip-keypad.png" caption="The COSMAC VIP keypad" %}
 
 If you want to support a wide range of CHIP-8 games for different computers, you could add options for other arrangements of the keys. The other most common layout (used by many DREAM 6800 and ETI-660 computers) started with `0` in the upper left corner and ran down to `F` in the bottom right corner.
 {: .notice--info}
