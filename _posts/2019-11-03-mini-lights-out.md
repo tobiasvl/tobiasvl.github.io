@@ -19,7 +19,7 @@ XOR pixels
 
 What really intrigues me about CHIP-8 is its method of drawing to the screen. The color palette is monochrome; each pixel is 1 bit, and so there are only two colors. When drawing something (a CHIP-8 "sprite") on the screen, the affected pixels are flipped from off to on. Or, if there already was something drawn in that position, from on to off – if this happens, an internal flag register is set. So the bytes that are on the screen are XOR-ed with the bytes in the sprite, and you can use the flag for sprite collision!
 
-his is one of the most elegant graphics systems I've ever heard of, so I wanted to make something inspired by it. For inspiration, I also looked at [Inktober](https://inktober.com)'s themes this year (which several game jams and gaming communities are using for inspiration too), and landed on "Dark" and "Pattern".
+This is one of the most elegant graphics systems I've ever heard of, so I wanted to make something inspired by it. For inspiration, I also looked at [Inktober](https://inktober.com)'s themes this year (which several game jams and gaming communities are using for inspiration too), and landed on "Dark" and "Pattern".
 
 Lights Out Classic
 ------------------
