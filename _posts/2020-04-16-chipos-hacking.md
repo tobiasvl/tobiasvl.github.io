@@ -50,14 +50,14 @@ Notice the inverted use of the carry flag for the subtraction. That's how the 18
 For the instructions that don't specify what happens to VF, the resulting value in VF is undefined. 1802's ALU would mangle it.
 {: .notice}
 
-Due to the way the original CHIP-8 interpreter dispatches these instructions to the 1802's ALU ([details in this great blog post](http://laurencescotford.co.uk/?p=266)), it actually had four undocumented instructions. They are as follows:
+Due to the way the original CHIP-8 interpreter dispatches these instructions to the 1802's ALU ([details in this great blog post](https://laurencescotford.com/chip-8-on-the-cosmac-vip-arithmetic-and-logic-instructions/)), it actually had four undocumented instructions. They are as follows:
 
 * `8XY3`: `VX = VX XOR VY`
 * `8XY6`: `VX = VY - VX` (VF is set to 0 if there's a borrow, and 1 if there's not)
 * `8XY7`: `VX = VY >> 1` (VF is set to the bit that's shifted out)
 * `8XYE`: `VX = VY << 1` (VF is set to the bit that's shifted out)
 
-Note that starting with the CHIP-48 and SUPER-CHIP interpreters in 1990, `8XY7` and `8XYE` were changed to do VX >>= 1 and VX <<= 1 respectively, ignoring the Y operand. For that reason, modern games should use the same V register as both operands to be cross-compatible.
+Note that starting with the CHIP-48 and SUPER-CHIP interpreters in 1990, `8XY7` and `8XYE` were changed to do `VX >>= 1` and `VX <<= 1` respectively, ignoring the Y operand. For that reason, modern games should use the same V register as both operands to be cross-compatible.
 {: .notice--warning}
 
 The remaining instructions, `8XY8`–`8XYD` and `8XYF`, do not elicit useful functionality.
@@ -207,7 +207,7 @@ PUTVX: LDX VXLOC
 
 The beginning is slightly different. The A accumulator now starts off with the last nibble of the instruction, but I need A for the result that will eventually be put in VX, so I transfer it to B with a `TAB`. I could have changed `PUTVX` to use B instead of A, but a lot of routines call `PUTVX`, including some routines that put their results in A.
 
-Speaking of the result that will eventually end up in VX: Many of the instructions are symmetrical concerning the operands (`VX &= VY` is equivalent `VX = VY & VX`, for example), and as for the ones which are not, with the new shift instructions there are actually more instructions that operate on VY (`VX = VY - VX`, `VX = VY << 1` and `VX = VY >> 1`) than VX (only `VX -= VY`), so I now do `LDAA VY` up top instead.
+Speaking of the result that will eventually end up in VX: Many of the instructions are symmetrical concerning the operands (`VX &= VY` is equivalent to `VX = VY & VX`, for example), and as for the ones which are not, with the new shift instructions there are actually more instructions that operate on VY (`VX = VY - VX`, `VX = VY << 1` and `VX = VY >> 1`) than VX (only `VX -= VY`), so I now do `LDAA VY` up top instead.
 
 I also shortened the `VX = VY` instruction, and do `CLR VF` on the top as well – VF was changed by all the arithmetic/logic instructions in the original COSMAC VIP interpreter, even when the result was undefined, so I do it here too (hoping no CHIP-8 games for DREAM rely on the opposite, and probably being wrong). Likewise, setting VF to 1 is moved to the bottom.
 
@@ -222,7 +222,7 @@ Try as I might, I wasn't able to find another byte to optimize away. And not all
 
 I noticed that many of the CHIP-8 instructions here map cleanly to a single MC6800 instruction each. However, some need an operand (VY before, VX in my revised routine), so that's two bytes, and some don't need an operand. Hardcoded jump tables can get pretty big, since each case needs a return. I tried to make a jump table, but that approach was much larger than the 1025 byte switch/case above. (It was 1040 bytes when I abandoned it.)
 
-Instead of a jump table, I thought: What if I had a table of the 6800 instructions that CHIP-8 maps to… And then instead of putting the operand and everything else that's needed in there, since it will be almost the same for each case, I build a jump target in RAM? I have no idea if this was/is common to do back in the day, but it ended up pretty nice. Here's the table:
+Instead of a jump table, I thought: What if I had a table of the 6800 instructions that CHIP-8 maps to… And then instead of putting the operand and everything else that's needed in there, since it will be almost the same for each case, I build a jump target in RAM? I have no idea if this wass common to do back in the day, but it ended up pretty nicely. Here's the table:
 
 ~~~
 JUMP8:  .byte $96 ;LDAA 8XY0
@@ -326,6 +326,6 @@ Let's fire up my Mini Lights Out game and see if all the work paid off. CHIPOS r
 
 Beautiful. As a bonus for reading all of this you get to see the clunky UI of my emulator so far too. Time to get back to working on that!
 
-I decided to call my version of CHIPOS "CHIPOSLO", named after my home town Oslo, Norway and also short for "CHIPOS with Logical Operators". Michael J. Bauer graciously released CHIPOS into the public domain, so I here's [CHIPOSLO's GitHub repository](https://github.com/tobiasvl/chiposlo).
+I decided to call my version of CHIPOS "CHIPOSLO", named after my home town Oslo, Norway and also short for "CHIPOS with Logical Operators". Michael J. Bauer graciously released CHIPOS into the public domain, so here's [CHIPOSLO's GitHub repository](https://github.com/tobiasvl/chiposlo).
 
 You can view [the full diff between Michael's CHIPOS and my modifications](https://github.com/tobiasvl/chiposlo/compare/dea7bd7...master#diff-6073915b89c1340c2c8912fd94d11806) there (I didn't cover all the details in this blog post).
