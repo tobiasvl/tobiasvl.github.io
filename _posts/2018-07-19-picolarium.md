@@ -81,7 +81,7 @@ That's 4 tokens. So I just saved myself 69 tokens. The function to decode a leve
 
 ### Level editor and password encoding/decoding
 
-OK, so I made the level editor. The details of that's not really interesting, but I did have to change a lot of my code around to accomodate for it, and to be able to reuse the stuff I'd already made. The level select screen, for example, was hardcoded to the 100 stock levels; I changed it so it can also display the 20 custom levels (in fact, the level select screen is represented as a level behind the scenes too, just a special one with no border!).
+OK, so I made the level editor. The details of that aren't very interesting, but I did have to change a lot of my code around to accomodate for it, and to be able to reuse the stuff I'd already made. The level select screen, for example, was hardcoded to the 100 stock levels; I changed it so it can also display the 20 custom levels (in fact, the level select screen is represented as a level behind the scenes too, just a special one with no border!).
 
 After you've created a level, and solved it to both prove it's solvable (so we don't generate passwords that are invalid and not supported by _Polarium_) and also to provide the starting and ending hints for the metadata, we save it in the same format as the stock puzzles. Each PICO-8 "cartridge" (game) has 256 bytes of savedata (another one of those limitations that emulate old consoles), which makes room for 20 custom puzzles (12 bytes, remember) on top of the saved progress on the stock levels (100 bits = 12.5 bytes).
 
@@ -89,7 +89,7 @@ Now I needed to encode this level as a password and display it, though. That mea
 
 A little bit flipping later: Success! The level editor could now save levels and export them as _Polarium_ passwords. To support importing passwords I had to make a screen with a number pad to input a password. That was a little involved, but worked fine. I also found out that PICO-8 games (which actually just support a "fantasy controller" with four arrow keys and two buttons called O and X) can activate "devkit mode" which allows full keyboard input support, which makes inputting passwords much easier.
 
-I ran into an undocumented feature, though: The 8 key on the keyboard is apparently mapped to the X button, although it doesn't say so anywhere. This means I can't allow the user to press X to cancel the password prompt, since that would make inputting any password with an 8 in it impossible. You'll have to open the pause menu to go back.
+~~I ran into an undocumented feature, though: The 8 key on the keyboard is apparently mapped to the X button, although it doesn't say so anywhere. This means I can't allow the user to press X to cancel the password prompt, since that would make inputting any password with an 8 in it impossible. You'll have to open the pause menu to go back.~~ This was fixed in PICO-8 v0.1.12!
 
 ### Thanks
 
