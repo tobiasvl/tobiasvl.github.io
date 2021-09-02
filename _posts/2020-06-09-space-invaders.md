@@ -21,7 +21,7 @@ To me, emulation isn't just making a program that accurately performs the same c
 
 A popular first project for emulator developers is the original Taito/Midway _Space Invaders_ arcade machine from 1978. The hardware isn't very hard to emulate (except for the sound chip, which is usually not emulated; prerecorded sound files are played instead).
 
-But _Space Invaders_ is more than its CPU. Inside the arcade cabinet, there's a CRT monitor. Interestingly enough, it's rotated 90 degrees counter-clockwise, as an early example of a "landscape mode" game. The monitor isn't actually visible, but there's a mirror in front of you that superimposes the light from the monitor onto illuminated background artwork. The game is in black and white, but strips of colored gel is adhered to the monitor to give some game elements color.
+But _Space Invaders_ is more than its CPU. Inside the arcade cabinet, there's a CRT monitor. Interestingly enough, it's rotated 90 degrees counter-clockwise, as an early example of a "portrait mode" game. The monitor isn't actually visible, but there's a mirror in front of you that superimposes the light from the monitor onto illuminated background artwork. The game is in black and white, but strips of colored gel is adhered to the monitor to give some game elements color.
 
 These elements give a look and feel that's missing from most basic _Space Invaders_ emulators out there. Let's go through the elements.
 
@@ -41,7 +41,7 @@ Note that since the CRT monitor in _Space Invaders_ is rotated, one pixel is in 
 Scanlines
 ---------
 
-Since _Space Invaders_ uses an old CRT monitor, the scanlines are actually visible. Because of the phosphorescent glow, they're not easily discernible, but the gel overlay mutes the glow on the colored areas, making them stand out more there.
+Since _Space Invaders_ uses an old CRT monitor, the scanlines are actually visible. Because of the phosphorescent glow, they're not easily discernible, but the gel overlay mutes the bloom on the colored areas, making them stand out more there.
 
 {% include figure image_path="/assets/images/space_invaders_scanlines.png" caption="Screenshot from [this video](https://www.youtube.com/watch?v=DJMr36hLY38)" %}
 
