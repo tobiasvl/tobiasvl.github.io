@@ -60,7 +60,7 @@ CHIP-8 has the following components:
 * A _stack_ for 16-bit addresses, which is used to call subroutines/functions and return from them
 * An 8-bit _delay timer_ which is decremented at a rate of 60 Hz (60 times per second) until it reaches 0
 * An 8-bit _sound timer_ which functions like the delay timer, but which also gives off a beeping sound as long as it's not 0
-* 16 8-bit (one byte) general-purpose _variable_ registers numbered `0` through `F` hexadecimal, ie. 0 through 15 in decimal, called `V0` through `VF 
+* 16 8-bit (one byte) general-purpose _variable_ registers numbered `0` through `F` hexadecimal, ie. 0 through 15 in decimal, called `V0` through `VF` 
   * `VF` is also used as a _flag register_; many instructions will set it to either 1 or 0 based on some rule, for example using it as a carry flag
 
 That's it!
@@ -70,7 +70,7 @@ Memory
 
 The memory should be 4 kB (4 kilobytes, ie. 4096 bytes) large. CHIP-8's index register and program counter can only address 12 bits (conveniently), which is 4096 addresses.
 
-Both the index register, program counter and stack entries are actually 16 bits long. In theory, they could increment beyond 4 kB of memory addresses. In practice, no CHIP-8 games do that. The early computers running CHIP-8 usually had less than 4 kB of RAM anyway.
+The index register, program counter and stack entries are all actually 16 bits long. In theory, they could increment beyond 4 kB of memory addresses. In practice, no CHIP-8 games do that. The early computers running CHIP-8 usually had less than 4 kB of RAM anyway.
 {: .notice--info}
 
 All the memory is RAM and should be considered to be writable. CHIP-8 games can, and do, modify themselves.
@@ -405,13 +405,13 @@ Skip this if you want to try to implement it yourself first, but here's a step b
 * Set the Y coordinate to the value in `VY` _modulo_ 32 (or `VY` AND 32)
 * Set `VF` to 0
 * For `N` rows:
-  * Get one byte of sprite data from the memory address in the `I` register
+  * Get the Nth byte of sprite data, counting from the memory address in the `I` register (`I` is not incremented)
   * For each of the 8 pixels/bits in this sprite row:
     * If the current pixel in the sprite row is on and the pixel at coordinates X,Y on the screen is also on, turn off the pixel and set `VF` to 1
     * Or if the current pixel in the sprite row is on and the screen pixel is not, draw the pixel at the X and Y coordinates
     * If you reach the right edge of the screen, stop drawing this row
-    * Increment X
-  * Increment Y
+    * Increment X (`VX` is not incremented)
+  * Increment Y (`VY` is not incremented)
   * Stop if you reach the bottom edge of the screen
 
 Phew! Don't worry, this is the worst one.
