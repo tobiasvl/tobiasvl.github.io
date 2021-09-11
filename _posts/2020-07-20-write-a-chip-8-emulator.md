@@ -313,17 +313,17 @@ On the COSMAC VIP, all of these instructions changed the value of `VF`. Some of 
 
 `VX` is set to the value of `VY`.
 
-#### `8XY1`: Logical OR
+#### `8XY1`: Binary OR
 
-`VX` is set to the [bitwise logical disjunction (OR)](https://en.wikipedia.org/wiki/Bitwise_operation#OR) of `VX` and `VY`. `VY` is not affected.
+`VX` is set to the [bitwise/binary logical disjunction (OR)](https://en.wikipedia.org/wiki/Bitwise_operation#OR) of `VX` and `VY`. `VY` is not affected.
 
-#### `8XY2`: Logical AND
+#### `8XY2`: Binary AND
 
-`VX` is set to the [bitwise logical conjunction (AND)](https://en.wikipedia.org/wiki/Bitwise_operation#AND) of `VX` and `VY`. `VY` is not affected.
+`VX` is set to the [bitwise/binary logical conjunction (AND)](https://en.wikipedia.org/wiki/Bitwise_operation#AND) of `VX` and `VY`. `VY` is not affected.
 
 #### `8XY3`: Logical XOR
 
-`VX` is set to the [bitwise exclusive OR (XOR)](https://en.wikipedia.org/wiki/Bitwise_operation#XOR) of `VX` and `VY`. `VY` is not affected.
+`VX` is set to the [bitwise/binary exclusive OR (XOR)](https://en.wikipedia.org/wiki/Bitwise_operation#XOR) of `VX` and `VY`. `VY` is not affected.
 
 #### `8XY4`: Add
 
@@ -395,14 +395,14 @@ A common mistake here is to use `X` and `Y` directly; don't do that, fetch them 
 
 One area where people get confused is whether sprites should wrap if they go over the edge of the screen. The answer is yes and no.
 
-The starting position of the sprite will wrap. In other words, an X coordinate of 5 is the same as an X of 68 (since the screen is 64 pixels wide). Another way of saying it is that the coordinates are _modulo_ (or logical AND) the size of the display.
+The starting position of the sprite will wrap. In other words, an X coordinate of 5 is the same as an X of 68 (since the screen is 64 pixels wide). Another way of saying it is that the coordinates are _modulo_ (or binary AND) the size of the display (when counting from 0).
 
 However, the actual drawing of the sprite should not wrap. If a sprite is drawn near the edge of the screen, it should be clipped, and not wrap. The sprite should be partly drawn near the edge, and the other part should not reappear on the opposite side of the screen.
 
 Skip this if you want to try to implement it yourself first, but here's a step by step summary of what this instruction should do:
 
-* Set the X coordinate to the value in `VX` _modulo_ 64 (or, equivalently, `VX` AND 64)
-* Set the Y coordinate to the value in `VY` _modulo_ 32 (or `VY` AND 32)
+* Set the X coordinate to the value in `VX` _modulo_ 64 (or, equivalently, `VX & 63`, where & is the binary AND operation)
+* Set the Y coordinate to the value in `VY` _modulo_ 32 (or `VY & 31`)
 * Set `VF` to 0
 * For `N` rows:
   * Get the Nth byte of sprite data, counting from the memory address in the `I` register (`I` is not incremented)
