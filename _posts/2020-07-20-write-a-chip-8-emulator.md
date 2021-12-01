@@ -346,7 +346,7 @@ This subtraction will also affect the carry flag, but note that it's opposite fr
 Ambiguous instruction!
 {: .notice--warning}
 
-In the CHIP-8 interpreter for the original COSMAC VIP, this instruction did the following: It put the value of `VY` into `VX`, and then shifted the value in `VX` 1 bit to the right (`8XY6`) or left (`8XYE`). `VY` was not affeced, but the flag register `VF` would be set to the bit that was shifted out.
+In the CHIP-8 interpreter for the original COSMAC VIP, this instruction did the following: It put the value of `VY` into `VX`, and then shifted the value in `VX` 1 bit to the right (`8XY6`) or left (`8XYE`). `VY` was not affected, but the flag register `VF` would be set to the bit that was shifted out.
 
 However, starting with CHIP-48 and SUPER-CHIP in the early 1990s, these instructions were changed so that they shifted `VX` in place, and ignored the `Y` completely.
 
@@ -355,7 +355,7 @@ This is one of the main differences between implementations that cause problems 
 Step by step:
 
 1. (Optional, or configurable) Set `VX` to the value of `VY`
-2. Shift the value of `VX` one bit to the right (`8XY6`) or left ( 8XYE`)
+2. Shift the value of `VX` one bit to the right (`8XY6`) or left (`8XYE`)
 3. Set `VF` to 1 if the bit that was shifted out was 1, or 0 if it was 0
 
 ### `ANNN`: Set index
