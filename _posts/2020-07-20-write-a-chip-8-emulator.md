@@ -133,7 +133,7 @@ CHIP-8 has a [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) (
 
 Early interpreters reserved some memory for the stack, and some programs would use that knowledge to operate the stack directly and save stuff there, but you don't need to do that. You can just use a variable outside the emulated memory.
 
-These original interpreters had limited space on the stack; usually 12 or 16 two-byte entries. You can limit the stack likewise, or just keep it unlimited. It doesn't really matter (unless you encounter a program with a bug that has an infinite call loop and causes a "stack overflow").
+These original interpreters had limited space on the stack; usually at least 16 two-byte entries. You can limit the stack likewise, or just keep it unlimited. CHIP-8 programs usually don't nest subroutine calls too much since the stack was so small originally, so it doesn't really matter (unless you encounter a program with a bug that has an infinite call loop and causes a "stack overflow").
 
 Timers
 ------
@@ -447,7 +447,11 @@ Unlike other arithmetic instructions, this did not affect `VF` on overflow on th
 
 ### `FX0A`: Get key
 
-This instruction "blocks"; it stops execution and waits for key input. In other words, if you followed my advice earlier and increment PC after fetching each instruction, then it should be _decremented_ again here unless a key is pressed. Otherwise, PC should simply not be incremented.
+This instruction "blocks"; it stops executing instructions and waits for key input (or loops forever, unless a key is pressed).
+
+In other words, if you followed my advice earlier and increment PC after fetching each instruction, then it should be _decremented_ again here unless a key is pressed. Otherwise, PC should simply not be incremented.
+
+Although this instruction stops the program from executing further instructions, the timers (delay timer and sound timer) should still be decreased while it's waiting.
 
 If a key is pressed while this instruction is waiting for input, its hexadecimal value will be put in `VX` and execution continues.
 
