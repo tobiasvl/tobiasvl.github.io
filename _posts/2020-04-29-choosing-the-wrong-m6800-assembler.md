@@ -20,17 +20,17 @@ This post is part of a series on writing an emulator for the DREAM 6800 computer
 
 I've done a little homebrew for the Fairchild Channel F in the past, which was one of the earliest video game consoles. I'll probably write separate articles on that later. While developing for the Channel F's F8 CPU, I used a nice little assembler called [dasm](https://github.com/dasm-assembler/dasm).
 
-So when I recently did some Motorola 6800 development, which you can read about in my article about [extending CHIPOS with more CHIP-8 instructions](chipos-hacking), I initially used dasm for that too. I knew dasm already, and it supports one of the M6800 processors, the MC6803. All right, I was actually targeting the MC6800, not MC6803. But what's the difference, really? I read that MC6803 is both opcode and binary code compatible with the MC6800, it just adds some 10 new instructions, but I just wouldn't use them. (Note to self: Write an article later which compares the different MPUs in the M6800 family!)
+So when I recently did some Motorola 6800 development, which you can read about in my article about [extending CHIPOS with more CHIP-8 instructions](/blog/chipos-hacking), I initially used dasm for that too. I knew dasm already, and it supports one of the M6800 processors, the MC6803. All right, I was actually targeting the MC6800, not MC6803. But what's the difference, really? I read that MC6803 is both opcode and binary code compatible with the MC6800, it just adds some 10 new instructions, but I just wouldn't use them. (Note to self: Write an article later which compares the different MPUs in the M6800 family!)
 
 Halt and Catch Fire
 -------------------
 
-_Halt and Catch Fire_ is also the name of an excellent and criminally underrated TV show. You should watch it!
-{: .notice--success}
-
-So I started developing my MC6800 program, assembling it using dasm in MC6803 mode, and running it in my MC6800 emulator. It worked fine, until I suddenly encountering a strange bug: My emulator would halt and catch fire!
+So I started developing my MC6800 program, assembling it using dasm in MC6803 mode, and running it in my MC6800 emulator. It worked fine, until I suddenly encountered a strange bug: My emulator would halt and catch fire!
 
 Not literally, of course. You can read about the [Undocumented M6800 Instructions](http://spivey.oriel.ox.ac.uk/wiki3/images/1/1a/Undoc6800.pdf) in this article from _BYTE_ Magazine, or in the article [Investigating the HCF (Halt & Catch Fire) instruction on Motorola 6800](https://x86.fr/investigating-the-halt-and-catch-fire-instruction-on-motorola-6800/). Among these instructions is the so-called "Halt and Catch Fire" or `HCF`, with opcodes `$9D` and `$DD`.
+
+_Halt and Catch Fire_ is also the name of an excellent and criminally underrated TV show. You should watch it!
+{: .notice--success}
 
 If the MC6800 executed one of these, it would do something strange: It would stop responding to interrupts ("halt") and start quickly reading each memory address in turn by incrementing the program counter ("catch fire"). The only way to recover would be to turn off the power! Oof.
 
@@ -55,7 +55,7 @@ And as I said earlier, `$9D` is the fabled `HCF` instruction.
 
 The reason this happened is that while the MC6803, which dasm targets, is completely opcode compatible with the MC6800, that obviously only applies to the MC6800's _documented_ opcodes. The MC6803 also adds a few new opcodes.
 
-I recently wrote an article about the [Motorola 6800 addressing modes](m6800-addressing-modes). The MC6800 has a few instructions that can operate on "zero page memory", ie. memory in the first 256 bytes of memory, or `$0000`–`$00FF`. Motorola calls this "direct addressing mode", while using two bytes to address any memory is called "extended addressing mode". Direct addressing is nice because it can take a single byte as an operand (the memory address), rather than two, and it's faster. However, `JSR` is not one of those instructions: It only provides extended addressing, so it always needs two bytes as an operand, even if the address is on the zero page.
+I recently wrote an article about the [Motorola 6800 addressing modes](/blog/m6800-addressing-modes). The MC6800 has a few instructions that can operate on "zero page memory", ie. memory in the first 256 bytes of memory, or `$0000`–`$00FF`. Motorola calls this "direct addressing mode", while using two bytes to address any memory is called "extended addressing mode". Direct addressing is nice because it can take a single byte as an operand (the memory address), rather than two, and it's faster. However, `JSR` is not one of those instructions: It only provides extended addressing, so it always needs two bytes as an operand, even if the address is on the zero page.
 
 Not so for the MC6803! It adds a very convenient `JSR` with direct addressing. As you might already have guessed, its opcode is `$9D`, replacing the MC6800's undocumented "Halt and Catch Fire" opcode. The dasm assembler will of course notice that I'm trying to jump to the zero page, use direct addressing, and make a little trap for the MC6800 MPU.
 
