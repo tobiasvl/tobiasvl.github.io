@@ -276,7 +276,7 @@ This instruction should simply set PC to `NNN`, causing the program to jump to t
 
 ### `00EE` and `2NNN`: Subroutines
 
-`2NNN` calls the subroutine at memory location `NNN`. In other words, just like `1NNN`, you should set PC to `NNN`. However, the difference between a jump and a call is that this instruction should first should push the current PC to the stack, so the subroutine can return later.
+`2NNN` calls the subroutine at memory location `NNN`. In other words, just like `1NNN`, you should set PC to `NNN`. However, the difference between a jump and a call is that this instruction should first push the current PC to the stack, so the subroutine can return later.
 
 Returning from a subroutine is done with `00EE`, and it does this by removing ("popping") the last address from the stack and setting the PC to it.
 
