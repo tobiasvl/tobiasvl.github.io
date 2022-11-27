@@ -1,6 +1,7 @@
 ---
 permalink: /about/
 title: "About"
+synced: true
 ---
 
 I'm a Python developer by day, father of two by afternoon and weekends, and a hobby game developer by night.
