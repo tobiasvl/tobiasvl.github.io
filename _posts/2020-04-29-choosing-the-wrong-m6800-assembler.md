@@ -9,14 +9,20 @@ categories:
 tags:
   - M6800
   - DREAM 6800
+published: true
+synced: true
 ---
+{::comment}
+#blog/published
+{:/comment}
+
 Using the wrong assembler can set your MC6800 on fire.
 <!--more-->
 
 This post is part of a series on writing an emulator for the DREAM 6800 computer. Read [the DREAM 6800 posts](/tags/#dream-6800) and look at [the emulator's repository](https://github.com/tobiasvl/drom).
 {: .notice--info}
 
-![M6800 logo](/assets/images/m6800-logo.png)
+![M6800 logo](../../assets/images/m6800-logo.png)
 
 I've done a little homebrew for the Fairchild Channel F in the past, which was one of the earliest video game consoles. I'll probably write separate articles on that later. While developing for the Channel F's F8 CPU, I used a nice little assembler called [dasm](https://github.com/dasm-assembler/dasm).
 
