@@ -9,7 +9,12 @@ categories:
 tags:
   - DREAM 6800
   - Emulation
+published: true
+synced: true
 ---
+{::comment}
+#blog/published 
+{:/comment}
 
 The [RetroChallenge](http://www.retrochallenge.org) is over, and I finished my project, the [DREAM 6800](http://www.mjbauer.biz/DREAM6800.htm) emulator DRÖM.
 
@@ -49,13 +54,13 @@ Display
 
 I originally criticized MAME for a blurry display when scaling the window. Apparently it uses linear interpolation when scaling, making the pixels very washed out.
 
-![](/assets/images/mame-d6800.png)
+![](mame_d6800.png)
 
 However, I recently found out that this was unfair of me. MAME does have an option to use a "nearest" integer-ratio interpolation that produces crisp pixels when scaling. Like everything else in MAME it's a bit hidden away, but there's a command line switch for it.
 
 I ended up adding some shaders for an "authentic" CRT-style display, but with simple menu options to turn each of them off. I'm quite pleased with the result.
 
-![](/assets/images/drom-shaders.png)
+![](drom-shaders.png)
 
 Windowing
 ---------
@@ -66,7 +71,7 @@ However, these windows are actual, physical windows, and just one of them can be
 
 Instead of doing it like this, I decided to use dear-imgui, an immediate mode GUI library that can show virtual windows within the main program's canvas. The nice thing about this is that they don't require focus. I ended up with a pretty flexible debugging UI that I have since reused in other forthcoming emulator projects.
 
-![](/assets/images/drom.png)
+![](drom.png)
 
 Keypad
 ------
@@ -75,17 +80,17 @@ The DREAM 6800 used a hexadecimal keypad (keys labeled 0 through F), arranged in
 
 When the DREAM was presented as a build project in the magazine _Electronics Australia_, it was shown with a keypad layout similar to a regular numpad:
 
-![](/assets/images/d6800-keypad-schematic.png)
+![](d6800-keypad-schematic.png)
 
 This was also the layout used by the creator's prototype, as displayed on [his website](http://www.mjbauer.biz/DREAM6800.htm):
 
-![](/assets/images/d6800-prototype.png)
+![](d6800-prototype.png)
 
 However, people built this computer with cheap and available off-the-shelf parts. Most used the readily available Digitran keypad, which had a different layout.
 
 Most games people ran on their DREAM 6800 were CHIP-8 games, since the included "operating system" (monitor program) CHIPOS came with a CHIP-8 interpreter. Most CHIP-8 games were created for other computers than the DREAM, with yet other keypad layouts. The first CHIP-8 computer used this layout:
 
-![](/assets/images/cosmac-vip-keypad.jpeg)
+![](cosmac-vip-keypad.png)
 
 MAME uses the actual keyboard keys. Needless to say, this makes it very inconvenient to control any game. If a game uses D for up, 8 for left, A for right and 5 for down, for example, which would be a natural layout on the hex keypad, that game would pretty much be impossible to play using a standard QWERTY keyboard.
 
@@ -100,7 +105,7 @@ I obviously wanted to use these keys in my emulator, rather than MAME's approach
 
 But I did want to let the user select any of the above keypad layouts, in order to play as many (otherwise DREAM compatible) CHIP-8 games as possible. So that's what I did:
 
-![](/assets/images/drom-keypad.png)
+![](drom-keypad.png)
 
 What's next
 -----------
