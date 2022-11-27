@@ -3,12 +3,17 @@ title: "Anchorhead map"
 excerpt_separator: "<!--more-->"
 header: 
   teaser: /assets/images/anchorhead_map.png
-  og_image: /assets/images/dream_6800_ea.jpg
+  og_image: /assets/images/anchorhead_map.png
 categories:
   - Blog
 tags:
   - Interactive Fiction
+published: true
+synced: true
 ---
+{::comment}
+#blog/published 
+{:/comment}
 
 A map I made for the interactive fiction game _Anchorhead_.
 
@@ -22,6 +27,6 @@ To help myself while I played it, I mapped out the game in [Trizbort](https://ww
 
 Spoilers ahead!
 
-![Anchorhead map](/assets/images/anchorhead_map.png)
+![Anchorhead map](../../assets/images/anchorhead_map.png)
 
 As a sidenote: Mike Gentry, the author of _Anchorhead_, [called the map "fantastic"](https://intfiction.org/t/anchorhead-is-too-hard-for-me/13017/37?u=tobiasvl), so that was nice!

@@ -11,7 +11,12 @@ tags:
   - CHIP-8
   - DREAM 6800
   - M6800
+published: true
+synced: true
 ---
+{::comment}
+#blog/published 
+{:/comment}
 
 In which I learn 6800 assembly in order to hack CHIPOS.
 
@@ -25,13 +30,13 @@ The source code and binary for the modified CHIPOS ("CHIPOSLO") can be downloade
 
 OK, this is a long post. There's a table of contents to the right. I'll get into the nitty-gritty of writing short 6800 assembly, and even though I'm an amateur on that subject, I'm apparently better at it than writing short posts.
 
-![CHIPOS logo](/assets/images/chipos_logo.png)
+![CHIPOS logo](../../assets/images/chipos_logo.png)
 
 Quick recap: The [DREAM 6800](http://www.mjbauer.biz/DREAM6800.htm) was created in 1978 by Michael J. Bauer, and it came with a small, 1024 byte operating system called <abbr title="Compact Hexadecimal Interpretive Programming and Operating System">CHIPOS</abbr>. CHIPOS incorporates an interpreter for a bytecode <abbr title="Virtual Machine">VM</abbr> called CHIP-8, which originally appeared on RCA's CDP1802-based COSMAC VIP computer in 1977. You can read more about [CHIP-8 on Wikipedia](https://en.wikipedia.org/wiki/CHIP-8).
 
 [I've written a couple of CHIP-8 games myself](https://itch.io/c/747687/my-chip-8-games), so I obviously wanted to see them run in my brand new emulator. However, I targeted those games for the original COSMAC VIP implementation, and that posed a problem for running them on the DREAM. This is my game [Mini Lights Out](https://tobiasvl.itch.io/mini-lights-out) in my DREAM emulator:
 
-![Mini Lights Out, broken](/assets/images/mini-lights-out-broken.png)
+![Mini Lights Out, broken](../../assets/images/mini-lights-out-broken.png)
 
 Undocumented CHIP-8 instructions
 --------------------------------
@@ -322,7 +327,7 @@ Building instructions in RAM like a crazy person only saved me _one byte_ compar
 
 Let's fire up my Mini Lights Out game and see if all the work paid off. CHIPOS runs, and lo and behold:
 
-![Mini Lights Out, working](/assets/images/mini-lights-out-working.png)
+![Mini Lights Out, working](../../assets/images/mini-lights-out-working.png)
 
 Beautiful. As a bonus for reading all of this you get to see the clunky UI of my emulator so far too. Time to get back to working on that!
 

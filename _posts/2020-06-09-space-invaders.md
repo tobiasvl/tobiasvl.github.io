@@ -8,7 +8,12 @@ categories:
   - Blog
 tags:
   - Emulation
+published: true
+synced: true
 ---
+{::comment}
+#blog/published 
+{:/comment}
 
 My attempt at making a _Space Invaders_ emulator look like the arcade cabinet.
 
@@ -30,7 +35,7 @@ Aspect ratio
 
 In most _Space Invaders_ emulators, one bit of graphical information is drawn as one pixel on the screen.
 
-![](/assets/images/space_invaders_taito_cop.png)
+![](../../assets/images/space_invaders_taito_cop.png)
 
 However, CRT monitors don't have "pixels" in the same sense. The electron beam is turned on for a period of time as it sweeps horizontally from left to right, illuminating parts of a scanline, before it's turned off again.
 
@@ -54,7 +59,7 @@ Gel overlay colors
 
 Most _Space Invaders_ emulators use bright, primary colors for its gel overlay, like shown above. The overlay is placed like this (image from [The Cutting Room Floor](https://tcrf.net/Space_Invaders_(Arcade\)):
 
-![](/assets/images/space_invaders_overlay.png)
+![](../../assets/images/space_invaders_overlay.png)
 
 However, when looking at some YouTube videos ([1](https://www.youtube.com/watch?v=DJMr36hLY38), [2](https://www.youtube.com/watch?v=1uSzmzZP1s8)) with footage of actual arcade gameplay, several things stand out to me about this color scheme:
 

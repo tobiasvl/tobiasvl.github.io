@@ -6,7 +6,15 @@ categories:
 tags:
   - Game development
   - PICO-8
+published: true
+synced: true
 ---
+{::comment}
+#blog/published 
+#gamedev 
+#devlog 
+{:/comment}
+
 A few months ago, I published my first game _Picolarium_, a "demake" of one of my favorite puzzle games, _Polarium_, made in PICO-8. [You can play Picolarium here.](https://tobiasvl.itch.io/picolarium)
 
 I just updated _Picolarium_ with some new features:

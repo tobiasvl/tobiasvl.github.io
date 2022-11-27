@@ -1,5 +1,5 @@
 ---
-title: "Guide to making a CHIP-8 emulator"
+title: "Guide to making a SUPER-CHIP emulator"
 excerpt_separator: "<!--more-->"
 header: 
   teaser: /assets/images/cosmac-vip-manual.png
@@ -10,20 +10,25 @@ categories:
 tags:
   - CHIP-8
   - Emulation
-published: true
+published: false
 synced: true
 ---
-{::comment}
-#blog/published 
-{:/comment}
 
-A high-level guide to making a CHIP-8 emulator.
+A high-level guide to making a SUPER-CHIP emulator.
 
 <!--more-->
 
-Do you want to get into emulator development? A common advice is to start out with CHIP-8. But how do you do that? Why are there so many different specifications?
+So you read my guide on how to make a CHIP-8 emulator! Good job. (If you haven't read it, read it now. It's required reading before you read this one.)
 
-This is a guide for you. It will tell you how to make a CHIP-8 emulator, but it won't give away the code. It will explain what each part should do, and use some pseudocode at times, but the actual implementation will be up to you.
+Now what? Sure, you could go onto the daunting task of making a Game Boy emulator, or a NES emulator, or perhaps a PS5 emulator.
+
+But wouldn't it be cool if your CHIP-8 emulator could do a little more than the one billion other CHIP-8 emulators out there?
+
+This guide will help you extend your CHIP-8 emulator with the SUPER-CHIP extensions, which give you four times the resolution and lets you run a bunch of new games.
+
+
+
+
 
 Along the way I'll put tips in green boxes, warnings in orange boxes (things to look out for), and trivia (mostly historical) in blue boxes. Like this one:
 
@@ -138,7 +143,7 @@ CHIP-8 has a [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) (
 
 Early interpreters reserved some memory for the stack, and some programs would use that knowledge to operate the stack directly and save stuff there, but you don't need to do that. You can just use a variable outside the emulated memory.
 
-These original interpreters had limited space on the stack; usually at least 16 two-byte entries. You can limit the stack likewise, or just keep it unlimited. CHIP-8 programs usually don't nest subroutine calls too much since the stack was so small originally, so it doesn't really matter (unless you encounter a program with a bug that has an infinite call loop and causes a "stack overflow").
+These original interpreters had limited space on the stack; usually 12 or 16 two-byte entries. You can limit the stack likewise, or just keep it unlimited. It doesn't really matter (unless you encounter a program with a bug that has an infinite call loop and causes a "stack overflow").
 
 Timers
 ------
@@ -281,7 +286,7 @@ This instruction should simply set PC to `NNN`, causing the program to jump to t
 
 ### `00EE` and `2NNN`: Subroutines
 
-`2NNN` calls the subroutine at memory location `NNN`. In other words, just like `1NNN`, you should set PC to `NNN`. However, the difference between a jump and a call is that this instruction should first push the current PC to the stack, so the subroutine can return later.
+`2NNN` calls the subroutine at memory location `NNN`. In other words, just like `1NNN`, you should set PC to `NNN`. However, the difference between a jump and a call is that this instruction should first should push the current PC to the stack, so the subroutine can return later.
 
 Returning from a subroutine is done with `00EE`, and it does this by removing ("popping") the last address from the stack and setting the PC to it.
 
@@ -351,7 +356,7 @@ This subtraction will also affect the carry flag, but note that it's opposite fr
 Ambiguous instruction!
 {: .notice--warning}
 
-In the CHIP-8 interpreter for the original COSMAC VIP, this instruction did the following: It put the value of `VY` into `VX`, and then shifted the value in `VX` 1 bit to the right (`8XY6`) or left (`8XYE`). `VY` was not affected, but the flag register `VF` would be set to the bit that was shifted out.
+In the CHIP-8 interpreter for the original COSMAC VIP, this instruction did the following: It put the value of `VY` into `VX`, and then shifted the value in `VX` 1 bit to the right (`8XY6`) or left (`8XYE`). `VY` was not affeced, but the flag register `VF` would be set to the bit that was shifted out.
 
 However, starting with CHIP-48 and SUPER-CHIP in the early 1990s, these instructions were changed so that they shifted `VX` in place, and ignored the `Y` completely.
 
@@ -360,7 +365,7 @@ This is one of the main differences between implementations that cause problems 
 Step by step:
 
 1. (Optional, or configurable) Set `VX` to the value of `VY`
-2. Shift the value of `VX` one bit to the right (`8XY6`) or left (`8XYE`)
+2. Shift the value of `VX` one bit to the right (`8XY6`) or left ( 8XYE`)
 3. Set `VF` to 1 if the bit that was shifted out was 1, or 0 if it was 0
 
 ### `ANNN`: Set index
@@ -452,11 +457,7 @@ Unlike other arithmetic instructions, this did not affect `VF` on overflow on th
 
 ### `FX0A`: Get key
 
-This instruction "blocks"; it stops executing instructions and waits for key input (or loops forever, unless a key is pressed).
-
-In other words, if you followed my advice earlier and increment PC after fetching each instruction, then it should be _decremented_ again here unless a key is pressed. Otherwise, PC should simply not be incremented.
-
-Although this instruction stops the program from executing further instructions, the timers (delay timer and sound timer) should still be decreased while it's waiting.
+This instruction "blocks"; it stops execution and waits for key input. In other words, if you followed my advice earlier and increment PC after fetching each instruction, then it should be _decremented_ again here unless a key is pressed. Otherwise, PC should simply not be incremented.
 
 If a key is pressed while this instruction is waiting for input, its hexadecimal value will be put in `VX` and execution continues.
 
