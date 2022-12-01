@@ -21,13 +21,13 @@ A high-level guide to making a CHIP-8 emulator.
 
 <!--more-->
 
-Do you want to get into emulator development? A common advice is to start out with CHIP-8. But how do you do that? Why are there so many different specifications?
+Do you want to get into emulator development? A common advice is to start out with [CHIP-8](https://en.wikipedia.org/wiki/CHIP-8). But how do you do that? And why are there so many different, conflicting specifications?
 
 This is a guide for you. It will tell you how to make a CHIP-8 emulator, but it won't give away the code. It will explain what each part should do, and use some pseudocode at times, but the actual implementation will be up to you.
 
 Along the way I'll put tips in green boxes, warnings in orange boxes (things to look out for), and trivia (mostly historical) in blue boxes. Like this one:
 
-Everyone calls them "CHIP-8 emulators", but they're not actually emulators. An emulator _emulates_ physical hardware in software, but CHIP-8 isn't a piece of hardware. To be pedantic, you're writing a CHIP-8 _interpreter_.
+Everyone calls them "CHIP-8 emulators", since they're a common starting point for learning how to develop emulators, but they're not actually emulators. An emulator _emulates_ physical hardware in software, but CHIP-8 isn't a piece of hardware. To be pedantic, you're writing a CHIP-8 _interpreter_.
 {: .notice--info}
 
 If you have any suggestions for this guide, or just want to show off an emulator you've made, please leave a comment at the end of the page!
@@ -35,9 +35,11 @@ If you have any suggestions for this guide, or just want to show off an emulator
 History
 -------
 
-CHIP-8 was created by RCA engineer Joe Weisbecker in 1977 for the COSMAC VIP microcomputer. It was intended as a simpler way to make small programs and games for the computer. Instead of using machine language for the VIP's CDP1802 processor, you could type in simple hexadecimal instructions (with the VIP's hex keypad) that resembled machine code, but which was actually interpreted on the fly by a small program.
+CHIP-8 was created by RCA engineer Joe Weisbecker in 1977 for the COSMAC VIP microcomputer. It was intended as a simpler way to make small programs and games for the computer. Instead of using machine language for the VIP's CDP1802 processor, you could type in hexadecimal instructions (with the VIP's hex keypad) that resembled machine code, but which were more high-level, and interpreted on the fly by a small program (the CHIP-8 emulator/interpreter).
 
-CHIP-8 soon spread to other computers, like the Finnish Telmac 1800, the Australian DREAM 6800, ETI-660 and MicroBee, and the Canadian ACE VDU. By 1984 the support for CHIP-8 petered out. However, in 1990 it had a renaissance on the HP48 graphing calculators with CHIP-48 and the now-famous SUPER-CHIP extension with higher resolution.
+CHIP-8 soon spread to other computers, like the Finnish Telmac 1800, the Australian DREAM 6800, ETI-660 and MicroBee, and the Canadian ACE VDU.
+
+By 1984 the interest in CHIP-8 petered out. However, in 1990 it had a renaissance on the HP48 graphing calculators with CHIP-48 and the now-famous SUPER-CHIP extension with higher resolution.
 
 With so many different implementations over several decades, there are many inconsistent specifications. I'll clear those up for you along the way.
 
