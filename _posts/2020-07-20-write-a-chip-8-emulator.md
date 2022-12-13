@@ -391,7 +391,7 @@ Note that you should not simply generate a random number between 0 and `NN`! You
 
 ### `DXYN`: Display
 
-This is the most involved instruction. It will draw an `N` pixels tall sprite from the memory location that the `I` index register is holding to the screen, at the horizontal X coordinate in `VX` and the Y coordinate in `VY`. All the pixels that are "on" in the sprite will flip the pixels on the screen that it is drawn to. If any pixels on the screen were turned "off" by this, the `VF` flag register is set to 1. Otherwise, it's set to 0.
+This is the most involved instruction. It will draw an `N` pixels tall sprite from the memory location that the `I` index register is holding to the screen, at the horizontal X coordinate in `VX` and the Y coordinate in `VY`. All the pixels that are "on" in the sprite will flip the pixels on the screen that it is drawn to (from left to right, from most to least significant bit). If any pixels on the screen were turned "off" by this, the `VF` flag register is set to 1. Otherwise, it's set to 0.
 
 Sounds hard? Well, it is, a little.
 
@@ -413,7 +413,7 @@ Skip this if you want to try to implement it yourself first, but here's a step b
 * Set `VF` to 0
 * For `N` rows:
   * Get the Nth byte of sprite data, counting from the memory address in the `I` register (`I` is not incremented)
-  * For each of the 8 pixels/bits in this sprite row:
+  * For each of the 8 pixels/bits in this sprite row (from left to right, ie. from most to least significant bit):
     * If the current pixel in the sprite row is on and the pixel at coordinates X,Y on the screen is also on, turn off the pixel and set `VF` to 1
     * Or if the current pixel in the sprite row is on and the screen pixel is not, draw the pixel at the X and Y coordinates
     * If you reach the right edge of the screen, stop drawing this row
