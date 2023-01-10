@@ -307,7 +307,7 @@ Add the value `NN` to `VX`.
 
 Note that on most other systems, and even in some of the other CHIP-8 instructions, this would set the carry flag if the result overflowed 8 bits. In other words, if the result of the addition is over 255.
 
-For this instruction, this is not the case. If `V0` contains `FF` and you execute `6001`, the CHIP-8's flag register `VF` is not affected.
+For this instruction, this is not the case. If `V0` contains `FF` and you execute `7001`, the CHIP-8's flag register `VF` is not affected.
 
 ### Logical and arithmetic instructions
 
