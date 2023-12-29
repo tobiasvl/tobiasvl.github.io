@@ -524,7 +524,7 @@ Now that you know CHIP-8's instruction set pretty thoroughly, why not try to mak
 
 Every October, an annual game jam called "Octojam" is organized, where people make games/programs for CHIP-8 (and SUPER-CHIP/XO-CHIP). Please join us! It's run on itch.io; [here's the page for Octojam 6 (2019)](https://itch.io/jam/octojam-6).
 
-Of course, you don't need to wait until next October. Write a game any time and submit it to the [CHIP-8 Archive](https://johnearnest.github.io/chip8Archive/?sort=platform)! You can also find los of great games to test your emulator with here.
+Of course, you don't need to wait until next October. Write a game any time and submit it to the [CHIP-8 Archive](https://johnearnest.github.io/chip8Archive/?sort=platform)! You can also find lots of great games to test your emulator with here.
 
 Typing in raw bytes to program your game isn't very user friendly in 2020, so most people now use [Octo](http://johnearnest.github.io/Octo/), a high-level assembler for CHIP-8. There are also more traditional assemblers out there.
 
