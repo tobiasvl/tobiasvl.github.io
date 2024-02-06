@@ -7,6 +7,21 @@ header:
 toc: true
 categories:
   - Blog
+jekyll_tags:
+  - CHIP-8
+  - Emulation
+published: true
+synced: true
+---
+---
+title: Guide to making a CHIP-8 emulator
+excerpt_separator: <!--more-->
+header:
+  teaser: /assets/images/cosmac-vip-manual.png
+  og_image: /assets/images/cosmac-vip-manual.png
+toc: true
+categories:
+  - Blog
 tags:
   - CHIP-8
   - Emulation
