@@ -1,7 +1,7 @@
 ---
-title: "Guide to making a CHIP-8 emulator"
-excerpt_separator: "<!--more-->"
-header: 
+title: Guide to making a CHIP-8 emulator
+excerpt_separator: <!--more-->
+header:
   teaser: /assets/images/cosmac-vip-manual.png
   og_image: /assets/images/cosmac-vip-manual.png
 toc: true
@@ -218,7 +218,7 @@ If your language supports `switch` statements, that's by far the easiest way to 
 In C or C++, remember to `break;` inside each case, or you'll "fall through" to the next.
 {: .notice--warning}
 
-Although every instruction will have a first nibble that tells you what kind of instruction it is, the rest of the nibbles will have different meanings. To differentiate these meanings, we usually call them different things, but all of them can be any hexadecimal number from 0 to F:
+Although every instruction will have a first nibble that tells you what kind of instruction it is, the rest of the nibbles will have different meanings. To differentiate these meanings, we usually call them different things, but all of them can be any hexadecimal number from `0` to `F`:
 
 * `X`: The second nibble. Used to look up one of the 16 registers (`VX`) from `V0` through `VF`.
 * `Y`: The third nibble. Also used to look up one of the 16 registers (`VY`) from `V0` through `VF`.
@@ -231,7 +231,7 @@ To avoid code duplication again, I suggest you extract these values from the opc
 If you use C or another language with `#define` or other macro directives, using that is probably a good idea!
 {: .notice--info}
 
-Note that `X` and `Y` are always used to look up the values in registers. One mistake I see a lot of make early on (and I've done it myself) is that they'll use the acual value `X` in the instruction. You never want that! That's only for the `N` operands. `X` and `Y` should always look up a value in the corresponding register.
+Note that `X` and `Y` are always used to look up the values in registers. One mistake I see a lot of people make early on (and I've done it myself) is that they'll use the acual value `X` in the instruction. You never want that! That's only for the `N` operands. `X` and `Y` should always look up a value in the corresponding register.
 
 ### Execute
 
@@ -287,15 +287,15 @@ This instruction should simply set PC to `NNN`, causing the program to jump to t
 
 Returning from a subroutine is done with `00EE`, and it does this by removing ("popping") the last address from the stack and setting the PC to it.
 
-### `3XNN`, `4XNN`, `5XY0` and `9XY0`: Skip
+### `3XNN`, `4XNN`, `5XY0` and `9XY0`: Skip conditionally
 
-These instructions do the same thing: They either do nothing, or they skip one two-byte instruction (increment PC by 2). If you didn't increment PC in the "fetch" stage above, they will obviously increment PC by either 4 or 2.
+These instructions do the same thing: They either do nothing, or they skip one two-byte instruction (increment PC by 2) if some condition is true. (If you didn't increment PC in the "fetch" stage above, they will obviously increment PC by either 4 or 2.)
+
+Or, put another way, they execute the next instruction if and only if the condition is _not_ true. Since these conditional branch instructions can only skip one instruction, they're usually followed by a jump/call (`1NNN`/`2NNN`) instruction which jumps to the actual "`if` code block" that should be executed if the condition _is_ true.
 
 `3XNN` will skip one instruction if the value in `VX` is equal to `NN`, and `4XNN` will skip if they are _not_ equal.
 
-`5XY0` skips if the values in `VX` and `VY` are equal, while `9XY0` skips if they are not equal.
-
-Since these conditional branch instructions can only skip one instructions, they're usually followed by a jump/call (`1NNN`/`2NNN`) instruction.
+`5XY0` skips if the values in `VX` and `VY` are equal, while `9XY0` skips if they are *not* equal.
 
 ### `6XNN`: Set
 
@@ -305,7 +305,7 @@ Simply set the register `VX` to the value `NN`.
 
 Add the value `NN` to `VX`.
 
-Note that on most other systems, and even in some of the other CHIP-8 instructions, this would set the carry flag if the result overflowed 8 bits. In other words, if the result of the addition is over 255.
+Note that on most other systems, and even in some of the other CHIP-8 instructions, this would set the carry flag if the result overflowed 8 bits; in other words, if the result of the addition is over 255.
 
 For this instruction, this is not the case. If `V0` contains `FF` and you execute `7001`, the CHIP-8's flag register `VF` is not affected.
 
@@ -313,7 +313,7 @@ For this instruction, this is not the case. If `V0` contains `FF` and you execut
 
 We come to the first group of instructions that need further decoding beyond just the first nibble! All these instructions are logical or arithmetic operations, but which one is decided by the last nibble of the opcode. Do another nested `switch` statement (or equivalent) here.
 
-On the COSMAC VIP, all of these instructions changed the value of `VF`. Some of them are mentioned below. For the ones that don't mention affecting `VF`, the resulting value in `VF` is undefined. This is because the CHIP-8 interpreter dispatched these instructions to the 1802 CPU's ALU circuit, and while doing so it would change the CPU's flag register, which always gets copied to `VF`.
+On the COSMAC VIP, all of these instructions changed the value of `VF`. Some of them are mentioned below. For the ones that don't mention affecting `VF`, the resulting value in `VF` is undefined. This is because the CHIP-8 interpreter dispatched these instructions to the 1802 CPU's [ALU](https://en.wikipedia.org/wiki/Arithmetic_logic_unit) circuit, and while doing so it would change the CPU's flag register, which always gets copied to `VF`.
 {: .notice--info }
 
 #### `8XY0`: Set
@@ -336,7 +336,7 @@ On the COSMAC VIP, all of these instructions changed the value of `VF`. Some of 
 
 `VX` is set to the value of `VX` plus the value of `VY`. `VY` is not affected.
 
-Unlike `7XNN`, this addition will affect the carry flag. If the result is larger than 255 (and thus overflows the 8-bit register `VX`), the flag register `VF` is set to 1. If it doesn't overflow, `VF` is set to 0.
+Unlike `7XNN`, this addition *will* affect the carry flag. If the result is larger than 255 (and thus overflows the 8-bit register `VX`), the flag register `VF` is set to 1. If it doesn't overflow, `VF` is set to 0.
 
 #### `8XY5` and `8XY7`: Subtract
 
@@ -357,7 +357,7 @@ In the CHIP-8 interpreter for the original COSMAC VIP, this instruction did the 
 
 However, starting with CHIP-48 and SUPER-CHIP in the early 1990s, these instructions were changed so that they shifted `VX` in place, and ignored the `Y` completely.
 
-This is one of the main differences between implementations that cause problems for programs.
+This is one of the main differences between implementations that cause problems for programs. Since different games expect different behavior, you could consider making the behavior configurable by the user.
 
 Step by step:
 
@@ -487,9 +487,9 @@ These two instructions store registers to memory, or load them from memory, resp
 
 For `FX55`, the value of each variable register from `V0` to `VX` inclusive (if `X` is 0, then only `V0`) will be stored in successive memory addresses, starting with the one that's stored in `I`. `V0` will be stored at the address in `I`, `V1` will be stored in `I + 1`, and so on, until `VX` is stored in `I + X`.
 
-`FX65` does the same thing, except that it takes the value stored at the memory addresses and loads them into the variable registers instead.
+`FX65` does the opposite; it takes the value stored at the memory addresses and loads them into the variable registers instead.
 
-The original CHIP-8 interpreter for the COSMAC VIP actually incremented the `I` register while it worked. Each time it stored or loaded one register, it incremented `I`. After the instruction was finished, `I` would be set to the new value `I + X + 1`.
+The original CHIP-8 interpreter for the COSMAC VIP actually incremented the `I` register while it worked. Each time it stored or loaded one register, it incremented `I`. After the instruction was finished, `I` would end up being set to the new value `I + X + 1`.
 
 However, modern interpreters (starting with CHIP48 and SUPER-CHIP in the early 90s) used a temporary variable for indexing, so when the instruction was finished, `I` would still hold the same value as it did before.
 
@@ -502,7 +502,7 @@ Your emulator is done! What's that? Something's not working?
 
 To make your life easier, you should add some rudimentary debugging capabilities. For example, you should be able to step through CHIP-8 instructions one by one, pausing the regular loop. You should also be able to print the contents of registers and memory. That way you can step through a program and see that it behaves like you expect.
 
-One thing you should do is print out an error message if your emulator tries to execute an unknown instruction. There aren't many of them, but if you suddenly try to execute a lot of `0000` instructions, you know you've somehow reached uninitialized memory.
+One thing you should do is print out an error message if your emulator tries to execute an unknown instruction. There aren't many of them, but if you suddenly try to execute a lot of `0000` instructions, you know you've somehow reached uninitialized memory, or maybe you're trying to execute data (like graphics/sprites) as code.
 
 Like I said before, you should start out by getting the IBM logo program to run. Once you can draw to the screen properly, run one of the CHIP-8 test programs you can find online. They will check your instructions and tell you which ones aren't working properly. (Note that for the ambiguous instructions, they will mostly expect the "modern" behavior.)
 
@@ -522,9 +522,9 @@ But if you think CHIP-8 is an interesting platform, there are many things you co
 
 Now that you know CHIP-8's instruction set pretty thoroughly, why not try to make a game that can run in your own emulator?
 
-Every October, an annual game jam called "Octojam" is organized, where people make games/programs for CHIP-8 (and SUPER-CHIP/XO-CHIP). Please join us! It's run on itch.io; [here's the page for Octojam 6 (2019)](https://itch.io/jam/octojam-6).
+Although CHIP-8 is from the 70s originally, most games for it by this point are actually fairly modern - every October for a decade, an annual game jam called "Octojam" was organized, where people made games/programs for CHIP-8 (and SUPER-CHIP/XO-CHIP). It's sadly not held anymore, but you can check out past jams and games at [Octojam.com](http://octojam.com).
 
-Of course, you don't need to wait until next October. Write a game any time and submit it to the [CHIP-8 Archive](https://johnearnest.github.io/chip8Archive/?sort=platform)! You can also find lots of great games to test your emulator with here.
+If you do make a game, you can submit it to the public [CHIP-8 Archive](https://johnearnest.github.io/chip8Archive/?sort=platform). You can also find lots of great games to test your emulator with here.
 
 Typing in raw bytes to program your game isn't very user friendly in 2020, so most people now use [Octo](http://johnearnest.github.io/Octo/), a high-level assembler for CHIP-8. There are also more traditional assemblers out there.
 
@@ -538,11 +538,11 @@ Here's a good quick guide to [Mastering Super-CHIP](http://johnearnest.github.io
 
 ### Add debug capabilities
 
-This would make your emulator useful to two groups of people: People who develop CHIP-8 games ([yes, we do exist](https://itch.io/jam/octojam-6)) will be able to debug their games, and people who develop CHIP-8 emulators will be able to develop side by side with your emulator to see what they're doing wrong.
+This would make your emulator useful to two groups of people: People who develop CHIP-8 games will be able to debug their games, and people who develop CHIP-8 emulators will be able to develop side by side with your emulator to see what they're doing wrong.
 
 Debug interfaces can be very cool to make. [Look at this beauty!](https://twitter.com/kraptor/status/1153936421209509888)
 
-Plus, it'll be very useful for other emulator projects. For more advaned systems, you'll basically be doing it blind if you don't have a way to inspect your emulator's state.
+Plus, learning how to make a debug interface will be very useful for other emulator projects. For more advanced systems, you'll basically be doing it blind if you don't have a way to inspect your emulator's state.
 
 ### Add XO-CHIP support
 
