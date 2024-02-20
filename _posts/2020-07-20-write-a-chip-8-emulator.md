@@ -178,8 +178,8 @@ For CHIP-8 emulators that run on modern PCs, it's customary to use the left side
 | <kbd>A</kbd> | <kbd>S</kbd> | <kbd>D</kbd> | <kbd>F</kbd> |
 | <kbd>Z</kbd> | <kbd>X</kbd> | <kbd>C</kbd> | <kbd>V</kbd> |
 
-> [!success]
 You will probably want to use keyboard _scancodes_ rather than key string constants, so people who use different keyboard layouts (like AZERTY) can use your emulator.
+{: .notice--success}
 
 Fetch/decode/execute loop
 -------------------------
@@ -350,8 +350,8 @@ This subtraction will also affect the carry flag, but note that it's opposite fr
 
 #### `8XY6` and `8XYE`: Shift
 
-> [!warning]
 Ambiguous instruction!
+{: .notice--warning}
 
 In the CHIP-8 interpreter for the original COSMAC VIP, this instruction did the following: It put the value of `VY` into `VX`, and then shifted the value in `VX` 1 bit to the right (`8XY6`) or left (`8XYE`). `VY` was not affected, but the flag register `VF` would be set to the bit that was shifted out.
 
@@ -371,8 +371,8 @@ This sets the index register I to the value `NNN`.
 
 ### `BNNN`: Jump with offset
 
-> [!warning]
 Ambiguous instruction!
+{: .notice--warning}
 
 In the original COSMAC VIP interpreter, this instruction jumped to the address `NNN` plus the value in the register `V0`. This was mainly used for "jump tables", to quickly be able to jump to different subroutines based on some input.
 
@@ -480,8 +480,8 @@ Many people seem to struggle with this instruction. You're lucky; the early CHIP
 
 ### `FX55` and `FX65`: Store and load memory
 
-> [!warning]
 Ambiguous instruction!
+{: .notice--warning}
 
 These two instructions store registers to memory, or load them from memory, respectively.
 
