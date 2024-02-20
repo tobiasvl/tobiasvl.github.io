@@ -178,7 +178,7 @@ For CHIP-8 emulators that run on modern PCs, it's customary to use the left side
 | <kbd>A</kbd> | <kbd>S</kbd> | <kbd>D</kbd> | <kbd>F</kbd> |
 | <kbd>Z</kbd> | <kbd>X</kbd> | <kbd>C</kbd> | <kbd>V</kbd> |
 
-You will probably want to use keyboard _scancodes_ rather than key string constants, so people who use different keyboard layouts (like AZERTY) can use your emulator.
+You will probably want to use keyboard _scancodes_ rather than key string constants, so people who use different keyboard layouts (like AZERTY) can use your emulator.0
 {: .notice--success}
 
 Fetch/decode/execute loop
