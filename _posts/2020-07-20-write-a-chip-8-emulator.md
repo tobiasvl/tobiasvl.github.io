@@ -27,8 +27,7 @@ This is a guide for you. It will tell you how to make a CHIP-8 emulator, but it 
 
 Along the way I'll put tips in green boxes, warnings in orange boxes (things to look out for), and trivia (mostly historical) in blue boxes. Like this one:
 
-Everyone calls them "CHIP-8 emulators", since they're a common starting point for learning how to develop emulators, but they're not actually emulators. An emulator _emulates_ physical hardware in software, but CHIP-8 isn't a piece of hardware. To be pedantic, you're writing a CHIP-8 _interpreter_.
-{: .notice--info}
+Everyone calls them "CHIP-8 emulators", since they're a common starting point for learning how to develop emulators, but they're not actually emulators. An emulator _emulates_ physical hardware in software, but CHIP-8 isn't a piece of hardware. To be pedantic, you're writing a CHIP-8 _interpreter_.\n{: .notice--info}
 
 If you have any suggestions for this guide, or just want to show off an emulator you've made, please leave a comment at the end of the page!
 
@@ -43,8 +42,7 @@ By 1984 the interest in CHIP-8 petered out. However, in 1990 it had a renaissanc
 
 With so many different implementations over several decades, there are many inconsistent specifications. I'll clear those up for you along the way.
 
-Michael J. Bauer, who made the DREAM 6800 computer and its CHIP-8 interpreter in 1978, invented the following backronym for CHIP-8: **Compact Hexadecimal Interpretive Programming – 8-bit**.
-{: .notice--info}
+Michael J. Bauer, who made the DREAM 6800 computer and its CHIP-8 interpreter in 1978, invented the following backronym for CHIP-8: **Compact Hexadecimal Interpretive Programming – 8-bit**.\n{: .notice--info}
 
 Prerequisites
 -------------
@@ -77,13 +75,11 @@ Memory
 
 The memory should be 4 kB (4 kilobytes, ie. 4096 bytes) large. CHIP-8's index register and program counter can only address 12 bits (conveniently), which is 4096 addresses.
 
-The index register, program counter and stack entries are all actually 16 bits long. In theory, they could increment beyond 4 kB of memory addresses. In practice, no CHIP-8 games do that. The early computers running CHIP-8 usually had less than 4 kB of RAM anyway.
-{: .notice--info}
+The index register, program counter and stack entries are all actually 16 bits long. In theory, they could increment beyond 4 kB of memory addresses. In practice, no CHIP-8 games do that. The early computers running CHIP-8 usually had less than 4 kB of RAM anyway.\n{: .notice--info}
 
 All the memory is RAM and should be considered to be writable. CHIP-8 games can, and do, modify themselves.
 
-CHIP-8 programs you find online as binary files are often called "ROMs", like game files for video game emulators, but unlike games on console cartridges they were not actually ROM (which means "read-only memory").
-{: .notice--info}
+CHIP-8 programs you find online as binary files are often called "ROMs", like game files for video game emulators, but unlike games on console cartridges they were not actually ROM (which means "read-only memory").\n{: .notice--info}
 
 The first CHIP-8 interpreter (on the COSMAC VIP computer) was also located in RAM, from address `000` to `1FF`. It would expect a CHIP-8 program to be loaded into memory after it, starting at address `200` (512 in decimal). Although modern interpreters are not in the same memory space, you should do the same to be able to run the old programs; you can just leave the initial space empty, except for the font.
 
@@ -115,23 +111,20 @@ The font most people use is represented in bytes like this:
 
 <!-- TODO FONT IMAGE -->
 
-In theory you could design your own font; it's unlikely that any games rely on the shapes of the characters. Many of [the early computer implementations had their own fonts](https://github.com/mattmikolay/chip-8/issues/3).
-{: .notice--info}
+In theory you could design your own font; it's unlikely that any games rely on the shapes of the characters. Many of [the early computer implementations had their own fonts](https://github.com/mattmikolay/chip-8/issues/3).\n{: .notice--info}
 
 Display
 -------
 
 The display is 64 pixels wide and 32 pixels tall. Each pixel can be _on_ or _off_. In other words, each pixel is a boolean value, or a bit.
 
-The early computers used regular TVs as screens, so an "off" pixel was just black, and "on" was white. You can pick other colors.
-{: .notice--info}
+The early computers used regular TVs as screens, so an "off" pixel was just black, and "on" was white. You can pick other colors.\n{: .notice--info}
 
 Original interpreters updated the display at 60 Hz (ie. they had 60 FPS, to use modern terminology). How you do this is up to you, but depending on the framework you use, it might be a good idea to only redraw the screen when your emulator executes an instruction that modifies the display data (there are two), to run faster.
 
 The details of the drawing instruction `DXYN` are found below, but in short, it is used to draw a "sprite" on the screen. Each sprite consists of 8-bit bytes, where each bit corresponds to a horizontal pixel; sprites are between 1 and 15 bytes tall. They're drawn to the screen by treating all 0 bits as transparent, and all the 1 bits will "flip" the pixels in the locations of the screen that it's drawn to. (You might recognize this as logical XOR.)
 
-This method of drawing will inevitable cause some flickering objects; when a sprite is moved, it's first erased from the screen (by simply drawing it again, flipping all its lit pixels) and then re-drawn in the new position, so it will disappear for a little while, often causing a flickering effect. If you want, you can try to think of ways to mitigate this. For example, pixels that are erased could fade out instead of disappearing completely, giving an old phosphorous CRT-style effect.
-{: .notice--info}
+This method of drawing will inevitable cause some flickering objects; when a sprite is moved, it's first erased from the screen (by simply drawing it again, flipping all its lit pixels) and then re-drawn in the new position, so it will disappear for a little while, often causing a flickering effect. If you want, you can try to think of ways to mitigate this. For example, pixels that are erased could fade out instead of disappearing completely, giving an old phosphorous CRT-style effect.\n{: .notice--info}
 
 Stack
 -----
@@ -156,8 +149,7 @@ Keypad
 
 The earliest computers that CHIP-8 were used with had hexadecimal keypads. These had 16 keys, labelled `0` through `F`, and were arranged in a 4x4 grid.
 
-On the original COSMAC VIP, a sound (the same sound as the sound timer uses) would be heard while holding down a key. This might be a little obnoxious, though…
-{: .notice--info}
+On the original COSMAC VIP, a sound (the same sound as the sound timer uses) would be heard while holding down a key. This might be a little obnoxious, though…\n{: .notice--info}
 
 These keypads all had different layouts, but the COSMAC VIP used the following layout, which was re-used on the HP48 calculators, so that's what everyone implements these days:
 
@@ -168,8 +160,7 @@ These keypads all had different layouts, but the COSMAC VIP used the following l
 
 {% include figure image_path="/assets/images/cosmac-vip-keypad.png" caption="The COSMAC VIP keypad" %}
 
-> [!info]
-If you want to support a wide range of CHIP-8 games for different computers, you could add options for other arrangements of the keys. The other most common layout (used by many DREAM 6800 and ETI-660 computers) started with `0` in the upper left corner and ran down to `F` in the bottom right corner.
+If you want to support a wide range of CHIP-8 games for different computers, you could add options for other arrangements of the keys. The other most common layout (used by many DREAM 6800 and ETI-660 computers) started with `0` in the upper left corner and ran down to `F` in the bottom right corner.\n{: .notice--info}
 
 For CHIP-8 emulators that run on modern PCs, it's customary to use the left side of the QWERTY keyboard for this:
 
@@ -178,8 +169,7 @@ For CHIP-8 emulators that run on modern PCs, it's customary to use the left side
 | <kbd>A</kbd> | <kbd>S</kbd> | <kbd>D</kbd> | <kbd>F</kbd> |
 | <kbd>Z</kbd> | <kbd>X</kbd> | <kbd>C</kbd> | <kbd>V</kbd> |
 
-You will probably want to use keyboard _scancodes_ rather than key string constants, so people who use different keyboard layouts (like AZERTY) can use your emulator.
-{: .notice--success}
+You will probably want to use keyboard _scancodes_ rather than key string constants, so people who use different keyboard layouts (like AZERTY) can use your emulator.\n{: .notice--success}
 
 Fetch/decode/execute loop
 -------------------------
@@ -196,8 +186,7 @@ I'll go through each of these steps below, but first: What speed should this loo
 
 The original CHIP-8 computers had processors that ran at something like 1 MHz, and the 90s HP48 calculators ran at around 4 MHz. That doesn't tell us much, since the CHIP-8 instructions took a different number of cycles to run in their machine code implementations – and on different computers back then – but it does mean that different games might expect to run at different speeds, so you will probably want to make it configurable.
 
-For the original timings for CHIP-8 instructions in the COSMAC VIP interpreter, see this page: [Chip 8 Instruction Scheduling and Frequency](https://jackson-s.me/2019/07/13/Chip-8-Instruction-Scheduling-and-Frequency.html).
-{: .notice--info}
+For the original timings for CHIP-8 instructions in the COSMAC VIP interpreter, see this page: [Chip 8 Instruction Scheduling and Frequency](https://jackson-s.me/2019/07/13/Chip-8-Instruction-Scheduling-and-Frequency.html).\n{: .notice--info}
 
 In practice, a standard speed of around 700 CHIP-8 instructions per second fits well enough for most CHIP-8 programs you'll find, which are mostly from the 90s. Play a few different ones and get a feel for what speed seems right.
 
@@ -215,8 +204,7 @@ CHIP-8 instructions are divided into broad categories by the first "nibble", or 
 
 If your language supports `switch` statements, that's by far the easiest way to go. Mask off (with a "binary AND") the first number in the instruction, and have one `case` per number. Some of these cases will need separate `switch` statements inside them to further decode the instruction.
 
-> [!warning]
-In C or C++, remember to `break;` inside each case, or you'll "fall through" to the next.
+In C or C++, remember to `break;` inside each case, or you'll "fall through" to the next.\n{: .notice--warning}
 
 Although every instruction will have a first nibble that tells you what kind of instruction it is, the rest of the nibbles will have different meanings. To differentiate these meanings, we usually call them different things, but all of them can be any hexadecimal number from `0` to `F`:
 
@@ -228,8 +216,7 @@ Although every instruction will have a first nibble that tells you what kind of 
 
 To avoid code duplication again, I suggest you extract these values from the opcode before decoding, instead of doing it inside each instruction. If you do it wrong just one place, you'll have a hard time tracking that down.
 
-> [!info]
-If you use C or another language with `#define` or other macro directives, using that is probably a good idea!
+If you use C or another language with `#define` or other macro directives, using that is probably a good idea!\n{: .notice--info}
 
 Note that `X` and `Y` are always used to look up the values in registers. One mistake I see a lot of people make early on (and I've done it myself) is that they'll use the acual value `X` in the instruction. You never want that! That's only for the `N` operands. `X` and `Y` should always look up a value in the corresponding register.
 
@@ -313,8 +300,7 @@ For this instruction, this is not the case. If `V0` contains `FF` and you execut
 
 We come to the first group of instructions that need further decoding beyond just the first nibble! All these instructions are logical or arithmetic operations, but which one is decided by the last nibble of the opcode. Do another nested `switch` statement (or equivalent) here.
 
-> [!info]
-On the COSMAC VIP, all of these instructions changed the value of `VF`. Some of them are mentioned below. For the ones that don't mention affecting `VF`, the resulting value in `VF` is undefined. This is because the CHIP-8 interpreter dispatched these instructions to the 1802 CPU's [ALU](https://en.wikipedia.org/wiki/Arithmetic_logic_unit) circuit, and while doing so it would change the CPU's flag register, which always gets copied to `VF`.
+On the COSMAC VIP, all of these instructions changed the value of `VF`. Some of them are mentioned below. For the ones that don't mention affecting `VF`, the resulting value in `VF` is undefined. This is because the CHIP-8 interpreter dispatched these instructions to the 1802 CPU's [ALU](https://en.wikipedia.org/wiki/Arithmetic_logic_unit) circuit, and while doing so it would change the CPU's flag register, which always gets copied to `VF`.\n{: .notice--info}
 
 #### `8XY0`: Set
 
@@ -350,8 +336,7 @@ This subtraction will also affect the carry flag, but note that it's opposite fr
 
 #### `8XY6` and `8XYE`: Shift
 
-Ambiguous instruction!
-{: .notice--warning}
+Ambiguous instruction!\n{: .notice--warning}
 
 In the CHIP-8 interpreter for the original COSMAC VIP, this instruction did the following: It put the value of `VY` into `VX`, and then shifted the value in `VX` 1 bit to the right (`8XY6`) or left (`8XYE`). `VY` was not affected, but the flag register `VF` would be set to the bit that was shifted out.
 
@@ -371,8 +356,7 @@ This sets the index register I to the value `NNN`.
 
 ### `BNNN`: Jump with offset
 
-Ambiguous instruction!
-{: .notice--warning}
+Ambiguous instruction!\n{: .notice--warning}
 
 In the original COSMAC VIP interpreter, this instruction jumped to the address `NNN` plus the value in the register `V0`. This was mainly used for "jump tables", to quickly be able to jump to different subroutines based on some input.
 
@@ -386,8 +370,7 @@ This instruction generates a random number, binary ANDs it with the value `NN`, 
 
 Most likely your programming language has a function for generating random numbers. It will work fine for this use.
 
-> [!warning]
-Note that you should not simply generate a random number between 0 and `NN`! You need to do a binary AND.
+Note that you should not simply generate a random number between 0 and `NN`! You need to do a binary AND.\n{: .notice--warning}
 
 ### `DXYN`: Display
 
@@ -397,8 +380,7 @@ Sounds hard? Well, it is, a little.
 
 The first thing to do is to get the X and Y coordinates from `VX` and `VY`.
 
-> [!warning]
-A common mistake here is to use `X` and `Y` directly; don't do that, fetch them from the registers.
+A common mistake here is to use `X` and `Y` directly; don't do that, fetch them from the registers.\n{: .notice--warning}
 
 One area where people get confused is whether sprites should wrap if they go over the edge of the screen. The answer is yes and no.
 
@@ -449,8 +431,7 @@ Note that there's no instruction to read the sound timer; the sound timer will s
 
 The index register I will get the value in `VX` added to it.
 
-> [!warning]
-Unlike other arithmetic instructions, this did not affect `VF` on overflow on the original COSMAC VIP. However, it seems that some interpreters set `VF` to 1 if I "overflows" from `0FFF` to above `1000` (outside the normal addressing range). This wasn't the case on the original COSMAC VIP, at least, but apparently the CHIP-8 interpreter for Amiga behaved this way. At least one known game, _Spacefight 2091!_, relies on this behavior. I don't know of any games that rely on this _not happening_, so perhaps it's safe to do it like the Amiga interpreter did.
+Unlike other arithmetic instructions, this did not affect `VF` on overflow on the original COSMAC VIP. However, it seems that some interpreters set `VF` to 1 if I "overflows" from `0FFF` to above `1000` (outside the normal addressing range). This wasn't the case on the original COSMAC VIP, at least, but apparently the CHIP-8 interpreter for Amiga behaved this way. At least one known game, _Spacefight 2091!_, relies on this behavior. I don't know of any games that rely on this _not happening_, so perhaps it's safe to do it like the Amiga interpreter did.\n{: .notice--warning}
 
 ### `FX0A`: Get key
 
@@ -462,15 +443,13 @@ Although this instruction stops the program from executing further instructions,
 
 If a key is pressed while this instruction is waiting for input, its hexadecimal value will be put in `VX` and execution continues.
 
-On the original COSMAC VIP, the key was only registered when it was pressed _and then released_.
-{: .notice--info}
+On the original COSMAC VIP, the key was only registered when it was pressed _and then released_.\n{: .notice--info}
 
 ### `FX29`: Font character
 
 The index register I is set to the address of the hexadecimal character in `VX`. You probably stored that font somewhere in the first 512 bytes of memory, so now you just need to point I to the right character.
 
-> [!info]
-An 8-bit register can hold two hexadecimal numbers, but this would only point to one character. The original COSMAC VIP interpreter just took the last nibble of `VX` and used that as the character.
+An 8-bit register can hold two hexadecimal numbers, but this would only point to one character. The original COSMAC VIP interpreter just took the last nibble of `VX` and used that as the character.\n{: .notice--info}
 
 ### `FX33`: Binary-coded decimal conversion
 
@@ -480,8 +459,7 @@ Many people seem to struggle with this instruction. You're lucky; the early CHIP
 
 ### `FX55` and `FX65`: Store and load memory
 
-Ambiguous instruction!
-{: .notice--warning}
+Ambiguous instruction!\n{: .notice--warning}
 
 These two instructions store registers to memory, or load them from memory, respectively.
 
