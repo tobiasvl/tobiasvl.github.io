@@ -1,20 +1,18 @@
 ---
-title: "Emulating the Space Invaders look and feel"
-excerpt_separator: "<!--more-->"
-header: 
+title: Emulating the Space Invaders look and feel
+excerpt_separator: <!--more-->
+header:
   teaser: /assets/images/moon_invaders.png
   og_image: /assets/images/moon_invaders.png
 categories:
   - Blog
 tags:
+  - blog/published
+tags:
   - Emulation
 published: true
 synced: true
 ---
-{::comment}
-#blog/published 
-{:/comment}
-
 My attempt at making a _Space Invaders_ emulator look like the arcade cabinet.
 
 <!--more-->
