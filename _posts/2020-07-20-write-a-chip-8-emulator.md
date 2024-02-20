@@ -27,8 +27,7 @@ This is a guide for you. It will tell you how to make a CHIP-8 emulator, but it 
 
 Along the way I'll put tips in green boxes, warnings in orange boxes (things to look out for), and trivia (mostly historical) in blue boxes. Like this one:
 
-> [!info]
-Everyone calls them "CHIP-8 emulators", since they're a common starting point for learning how to develop emulators, but they're not actually emulators. An emulator _emulates_ physical hardware in software, but CHIP-8 isn't a piece of hardware. To be pedantic, you're writing a CHIP-8 _interpreter_.
+\1\n{: .notice--info}
 
 If you have any suggestions for this guide, or just want to show off an emulator you've made, please leave a comment at the end of the page!
 
