@@ -1,12 +1,15 @@
 ---
-title: "Things I finished in 2020"
-excerpt_separator: "<!--more-->"
+title: Things I finished in 2020
+excerpt_separator: <!--more-->
 toc: true
 header:
   teaser: /assets/images/chipos_logo.png
   og_image: /assets/images/chipos_logo.png
 categories:
   - Blog
+tags:
+  - year-in-review
+  - blog
 tags:
   - Year in Review
 published: false
@@ -79,8 +82,3 @@ Books read: ** **
 * Sherlock Holmes
 * Sherlock Holmes 2
 * First Man
-
-{::comment}
-#year-in-review 
-#blog
-{:/comment}
