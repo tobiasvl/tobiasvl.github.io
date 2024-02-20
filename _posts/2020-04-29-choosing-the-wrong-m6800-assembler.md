@@ -1,21 +1,19 @@
 ---
-title: "Choosing the wrong M6800 assembler"
-excerpt_separator: "<!--more-->"
-header: 
+title: Choosing the wrong M6800 assembler
+excerpt_separator: <!--more-->
+header:
   teaser: /assets/images/m6800-logo.png
   og_image: /assets/images/m6800-logo.png
 categories:
   - Blog
+tags:
+  - blog/published
 tags:
   - M6800
   - DREAM 6800
 published: true
 synced: true
 ---
-{::comment}
-#blog/published
-{:/comment}
-
 Using the wrong assembler can set your MC6800 on fire.
 <!--more-->
 
