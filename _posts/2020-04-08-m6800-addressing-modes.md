@@ -1,11 +1,13 @@
 ---
-title: "Motorola 6800 addressing modes"
-excerpt_separator: "<!--more-->"
+title: Motorola 6800 addressing modes
+excerpt_separator: <!--more-->
 header:
   teaser: /assets/images/m6800-logo.png
   og_image: /assets/images/m6800-logo.png
 categories:
   - Blog
+tags:
+  - blog/published
 tags:
   - M6800
   - DREAM 6800
@@ -13,9 +15,6 @@ tags:
 published: true
 synced: true
 ---
-{::comment}
-#blog/published 
-{:/comment}
 The MC6800's addressing modes have a few things to be aware of.
 <!--more-->
 

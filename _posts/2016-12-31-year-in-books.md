@@ -1,21 +1,19 @@
 ---
 title: "2016: Year in Books"
-excerpt_separator: "<!--more-->"
-header: 
+excerpt_separator: <!--more-->
+header:
   teaser: /assets/images/
   og_image: /assets/images/
 categories:
   - Blog
 tags:
+  - "#blog/draft"
+  - year-in-review
+tags:
   - Year in Review
 published: false
 synced: true
 ---
-{::comment}
-#blog/draft
-#year-in-review 
-{:/comment}
-
 In 2015 I completed a reading challenge of 20 books, which I considered quite a feat. I set 2016’s reading challenge at 20 as well. As the year progressed, however, I was so far ahead of the challenge that I kept raising the bar, first to 30, then 40, before landing at 50.
 
 This is a lot of books to me. Before 2016, I had read about 230 Goodreads books according to my estimations – although I’m sure there are still some childhood books missing, it’s pretty accurate. That means that in 2016 I read somewhere around maybe a fifth of all books I’ve read my entire life, and I’ve always considered myself a reader.

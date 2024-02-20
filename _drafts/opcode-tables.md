@@ -1,20 +1,18 @@
 ---
-title: "Opcode Tables"
-excerpt_separator: "<!--more-->"
-header: 
+title: Opcode Tables
+excerpt_separator: <!--more-->
+header:
   teaser: /assets/images/
   og_image: /assets/images/
 categories:
   - Blog
 tags:
+  - blog/draft
+tags:
   - M6800
 published: false
 synced: true
 ---
-{::comment}
-#blog/draft 
-{:/comment}
-
 I made a website with opcode tables for some of my favorite 8-bit CPUs!
 
 Why would I bother to do that?

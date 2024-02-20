@@ -1,21 +1,19 @@
 ---
-title: "An emulator UI"
-excerpt_separator: "<!--more-->"
-header: 
+title: An emulator UI
+excerpt_separator: <!--more-->
+header:
   teaser: /assets/images/drom.png
   og_image: /assets/images/drom.png
 categories:
   - Blog
+tags:
+  - blog/published
 tags:
   - DREAM 6800
   - Emulation
 published: true
 synced: true
 ---
-{::comment}
-#blog/published 
-{:/comment}
-
 The [RetroChallenge](http://www.retrochallenge.org) is over, and I finished my project, the [DREAM 6800](http://www.mjbauer.biz/DREAM6800.htm) emulator DRÖM.
 
 <!--more-->

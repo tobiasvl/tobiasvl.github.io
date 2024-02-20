@@ -1,20 +1,18 @@
 ---
-title: "The Puzzling Simplicity of Obduction"
-excerpt_separator: "<!--more-->"
-header: 
+title: The Puzzling Simplicity of Obduction
+excerpt_separator: <!--more-->
+header:
   teaser: /assets/images/
   og_image: /assets/images/
 categories:
   - Blog
 tags:
+  - blog/draft
+tags:
   - Myst
 published: false
 synced: true
 ---
-{::comment}
-#blog/draft
-{:/comment}
-
 I love the Myst games.
 
 Obduction is, on paper, an amazing game.

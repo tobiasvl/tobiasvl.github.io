@@ -1,20 +1,18 @@
 ---
-title: "Myst Puzzle Dependency Chart"
-excerpt_separator: "<!--more-->"
-header: 
+title: Myst Puzzle Dependency Chart
+excerpt_separator: <!--more-->
+header:
   teaser: /assets/images/
   og_image: /assets/images/
 categories:
   - Blog
 tags:
+  - blog/draft
+tags:
   - Myst
 published: false
 synced: true
 ---
-{::comment}
-#blog/draft
-{:/comment}
-
 A puzzle dependency chart for Myst, and how its plotholes affect it.
 <!--more-->
 The original _Myst_ from 1993 has an intriguing setting, interesting puzzles, and an alluring backstory.

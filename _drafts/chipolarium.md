@@ -1,11 +1,15 @@
 ---
-title: "Chipolarium"
-excerpt_separator: "<!--more-->"
-header: 
+title: Chipolarium
+excerpt_separator: <!--more-->
+header:
   teaser: /assets/images/dream_6800_ea.jpg
   og_image: /assets/images/dream_6800_ea.jpg
 categories:
   - Blog
+tags:
+  - blog/draft
+  - gamedev
+  - devlog
 tags:
   - CHIP-8
   - Game development
@@ -13,12 +17,6 @@ tags:
 published: false
 synced: true
 ---
-{::comment}
-#blog/draft
-#gamedev
-#devlog
-{:/comment}
-
 For this year's [Octojam](https://octojam.com), I made a CHIP-8 demake of _Polarium_.
 
 <!--more-->

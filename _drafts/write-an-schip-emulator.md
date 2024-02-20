@@ -1,12 +1,14 @@
 ---
-title: "Guide to making a SUPER-CHIP emulator"
-excerpt_separator: "<!--more-->"
-header: 
+title: Guide to making a SUPER-CHIP emulator
+excerpt_separator: <!--more-->
+header:
   teaser: /assets/images/cosmac-vip-manual.png
   og_image: /assets/images/cosmac-vip-manual.png
 toc: true
 categories:
   - Blog
+tags:
+  - blog/draft
 tags:
   - CHIP-8
   - Emulation

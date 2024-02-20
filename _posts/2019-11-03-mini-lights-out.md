@@ -1,22 +1,21 @@
 ---
-title: "Mini Lights Out for CHIP-8"
-excerpt_separator: "<!--more-->"
-header: 
+title: Mini Lights Out for CHIP-8
+excerpt_separator: <!--more-->
+header:
   teaser: /assets/images/mini-lights-out.gif
   og_image: /assets/images/mini-lights-out.gif
 categories:
   - Blog
+tags:
+  - blog/published
+  - gamedev
+  - devlog
 tags:
   - CHIP-8
   - Game development
 published: true
 synced: true
 ---
-{::comment}
-#blog/published
-#gamedev 
-#devlog
-{:/comment}
 I've always thought games are shaped by their medium, so ever since I discovered [CHIP-8](https://en.wikipedia.org/wiki/CHIP-8) I've wanted to make a game that's very idiomatic.<!--more--> [Octojam](https://itch.io/jam/octojam-6) was my chance.
 
 CHIP-8 has a very distinctive human–computer interface: Input is a hexadecimal keyboard on a 4x4 grid, and output is done by XOR-ing pixels on the screen. How could I use that to create a simple game within CHIP-8's other constraints, which felt like a natural fit for the platform?

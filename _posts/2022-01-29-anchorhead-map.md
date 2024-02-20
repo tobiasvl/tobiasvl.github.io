@@ -1,20 +1,18 @@
 ---
-title: "Anchorhead map"
-excerpt_separator: "<!--more-->"
-header: 
+title: Anchorhead map
+excerpt_separator: <!--more-->
+header:
   teaser: /assets/images/anchorhead_map.png
   og_image: /assets/images/anchorhead_map.png
 categories:
   - Blog
 tags:
+  - blog/published
+tags:
   - Interactive Fiction
 published: true
 synced: true
 ---
-{::comment}
-#blog/published 
-{:/comment}
-
 A map I made for the interactive fiction game _Anchorhead_.
 
 <!--more-->

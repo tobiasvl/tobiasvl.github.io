@@ -1,8 +1,10 @@
 ---
-title: "Emulating the MC6820 PIA"
-excerpt_separator: "<!--more-->"
+title: Emulating the MC6820 PIA
+excerpt_separator: <!--more-->
 categories:
   - Blog
+tags:
+  - blog/draft
 tags:
   - M6800
   - DREAM 6800
@@ -10,10 +12,6 @@ tags:
 published: false
 synced: true
 ---
-{::comment}
-#blog/draft 
-{:/comment}
-
 When emulating various 8-bit computers, you might just stumble upon the Peripheral Interface Adapter (PIA).
 <!--more-->
 

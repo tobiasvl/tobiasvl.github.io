@@ -8,15 +8,13 @@ toc: true
 categories:
   - Blog
 tags:
+  - blog/published
+tags:
   - CHIP-8
   - Emulation
 published: true
 synced: true
 ---
-{::comment}
-#blog/published 
-{:/comment}
-
 A high-level guide to making a CHIP-8 emulator.
 
 <!--more-->
@@ -131,7 +129,7 @@ Original interpreters updated the display at 60 Hz (ie. they had 60 FPS, to use 
 The details of the drawing instruction `DXYN` are found below, but in short, it is used to draw a "sprite" on the screen. Each sprite consists of 8-bit bytes, where each bit corresponds to a horizontal pixel; sprites are between 1 and 15 bytes tall. They're drawn to the screen by treating all 0 bits as transparent, and all the 1 bits will "flip" the pixels in the locations of the screen that it's drawn to. (You might recognize this as logical XOR.)
 
 This method of drawing will inevitable cause some flickering objects; when a sprite is moved, it's first erased from the screen (by simply drawing it again, flipping all its lit pixels) and then re-drawn in the new position, so it will disappear for a little while, often causing a flickering effect. If you want, you can try to think of ways to mitigate this. For example, pixels that are erased could fade out instead of disappearing completely, giving an old phosphorous CRT-style effect.
-{: notice--info}
+{: .notice--info}
 
 Stack
 -----
@@ -197,7 +195,7 @@ I'll go through each of these steps below, but first: What speed should this loo
 The original CHIP-8 computers had processors that ran at something like 1 MHz, and the 90s HP48 calculators ran at around 4 MHz. That doesn't tell us much, since the CHIP-8 instructions took a different number of cycles to run in their machine code implementations – and on different computers back then – but it does mean that different games might expect to run at different speeds, so you will probably want to make it configurable.
 
 For the original timings for CHIP-8 instructions in the COSMAC VIP interpreter, see this page: [Chip 8 Instruction Scheduling and Frequency](https://jackson-s.me/2019/07/13/Chip-8-Instruction-Scheduling-and-Frequency.html).
-{: .notice--info }
+{: .notice--info}
 
 In practice, a standard speed of around 700 CHIP-8 instructions per second fits well enough for most CHIP-8 programs you'll find, which are mostly from the 90s. Play a few different ones and get a feel for what speed seems right.
 
@@ -314,7 +312,7 @@ For this instruction, this is not the case. If `V0` contains `FF` and you execut
 We come to the first group of instructions that need further decoding beyond just the first nibble! All these instructions are logical or arithmetic operations, but which one is decided by the last nibble of the opcode. Do another nested `switch` statement (or equivalent) here.
 
 On the COSMAC VIP, all of these instructions changed the value of `VF`. Some of them are mentioned below. For the ones that don't mention affecting `VF`, the resulting value in `VF` is undefined. This is because the CHIP-8 interpreter dispatched these instructions to the 1802 CPU's [ALU](https://en.wikipedia.org/wiki/Arithmetic_logic_unit) circuit, and while doing so it would change the CPU's flag register, which always gets copied to `VF`.
-{: .notice--info }
+{: .notice--info}
 
 #### `8XY0`: Set
 
@@ -398,7 +396,7 @@ Sounds hard? Well, it is, a little.
 The first thing to do is to get the X and Y coordinates from `VX` and `VY`.
 
 A common mistake here is to use `X` and `Y` directly; don't do that, fetch them from the registers.
-{: notice--warning}
+{: .notice--warning}
 
 One area where people get confused is whether sprites should wrap if they go over the edge of the screen. The answer is yes and no.
 
@@ -450,7 +448,7 @@ Note that there's no instruction to read the sound timer; the sound timer will s
 The index register I will get the value in `VX` added to it.
 
 Unlike other arithmetic instructions, this did not affect `VF` on overflow on the original COSMAC VIP. However, it seems that some interpreters set `VF` to 1 if I "overflows" from `0FFF` to above `1000` (outside the normal addressing range). This wasn't the case on the original COSMAC VIP, at least, but apparently the CHIP-8 interpreter for Amiga behaved this way. At least one known game, _Spacefight 2091!_, relies on this behavior. I don't know of any games that rely on this _not happening_, so perhaps it's safe to do it like the Amiga interpreter did.
-{: notice--warning}
+{: .notice--warning}
 
 ### `FX0A`: Get key
 
@@ -463,14 +461,14 @@ Although this instruction stops the program from executing further instructions,
 If a key is pressed while this instruction is waiting for input, its hexadecimal value will be put in `VX` and execution continues.
 
 On the original COSMAC VIP, the key was only registered when it was pressed _and then released_.
-{: notice--info}
+{: .notice--info}
 
 ### `FX29`: Font character
 
 The index register I is set to the address of the hexadecimal character in `VX`. You probably stored that font somewhere in the first 512 bytes of memory, so now you just need to point I to the right character.
 
 An 8-bit register can hold two hexadecimal numbers, but this would only point to one character. The original COSMAC VIP interpreter just took the last nibble of `VX` and used that as the character.
-{: notice--info}
+{: .notice--info}
 
 ### `FX33`: Binary-coded decimal conversion
 
