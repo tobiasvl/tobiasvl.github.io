@@ -1,20 +1,18 @@
 ---
-title: "Obsidian"
-excerpt_separator: "<!--more-->"
-header: 
+title: Obsidian
+excerpt_separator: <!--more-->
+header:
   teaser: /assets/images/
   og_image: /assets/images/
 categories:
   - Blog
 tags:
+  - blog/draft
+tags:
   - PKM
 published: false
 synced: true
 ---
-{::comment}
-#blog/draft 
-{:/comment}
-
 I recently started using [Obsidian](https://obsidian.md) as a XXXX.<!-- more --> A lot can be said about how to use it as a Personal Knowledge Manager (PKM), but I'm still finding my way there. However, I've already covnerted several of my other workflows into Obsidian.
 ## Blogging
 
