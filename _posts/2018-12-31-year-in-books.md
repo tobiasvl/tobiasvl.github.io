@@ -1,21 +1,19 @@
 ---
 title: "2018: Year in Books"
-excerpt_separator: "<!--more-->"
-header: 
+excerpt_separator: <!--more-->
+header:
   teaser: /assets/images/
   og_image: /assets/images/
 categories:
   - Blog
 tags:
+  - blog/draft
+  - year-in-review
+tags:
   - Year in Review
 published: false
 synced: true
 ---
-{::comment}
-#blog/draft
-#year-in-review 
-{:/comment}
-
 The year opened with a small obsession with the Roman empire; I read SPQR, Caesar and Augustus, but then it kind of petered out.
 
 I finally read The Lord of the Rings this year, after it has sat on my shelf for two decades or so. I liked it, but I still like The Hobbit more (which I also re-read).
