@@ -1,6 +1,6 @@
 ---
-title: "Extending CHIPOS with more CHIP-8 instructions"
-excerpt_separator: "<!--more-->"
+title: Extending CHIPOS with more CHIP-8 instructions
+excerpt_separator: <!--more-->
 toc: true
 header:
   teaser: /assets/images/chipos_logo.png
@@ -8,16 +8,14 @@ header:
 categories:
   - Blog
 tags:
+  - "#blog/published"
+tags:
   - CHIP-8
   - DREAM 6800
   - M6800
 published: true
 synced: true
 ---
-{::comment}
-#blog/published 
-{:/comment}
-
 In which I learn 6800 assembly in order to hack CHIPOS.
 
 <!--more-->
