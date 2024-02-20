@@ -1,21 +1,18 @@
 ---
-title: "Myst Versions Compared"
-excerpt_separator: "<!--more-->"
-header: 
+title: Myst Versions Compared
+excerpt_separator: <!--more-->
+header:
   teaser: /assets/images/
   og_image: /assets/images/
 categories:
   - Blog
 tags:
+  - blog/draft
+tags:
   - Myst
 published: false
 synced: true
 ---
-{::comment}
-#blog/draft
-{:/comment}
-
-
 Myst
 Myst: Masterpiece Edition
 realMYST
