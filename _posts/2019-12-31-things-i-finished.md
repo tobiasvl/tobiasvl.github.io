@@ -1,18 +1,17 @@
 ---
-title: "Things I finished in 2019"
-excerpt_separator: "<!--more-->"
+title: Things I finished in 2019
+excerpt_separator: <!--more-->
 toc: true
 categories:
   - Blog
+tags:
+  - blog/published
+  - year-in-review
 tags:
   - Year in Review
 published: true
 synced: true
 ---
-{::comment}
-#blog/published 
-#year-in-review 
-{:/comment}
 A summary of things I "finished" in 2019, with comments.
 
 <!--more-->
