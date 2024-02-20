@@ -8,15 +8,13 @@ toc: true
 categories:
   - Blog
 tags:
+  - blog/published
+tags:
   - CHIP-8
   - Emulation
 published: true
 synced: true
 ---
-{::comment}
-#blog/published 
-{:/comment}
-
 A high-level guide to making a CHIP-8 emulator.
 
 <!--more-->
