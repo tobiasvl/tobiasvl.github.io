@@ -13,10 +13,11 @@ synced: true
 ---
 I read 50 books in 2016!
 <!--more-->
-> See the books and my reviews on Goodreads:
-{: .notice--info}
-> - [Tobias Langhoff’s 2016 reading challenge](https://www.goodreads.com/user_challenges/3701346)
-> - [My Year in Books](https://www.goodreads.com/user/year_in_books/2016)
+<div class="notice--info" markdown="1">
+See the books and my reviews on Goodreads:
+- [Tobias Langhoff’s 2016 reading challenge](https://www.goodreads.com/user_challenges/3701346)
+- [Tobias's Year in Books](https://www.goodreads.com/user/year_in_books/2016)
+</div>
 
 In 2015 I completed a Goodreads reading challenge of 20 books, which I considered quite a feat. I set 2016’s reading challenge at 20 as well. As the year progressed, however, I was so far ahead of the challenge that I kept raising the bar, first to 30, then 40, before landing at 50.
 
