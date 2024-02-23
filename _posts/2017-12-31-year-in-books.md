@@ -13,7 +13,7 @@ synced: true
 ---
 Upping the ante from last year, I finished 75 books this year.
 <!--more-->
-<div class="notice--info">
+<div class="notice--info" markdown="1">
 See the books and my reviews on Goodreads:
 - [Tobias Langhoff’s 2017 reading challenge](https://www.goodreads.com/user_challenges/6897338)
 - [Tobias’s Year in Books](https://www.goodreads.com/user/year_in_books/2017/11408214)
