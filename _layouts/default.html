@@ -23,7 +23,6 @@
 
   <body class="layout--{{ page.layout | default: layout.layout }}{{ classes | join: ' ' | prepend: ' ' }}">
     {% include_cached skip-links.html %}
-    {% include_cached browser-upgrade.html %}
     {% include_cached masthead.html %}
 
     <div class="initial-content">
