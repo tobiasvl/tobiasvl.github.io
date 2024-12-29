@@ -4,7 +4,9 @@ title: "About"
 synced: true
 ---
 
-I'm a Python developer by day, father of two by afternoon and weekends, and a hobby game developer by night.
+I'm usually known as "tvil", "tobiasvl", or "Spug".
+
+A Python developer by day, father of two by afternoon and weekends, and a hobby game developer by night.
 
 I like making games in small, restrictive game environments such as PICO-8, CHIP-8, bitsy, Game Boy, etc.
 
