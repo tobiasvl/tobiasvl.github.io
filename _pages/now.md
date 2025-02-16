@@ -1,6 +1,6 @@
 ---
 permalink: /now/
-title: About
+title: Now
 synced: true
 ---
 An overview of what is going on in my life right [now](https://nownownow.com/about). Last updated 2025-02-16.
