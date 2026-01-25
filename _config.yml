@@ -13,10 +13,10 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Tobias V. Langhoff
+title: Tobias V. I. Langhoff
 email: tobias@langhoff.no
 description: >- # this means to ignore newlines until "baseurl:"
-  Tobias V. Langhoff's personal home page and blog
+  Tobias V. I. Langhoff's personal home page and blog
 og_image : "/assets/images/tvl-photo.jpg"
 twitter_username: Spug
 github_username: tobiasvl
@@ -96,7 +96,7 @@ plugins:
   - jekyll-include-cache
 
 author:
-  name   : "Tobias V. Langhoff"
+  name   : "Tobias V. I. Langhoff"
   avatar : "/assets/images/tvl-photo.jpg"
   bio    : "Software developer from Norway"
   links:
@@ -114,7 +114,7 @@ author:
       url: "https://tvil.itch.io"
     - label: "tobiasvl"
       icon: "fab fa-fw fa-linkedin"
-      url: "https://www.linkedin.com/in/tobiasvl/"
+      url: "https://www.linkedin.com/in/tvil/"
     - label: "tvil"
       icon: "fab fa-fw fa-bandcamp"
       url: "https://tvil.bandcamp.com/"
