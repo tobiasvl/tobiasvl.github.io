@@ -20,7 +20,7 @@ The blog you're currently reading is automatically generated with Jekyll by GitH
 
 Since my blog is Markdown, and Obsidian uses Markdown, I just plopped all my blog posts into Obsidian. I planned to simply write the posts in Obsidian, but continue to manually commit and push them with Git from the command line.
 
-I quickly realized that the YAML frontmatter of Jekyll and Obsidian are subtly incompatible. For example, Jekyll supports `tags` with spaces in them (such as my tag [Year in Review](/tags/#year-in-review)), which is made into a tag without spaces (`#year-in-review`) behind the scenes. Obsidian doesn't support tags with spaces. So when I imported my blog posts, I got one tag called `#Year`, one `#in` (that one's useful) and one `#Review`.
+I quickly realized that the YAML frontmatter of Jekyll and Obsidian are subtly incompatible. For example, Jekyll supports `tags` with spaces in them (such as my tag [Year in Review](/tags/year-in-review)), which is made into a tag without spaces (`#year-in-review`) behind the scenes. Obsidian doesn't support tags with spaces. So when I imported my blog posts, I got one tag called `#Year`, one `#in` (that one's useful) and one `#Review`.
 
 The easiest solution would be to change the tag to `#year-in-review`, which would still map to the same slug on the website and not break existing links, but it would look less human readable.
 

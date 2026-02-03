@@ -18,7 +18,7 @@ The [RetroChallenge](http://www.retrochallenge.org) is over, and I finished my p
 
 <!--more-->
 
-This post is part of a series on writing an emulator for the DREAM 6800 computer. Read [the DREAM 6800 posts](/tags/#dream-6800) and look at [the emulator's repository](https://github.com/tobiasvl/drom).
+This post is part of a series on writing an emulator for the DREAM 6800 computer. Read [the DREAM 6800 posts](/tags/dream-6800) and look at [the emulator's repository](https://github.com/tobiasvl/drom).
 {: .notice--info}
 
 First off: To download the emulator, head over to [DRÖM's GitHub Releases page](https://github.com/tobiasvl/drom/releases).
@@ -35,8 +35,6 @@ To sum up [my first DRÖM blog post](/blog/drom), here are the main issues I had
 * The DREAM's hexadecimal keypad is mapped all over the keyboard
 
 In other words – mostly usability issues. So here's a rundown of how I decided to solve them.
-
-{% include toc %}
 
 Running and loading files
 -------------------------

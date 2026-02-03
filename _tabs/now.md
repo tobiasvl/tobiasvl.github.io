@@ -1,6 +1,7 @@
 ---
 permalink: /now/
 title: Now
+icon: fas fa-clock
 synced: true
 ---
 An overview of what is going on in my life right [now](https://nownownow.com/about). Last updated 2025-11-05.
