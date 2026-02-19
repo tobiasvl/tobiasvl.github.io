@@ -29,3 +29,13 @@
     display: none;
   }
 }
+
+.hide-prompt-icons {
+  blockquote[class^=prompt-] {
+    padding-left: 1rem;
+
+    &::before {
+      display: none;
+    }
+  }
+}
