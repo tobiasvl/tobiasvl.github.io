@@ -7,7 +7,8 @@
         {%- capture avatar_url -%}
           {% include media-url.html src=site.avatar %}
         {%- endcapture -%}
-        <img src="{{- avatar_url -}}" width="112" height="112" alt="avatar" onerror="this.style.display='none'">
+        <img src="{{- avatar_url -}}" class="light" width="112" height="112" alt="avatar" onerror="this.style.display='none'">
+        <img src="{{- '/assets/images/tvl-dark.jpg' | relative_url -}}" class="dark" width="112" height="112" alt="avatar" onerror="this.style.display='none'">
       {%- endif -%}
     </a>
 
