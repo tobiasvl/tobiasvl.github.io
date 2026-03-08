@@ -116,6 +116,10 @@ layout: default
                     {% endfor %}
                   </span>
                 {% endif %}
+
+                <!-- read time -->
+                <i class="far fa-clock fa-fw me-1"></i>
+                {% include read-time.html content=post.content prompt=true lang=lang %}
               </div>
 
               {% if post.pin %}
