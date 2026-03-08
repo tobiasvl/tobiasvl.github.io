@@ -107,6 +107,7 @@ layout: default
                 {% include datetime.html date=post.date lang=lang %}
 
                 <!-- categories -->
+                {% comment %}
                 {% if post.categories.size > 0 %}
                   <i class="far fa-folder-open fa-fw me-1"></i>
                   <span class="categories">
@@ -116,6 +117,7 @@ layout: default
                     {% endfor %}
                   </span>
                 {% endif %}
+                {% endcomment %}
 
                 <!-- read time -->
                 <i class="far fa-clock fa-fw me-1"></i>

@@ -128,6 +128,7 @@ script_includes:
 
   <div class="post-tail-wrapper text-muted">
     <!-- categories -->
+    {% comment %}
     {% if page.categories.size > 0 %}
       <div class="post-meta mb-3">
         <i class="far fa-folder-open fa-fw me-1"></i>
@@ -137,6 +138,7 @@ script_includes:
         {% endfor %}
       </div>
     {% endif %}
+    {% endcomment %}
 
     <!-- tags -->
     {% if page.tags.size > 0 %}
