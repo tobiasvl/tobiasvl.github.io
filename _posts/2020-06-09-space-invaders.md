@@ -2,7 +2,7 @@
 title: Emulating the Space Invaders look and feel
 description: My attempt at making a _Space Invaders_ emulator look like the arcade cabinet.
 image:
-  path: /assets/images/moon_invaders.png
+  path: /assets/img/moon_invaders.png
 categories:
   - Blog
 tags:
@@ -30,7 +30,7 @@ Aspect ratio
 
 In most _Space Invaders_ emulators, one bit of graphical information is drawn as one pixel on the screen.
 
-![](../../assets/images/space_invaders_taito_cop.png)
+![](../../assets/img/space_invaders_taito_cop.png)
 
 However, CRT monitors don't have "pixels" in the same sense. The electron beam is turned on for a period of time as it sweeps horizontally from left to right, illuminating parts of a scanline, before it's turned off again.
 
@@ -43,7 +43,7 @@ Scanlines
 
 Since _Space Invaders_ uses an old CRT monitor, the scanlines are actually visible. Because of the phosphorescent glow, they're not easily discernible, but the gel overlay mutes the bloom on the colored areas, making them stand out more there.
 
-{% include figure image_path="/assets/images/space_invaders_scanlines.png" caption="Screenshot from [this video](https://www.youtube.com/watch?v=DJMr36hLY38)" %}
+{% include figure image_path="/assets/img/space_invaders_scanlines.png" caption="Screenshot from [this video](https://www.youtube.com/watch?v=DJMr36hLY38)" %}
 
 This is a common visual effect, which many emulators provide. However, they often forget that the monitor in the cabinet is rotated. The scanline effect should obviously be applied before rotating, producing vertical scanlines rather than horizontal.
 
@@ -54,13 +54,13 @@ Gel overlay colors
 
 Most _Space Invaders_ emulators use bright, primary colors for its gel overlay, like shown above. The overlay is placed like this (image from [The Cutting Room Floor](https://tcrf.net/Space_Invaders_(Arcade\)):
 
-![](../../assets/images/space_invaders_overlay.png)
+![](../../assets/img/space_invaders_overlay.png)
 
 However, when looking at some YouTube videos ([1](https://www.youtube.com/watch?v=DJMr36hLY38), [2](https://www.youtube.com/watch?v=1uSzmzZP1s8)) with footage of actual arcade gameplay, several things stand out to me about this color scheme:
 
 <figure class="half">
-    <a href="/assets/images/space_invaders_taito.png"><img src="/assets/images/space_invaders_taito.png"></a>
-    <a href="/assets/images/space_invaders_midway.png"><img src="/assets/images/space_invaders_midway.png"></a>
+    <a href="/assets/img/space_invaders_taito.png"><img src="/assets/img/space_invaders_taito.png"></a>
+    <a href="/assets/img/space_invaders_midway.png"><img src="/assets/img/space_invaders_midway.png"></a>
     <figcaption><a href="https://www.youtube.com/watch?v=DJMr36hLY38">Taito cabinet</a> on the left, <a href="https://www.youtube.com/watch?v=1uSzmzZP1s8">Midway cabinet</a> on the right</figcaption>
 </figure>
 
@@ -72,7 +72,7 @@ It's also interesting to note the color of the dividing line between the playing
 
 I haven't found too many photos of the actual overlays out there, but here's an interesting one:
 
-{% include figure image_path="/assets/images/space_invaders_gel.jpg" caption="Image from [BrentRadio's Space Invader page](http://www.brentradio.com/SpaceInvaders.htm)" %}
+{% include figure image_path="/assets/img/space_invaders_gel.jpg" caption="Image from [BrentRadio's Space Invader page](http://www.brentradio.com/SpaceInvaders.htm)" %}
 
 This one is also too short to color more than three lives, as in the Midway video, but the interesting part is that there's a one-scanline gap between the two green areas, so that the dividing line stays white. (In addition, the number denoting the number of lives would be white here, not green like in those videos.) I don't know if all the overlays had this gap and that people just misaligned it when applying it to the screen, but seeing as there were different overlays in the wild, perhaps some were just solid green blocks without the gap.
 
@@ -110,8 +110,8 @@ I emulate all this in [my _Space Invaders_ emulator](https://github.com/tobiasvl
 The result is (as I intended) a fairly close match to the Taito cabinet as shown above, mixed with the Midway cabinet (a subtler bloom, for example):
 
 <figure class="half">
-    <a href="/assets/images/space_invaders_taito_2.png"><img src="/assets/images/space_invaders_taito_2.png"></a>
-    <a href="/assets/images/moon_invaders.png"><img src="/assets/images/moon_invaders.png"></a>
+    <a href="/assets/img/space_invaders_taito_2.png"><img src="/assets/img/space_invaders_taito_2.png"></a>
+    <a href="/assets/img/moon_invaders.png"><img src="/assets/img/moon_invaders.png"></a>
     <figcaption>Taito Space Invaders on the left, my emulator on the right</figcaption>
 </figure>
 

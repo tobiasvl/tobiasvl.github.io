@@ -1,7 +1,7 @@
 ---
 title: The Puzzling Simplicity of Obduction
 image:
-  path: /assets/images/
+  path: /assets/img/
 categories:
   - Blog
 tags:

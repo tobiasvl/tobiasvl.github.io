@@ -1,7 +1,7 @@
 ---
 title: Obsidian
 image:
-  path: /assets/images/
+  path: /assets/img/
 categories:
   - Blog
 tags:

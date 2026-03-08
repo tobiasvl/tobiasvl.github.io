@@ -1,7 +1,7 @@
 ---
 title: Link's Awakening 30th Anniversary
 image:
-  path: /assets/images/
+  path: /assets/img/
 categories:
   - Blog
 tags:

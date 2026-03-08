@@ -1,7 +1,7 @@
 ---
 title: Opcode Tables
 image:
-  path: /assets/images/
+  path: /assets/img/
 categories:
   - Blog
 tags:

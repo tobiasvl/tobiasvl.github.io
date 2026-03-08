@@ -2,7 +2,7 @@
 title: Anchorhead map
 description: A map I made for the interactive fiction game _Anchorhead_.
 image:
-  path: /assets/images/anchorhead_map.png
+  path: /assets/img/anchorhead_map.png
 categories:
   - Blog
 tags:
@@ -22,6 +22,6 @@ To help myself while I played it, I mapped out the game in [Trizbort](https://ww
 
 Spoilers ahead!
 
-![Anchorhead map](../../assets/images/anchorhead_map.png)
+![Anchorhead map](../../assets/img/anchorhead_map.png)
 
 As a sidenote: Mike Gentry, the author of _Anchorhead_, [called the map "fantastic"](https://intfiction.org/t/anchorhead-is-too-hard-for-me/13017/37?u=tobiasvl), so that was nice!

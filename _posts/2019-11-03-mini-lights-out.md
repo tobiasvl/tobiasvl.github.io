@@ -2,7 +2,7 @@
 title: Mini Lights Out for CHIP-8
 description: I've always thought games are shaped by their medium, so ever since I discovered [CHIP-8](https://en.wikipedia.org/wiki/CHIP-8) I've wanted to make a game that's very idiomatic.
 image:
-  path: /assets/images/mini-lights-out.gif
+  path: /assets/img/mini-lights-out.gif
 categories:
   - Blog
 tags:

@@ -1,7 +1,7 @@
 ---
 title: Myst Versions Compared
 image:
-  path: /assets/images/
+  path: /assets/img/
 categories:
   - Blog
 tags:

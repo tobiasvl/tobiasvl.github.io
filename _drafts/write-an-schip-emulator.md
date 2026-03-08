@@ -2,7 +2,7 @@
 title: Guide to making a SUPER-CHIP emulator
 description: A high-level guide to making a SUPER-CHIP emulator.
 image:
-  path: /assets/images/cosmac-vip-manual.png
+  path: /assets/img/cosmac-vip-manual.png
 toc: true
 categories:
   - Blog
@@ -165,7 +165,7 @@ These keypads all had different layouts, but the COSMAC VIP used the following l
 | 7 | 8 | 9 | E |
 | A | 0 | B | F |
 
-{% include figure image_path="/assets/images/cosmac-vip-keypad.png" caption="The COSMAC VIP keypad" %}
+{% include figure image_path="/assets/img/cosmac-vip-keypad.png" caption="The COSMAC VIP keypad" %}
 
 > If you want to support a wide range of CHIP-8 games for different computers, you could add options for other arrangements of the keys. The other most common layout (used by many DREAM 6800 and ETI-660 computers) started with `0` in the upper left corner and ran down to `F` in the bottom right corner.
 {: .prompt-info }
@@ -257,7 +257,7 @@ The reason for this is that while you implement these instructions, you can test
 
 If successful, the program should draw the following and then enter an infinite loop:
 
-{% include figure image_path="/assets/images/chip-8_ibm_logo.png" caption="The grid has been added as a visual aid while debugging" %}
+{% include figure image_path="/assets/img/chip-8_ibm_logo.png" caption="The grid has been added as a visual aid while debugging" %}
 
 When you've managed to get this on your display, you can use test programs to check your implementation of the rest of the instructions as you go along. There are two main tests:
 
