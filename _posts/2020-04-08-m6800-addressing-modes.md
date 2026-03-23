@@ -4,10 +4,7 @@ description: The MC6800's addressing modes have a few things to be aware of.
 image:
   path: /assets/img/m6800-logo.png
 categories:
-  - Blog
-tags:
-  - blog/published
-tags:
+  - Blogtags:
   - M6800
   - DREAM 6800
   - Emulation
@@ -15,9 +12,7 @@ published: true
 synced: true
 ---
 > This post is part of a series on writing an emulator for the DREAM 6800 computer. Read [the DREAM 6800 posts](/tags/dream-6800) and look at [the emulator's repository](https://github.com/tobiasvl/drom).
-{: .prompt-info }
-
-<!-- ![M6800 logo](../../assets/img/m6800-logo.png) -->
+{: .prompt-info}\n\n<!-- ![M6800 logo](m6800-logo.png) -->
 
 The first step in emulating an M6800 system is to decode some instructions. The MC6800 MPU (CPU) uses 7 addressing modes to select operands, but with some added complications. All opcodes are 1 byte, and the opcode determines both the operation to take, and what operand to do it with; the addressing mode indicates the operand type.
 
