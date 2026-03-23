@@ -3,9 +3,8 @@ title: Obsidian
 image:
   path: /assets/img/
 categories:
-  - Blogtags:
-  - PKM
-published: false
+  - Blog
+jekyll_published: false
 synced: true
 ---
 I recently started using [Obsidian](https://obsidian.md) as a XXXX.<!-- more --> A lot can be said about how to use it as a Personal Knowledge Manager (PKM), but I'm still finding my way there. However, I've already covnerted several of my other workflows into Obsidian.
