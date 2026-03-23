@@ -3,10 +3,7 @@ title: Opcode Tables
 image:
   path: /assets/img/
 categories:
-  - Blog
-tags:
-  - blog/draft
-tags:
+  - Blogtags:
   - M6800
 published: false
 synced: true
