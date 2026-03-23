@@ -3,10 +3,7 @@ title: Myst Versions Compared
 image:
   path: /assets/img/
 categories:
-  - Blog
-tags:
-  - blog/draft
-tags:
+  - Blogtags:
   - Myst
 published: false
 synced: true
