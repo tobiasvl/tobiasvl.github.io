@@ -3,10 +3,7 @@ title: Obsidian
 image:
   path: /assets/img/
 categories:
-  - Blog
-tags:
-  - blog/draft
-tags:
+  - Blogtags:
   - PKM
 published: false
 synced: true
