@@ -4,11 +4,8 @@ description: For this year's [Octojam](https://octojam.com), I made a CHIP-8 dem
 image:
   path: /assets/img/dream_6800_ea.jpg
 categories:
-  - Blogtags:
-  - CHIP-8
-  - Game development
-  - Polarium
-published: false
+  - Blog
+jekyll_published: false
 synced: true
 ---
 https://tobiasvl.itch.io/chipolarium
