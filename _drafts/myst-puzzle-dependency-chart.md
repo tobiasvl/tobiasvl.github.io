@@ -4,9 +4,8 @@ description: A puzzle dependency chart for Myst, and how its plotholes affect it
 image:
   path: /assets/img/
 categories:
-  - Blogtags:
-  - Myst
-published: false
+  - Blog
+jekyll_published: false
 synced: true
 ---
 The original _Myst_ from 1993 has an intriguing setting, interesting puzzles, and an alluring backstory.
