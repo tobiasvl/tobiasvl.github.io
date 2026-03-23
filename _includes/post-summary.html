@@ -7,7 +7,7 @@
 {%- endcomment -%}
 
 {%- if post.description and include.full_text != true -%}
-  {{- post.description -}}
+  {{- post.description | replace_regex: '\[([^\]]+)\]\([^\)]+\)', '\1' | markdownify -}}
 {%- else -%}
   {%- comment -%} Remove the line numbers from the code snippet. {%- endcomment -%}
 

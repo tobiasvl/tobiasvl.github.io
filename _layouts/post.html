@@ -13,11 +13,11 @@ script_includes:
 
 {% include toc-status.html %}
 
-<article class="px-1" data-toc="{{ enable_toc }}">
+<article class="px-1 {{ page.cssclasses | join: ' ' }}" data-toc="{{ enable_toc }}">
   <header>
     <h1 data-toc-skip>{{ page.title }}</h1>
     {% if page.description %}
-      <p class="post-desc fw-light mb-4">{{ page.description }}</p>
+      <p class="post-desc fw-light mb-4">{{ page.description | markdownify }}</p>
     {% endif %}
 
     <div class="post-meta text-muted">
