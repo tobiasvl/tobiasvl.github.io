@@ -6,9 +6,8 @@ header:
   teaser: /assets/images/chipos_logo.png
   og_image: /assets/images/chipos_logo.png
 categories:
-  - Blogtags:
-  - Year in Review
-published: false
+  - Blog
+jekyll_published: false
 synced: true
 ---
 A summary of things I "finished" in 2024, with comments.
