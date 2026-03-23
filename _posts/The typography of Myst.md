@@ -5,10 +5,8 @@ header:
   teaser: /assets/images/
   og_image: /assets/images/
 categories:
-  - Blogtags:
-  - Game Boy
-  - ROM hacking
-published: true
+  - Blog
+jekyll_published: true
 synced: true
 ---
 Bringing back a discarded feature in Game Boy assembly code, step by step.
