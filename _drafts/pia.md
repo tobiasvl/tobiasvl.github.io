@@ -2,10 +2,7 @@
 title: Emulating the MC6820 PIA
 description: When emulating various 8-bit computers, you might just stumble upon the Peripheral Interface Adapter (PIA).
 categories:
-  - Blog
-tags:
-  - blog/draft
-tags:
+  - Blogtags:
   - M6800
   - DREAM 6800
   - Emulation
@@ -13,9 +10,7 @@ published: false
 synced: true
 ---
 > This post is part of a series on writing an emulator for the DREAM 6800 computer. Read [the DREAM 6800 posts](/tags/dream-6800) and look at [the emulator's repository](https://github.com/tobiasvl/drom).
-{: .prompt-info }
-
-I spent quite some time implementing the PIA in my emulator, reading through different documentation to figure out how it all worked, so I decided to write down some high-level details on how I ended up doing it. I'm almost surely getting some details wrong, so please comment if you find any inaccuracies.
+{: .prompt-info}\n\nI spent quite some time implementing the PIA in my emulator, reading through different documentation to figure out how it all worked, so I decided to write down some high-level details on how I ended up doing it. I'm almost surely getting some details wrong, so please comment if you find any inaccuracies.
 
 PIA
 ---
