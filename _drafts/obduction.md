@@ -3,9 +3,8 @@ title: The Puzzling Simplicity of Obduction
 image:
   path: /assets/img/
 categories:
-  - Blogtags:
-  - Myst
-published: false
+  - Blog
+jekyll_published: false
 synced: true
 ---
 I love the Myst games.
