@@ -3,9 +3,8 @@ title: Link's Awakening 30th Anniversary
 image:
   path: /assets/img/
 categories:
-  - Blogtags:
-  - Game development
-synced: true
+  - Blog
+jekyll_synced: true
 published: false
 ---
 Optional Heart Containers
