@@ -3,9 +3,8 @@ title: Opcode Tables
 image:
   path: /assets/img/
 categories:
-  - Blogtags:
-  - M6800
-published: false
+  - Blog
+jekyll_published: false
 synced: true
 ---
 I made a website with opcode tables for some of my favorite 8-bit CPUs!
