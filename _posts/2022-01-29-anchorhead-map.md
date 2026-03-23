@@ -4,10 +4,7 @@ description: A map I made for the interactive fiction game _Anchorhead_.
 image:
   path: /assets/img/anchorhead_map.png
 categories:
-  - Blog
-tags:
-  - blog/published
-tags:
+  - Blogtags:
   - Interactive Fiction
 published: true
 synced: true
