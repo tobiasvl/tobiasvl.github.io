@@ -14,8 +14,8 @@ synced: true
 cssclasses:
   - hide-header-image
 ---
-Check out [the emulator's repository](https://github.com/tobiasvl/moon-invaders) if you're interested. It's called _Moon Invaders_, because the game seemingly takes place on the moon, and I wrote the emulator in Lua (which is the Portuguese name for the Moon).
-{: .notice--info}
+> Check out [the emulator's repository](https://github.com/tobiasvl/moon-invaders) if you're interested. It's called _Moon Invaders_, because the game seemingly takes place on the moon, and I wrote the emulator in Lua (which is the Portuguese name for the Moon).
+{: .prompt-info }
 
 To me, emulation isn't just making a program that accurately performs the same computations that the original hardware did; it's also important to me that it captures the feeling of the original game.
 

@@ -15,8 +15,8 @@ synced: true
 cssclasses:
   - hide-header-image
 ---
-This post is part of a series on writing an emulator for the DREAM 6800 computer. Read [the DREAM 6800 posts](/tags/dream-6800) and look at [the emulator's repository](https://github.com/tobiasvl/drom).
-{: .notice--info}
+> This post is part of a series on writing an emulator for the DREAM 6800 computer. Read [the DREAM 6800 posts](/tags/dream-6800) and look at [the emulator's repository](https://github.com/tobiasvl/drom).
+{: .prompt-info }
 
 First off: To download the emulator, head over to [DRÖM's GitHub Releases page](https://github.com/tobiasvl/drom/releases).
 

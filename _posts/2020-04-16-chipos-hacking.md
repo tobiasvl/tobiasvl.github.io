@@ -15,11 +15,11 @@ tags:
 published: true
 synced: true
 ---
-This post is part of a series on writing an emulator for the DREAM 6800 computer. Read [the DREAM 6800 posts](/tags/dream-6800) and look at [the emulator's repository](https://github.com/tobiasvl/drom).
-{: .notice--info}
+> This post is part of a series on writing an emulator for the DREAM 6800 computer. Read [the DREAM 6800 posts](/tags/dream-6800) and look at [the emulator's repository](https://github.com/tobiasvl/drom).
+{: .prompt-info }
 
-The source code and binary for the modified CHIPOS ("CHIPOSLO") can be downloaded from [the CHIPOSLO GitHub repository](https://github.com/tobiasvl/chiposlo).
-{: .notice--success}
+> The source code and binary for the modified CHIPOS ("CHIPOSLO") can be downloaded from [the CHIPOSLO GitHub repository](https://github.com/tobiasvl/chiposlo).
+{: .prompt-tip }
 
 OK, this is a long post. There's a table of contents to the right. I'll get into the nitty-gritty of writing short 6800 assembly, and even though I'm an amateur on that subject, I'm apparently better at it than writing short posts.
 
@@ -42,8 +42,8 @@ CHIP-8's arithmetic and logic instructions are two bytes (like all instructions)
 * `8XY4`: `VX = VX + VY` (VF is set to 1 if there's a carry, and 0 if there's not)
 * `8XY5`: `VX = VX - VY` (VF is set to 0 if there's a borrow, and 1 if there's not)
 
-Notice the inverted use of the carry flag for the subtraction. That's how the 1802's carry flag worked, but it's the opposite of the way it works on the 6800, necessitating some extra work later.
-{: .notice--warning}
+> Notice the inverted use of the carry flag for the subtraction. That's how the 1802's carry flag worked, but it's the opposite of the way it works on the 6800, necessitating some extra work later.
+{: .prompt-warning }
 
 For the instructions that don't specify what happens to VF, the resulting value in VF is undefined. 1802's ALU would mangle it.
 {: .notice}
@@ -55,8 +55,8 @@ Due to the way the original CHIP-8 interpreter dispatches these instructions to 
 * `8XY7`: `VX = VY >> 1` (VF is set to the bit that's shifted out)
 * `8XYE`: `VX = VY << 1` (VF is set to the bit that's shifted out)
 
-Note that starting with the CHIP-48 and SUPER-CHIP interpreters in 1990, `8XY7` and `8XYE` were changed to do `VX >>= 1` and `VX <<= 1` respectively, ignoring the Y operand. For that reason, modern games should use the same V register as both operands to be cross-compatible.
-{: .notice--warning}
+> Note that starting with the CHIP-48 and SUPER-CHIP interpreters in 1990, `8XY7` and `8XYE` were changed to do `VX >>= 1` and `VX <<= 1` respectively, ignoring the Y operand. For that reason, modern games should use the same V register as both operands to be cross-compatible.
+{: .prompt-warning }
 
 The remaining instructions, `8XY8`–`8XYD` and `8XYF`, do not elicit useful functionality.
 {: .notice}
@@ -70,11 +70,11 @@ The DREAM 6800's CHIP-8 interpreter and monitor program, CHIPOS, fits in 1K of m
 CHIPOS code
 -----------
 
-You can download the CHIPOS code and ROM from [Michael J. Bauer's website](http://www.mjbauer.biz/DREAM6800.htm).
-{: .notice--success}
+> You can download the CHIPOS code and ROM from [Michael J. Bauer's website](http://www.mjbauer.biz/DREAM6800.htm).
+{: .prompt-tip }
 
-Here's a nice [opcode table for 6800 assembly](http://www.8bit-era.cz/6800.html) which I used as a reference during development.
-{: .notice--info}
+> Here's a nice [opcode table for 6800 assembly](http://www.8bit-era.cz/6800.html) which I used as a reference during development.
+{: .prompt-info }
 
 The original CHIPOS interpreter uses the first nibble in the CHIP-8 instruction to index a jump table, and it jumps here when it encounters an opcode that starts with 8 (labels are Michael J. Bauer's, comments are mine):
 
