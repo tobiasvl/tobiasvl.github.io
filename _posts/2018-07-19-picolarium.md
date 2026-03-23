@@ -1,10 +1,8 @@
 ---
 title: Picolarium and Polarium passwords
 categories:
-  - Blogtags:
-  - Game development
-  - PICO-8
-published: true
+  - Blog
+jekyll_published: true
 synced: true
 ---
 A few months ago, I published my first game _Picolarium_, a "demake" of one of my favorite puzzle games, _Polarium_, made in PICO-8. [You can play Picolarium here.](https://tobiasvl.itch.io/picolarium)
