@@ -4,10 +4,7 @@ description: The [RetroChallenge](http://www.retrochallenge.org) is over, and I 
 image:
   path: /assets/img/drom.png
 categories:
-  - Blog
-tags:
-  - blog/published
-tags:
+  - Blogtags:
   - DREAM 6800
   - Emulation
 published: true
@@ -16,9 +13,7 @@ cssclasses:
   - hide-header-image
 ---
 > This post is part of a series on writing an emulator for the DREAM 6800 computer. Read [the DREAM 6800 posts](/tags/dream-6800) and look at [the emulator's repository](https://github.com/tobiasvl/drom).
-{: .prompt-info }
-
-First off: To download the emulator, head over to [DRÖM's GitHub Releases page](https://github.com/tobiasvl/drom/releases).
+{: .prompt-info}\n\nFirst off: To download the emulator, head over to [DRÖM's GitHub Releases page](https://github.com/tobiasvl/drom/releases).
 
 Part of the reason I wanted to make a DREAM 6800 emulator was because I found the graphical user interface in the only other DREAM emulator I found, MAME, a bit lacking.
 
