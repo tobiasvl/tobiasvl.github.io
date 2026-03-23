@@ -5,10 +5,8 @@ image:
   path: /assets/img/cosmac-vip-manual.png
 toc: true
 categories:
-  - Blogtags:
-  - CHIP-8
-  - Emulation
-published: false
+  - Blog
+jekyll_published: false
 synced: true
 ---
 So you read my guide on how to make a CHIP-8 emulator! Good job. (If you haven't read it, read it now. It's required reading before you read this one.)
