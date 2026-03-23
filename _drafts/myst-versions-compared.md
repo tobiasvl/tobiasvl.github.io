@@ -3,9 +3,8 @@ title: Myst Versions Compared
 image:
   path: /assets/img/
 categories:
-  - Blogtags:
-  - Myst
-published: false
+  - Blog
+jekyll_published: false
 synced: true
 ---
 Myst
