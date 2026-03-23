@@ -1,6 +1,6 @@
 ---
 permalink: /about/
-title: "About"
+title: About
 icon: fas fa-circle-info
 synced: true
 ---
