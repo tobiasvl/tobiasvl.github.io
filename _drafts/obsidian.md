@@ -1,6 +1,5 @@
 ---
 title: Obsidian
-excerpt_separator: <!--more-->
 header:
   teaser: /assets/images/
   og_image: /assets/images/

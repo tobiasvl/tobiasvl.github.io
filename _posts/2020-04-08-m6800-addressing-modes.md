@@ -1,6 +1,6 @@
 ---
 title: Motorola 6800 addressing modes
-excerpt_separator: <!--more-->
+description: The MC6800's addressing modes have a few things to be aware of.
 header:
   teaser: /assets/images/m6800-logo.png
   og_image: /assets/images/m6800-logo.png
@@ -15,9 +15,6 @@ tags:
 published: true
 synced: true
 ---
-The MC6800's addressing modes have a few things to be aware of.
-<!--more-->
-
 This post is part of a series on writing an emulator for the DREAM 6800 computer. Read [the DREAM 6800 posts](/tags/dream-6800) and look at [the emulator's repository](https://github.com/tobiasvl/drom).
 {: .notice--info}
 

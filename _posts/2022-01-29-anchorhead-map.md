@@ -1,6 +1,6 @@
 ---
 title: Anchorhead map
-excerpt_separator: <!--more-->
+description: A map I made for the interactive fiction game _Anchorhead_.
 header:
   teaser: /assets/images/anchorhead_map.png
   og_image: /assets/images/anchorhead_map.png
@@ -13,10 +13,6 @@ tags:
 published: true
 synced: true
 ---
-A map I made for the interactive fiction game _Anchorhead_.
-
-<!--more-->
-
 It's been a while since I blogged. Contrary to what I thought at the beginning of the pandemic, I didn't work a lot on my hobbies even though I suddenly got a lot of time to do so. But I've recently picked up a few projects again. In the meantime, here's something I made.
 
 In 2021, I got very interested in interactive fiction, a genre of video games also known as "text adventures". _[Anchorhead](https://www.anchorhead-game.com)_ is a classic of the genre, an exciting adventure heavily inspired by H. P. Lovecraft. I heartily recommend it, although perhaps not for newcomers to interactive fiction. It's pretty hard!

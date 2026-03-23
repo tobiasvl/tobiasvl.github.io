@@ -1,6 +1,6 @@
 ---
 title: Emulating the Space Invaders look and feel
-excerpt_separator: <!--more-->
+description: My attempt at making a _Space Invaders_ emulator look like the arcade cabinet.
 header:
   teaser: /assets/images/moon_invaders.png
   og_image: /assets/images/moon_invaders.png
@@ -13,10 +13,6 @@ tags:
 published: true
 synced: true
 ---
-My attempt at making a _Space Invaders_ emulator look like the arcade cabinet.
-
-<!--more-->
-
 Check out [the emulator's repository](https://github.com/tobiasvl/moon-invaders) if you're interested. It's called _Moon Invaders_, because the game seemingly takes place on the moon, and I wrote the emulator in Lua (which is the Portuguese name for the Moon).
 {: .notice--info}
 

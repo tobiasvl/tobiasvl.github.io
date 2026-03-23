@@ -1,6 +1,6 @@
 ---
 title: Choosing the wrong M6800 assembler
-excerpt_separator: <!--more-->
+description: Using the wrong assembler can set your MC6800 on fire.
 header:
   teaser: /assets/images/m6800-logo.png
   og_image: /assets/images/m6800-logo.png
@@ -14,9 +14,6 @@ tags:
 published: true
 synced: true
 ---
-Using the wrong assembler can set your MC6800 on fire.
-<!--more-->
-
 This post is part of a series on writing an emulator for the DREAM 6800 computer. Read [the DREAM 6800 posts](/tags/dream-6800) and look at [the emulator's repository](https://github.com/tobiasvl/drom).
 {: .notice--info}
 

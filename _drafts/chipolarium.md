@@ -1,6 +1,6 @@
 ---
 title: Chipolarium
-excerpt_separator: <!--more-->
+description: For this year's [Octojam](https://octojam.com), I made a CHIP-8 demake of _Polarium_.
 header:
   teaser: /assets/images/dream_6800_ea.jpg
   og_image: /assets/images/dream_6800_ea.jpg
@@ -17,10 +17,6 @@ tags:
 published: false
 synced: true
 ---
-For this year's [Octojam](https://octojam.com), I made a CHIP-8 demake of _Polarium_.
-
-<!--more-->
-
 https://tobiasvl.itch.io/chipolarium
 
 PLAY CHIPOLARIUM HERE

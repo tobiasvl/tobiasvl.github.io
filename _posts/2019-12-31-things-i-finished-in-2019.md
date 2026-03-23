@@ -1,6 +1,6 @@
 ---
 title: Things I finished in 2019
-excerpt_separator: <!--more-->
+description: A summary of things I "finished" in 2019, with comments.
 toc: true
 categories:
   - Blog
@@ -12,10 +12,6 @@ tags:
 published: true
 synced: true
 ---
-A summary of things I "finished" in 2019, with comments.
-
-<!--more-->
-
 In 2019 I had my second child. Having one kid (born in 2014) actually opened up a lot of free time for my hobbies, since I had to stay at home most evenings, but with two kids there's so much to do that my free time this year suffered. I still found time to make games, but I didn't have as much time to sit down with a book or movie/TV show. So much programming takes place in the brain at all times; the time spent in front of the computer is mostly implementation of plans.
 
 ## Production

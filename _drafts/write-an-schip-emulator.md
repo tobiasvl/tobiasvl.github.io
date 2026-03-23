@@ -1,6 +1,6 @@
 ---
 title: Guide to making a SUPER-CHIP emulator
-excerpt_separator: <!--more-->
+description: A high-level guide to making a SUPER-CHIP emulator.
 header:
   teaser: /assets/images/cosmac-vip-manual.png
   og_image: /assets/images/cosmac-vip-manual.png
@@ -15,11 +15,6 @@ tags:
 published: false
 synced: true
 ---
-
-A high-level guide to making a SUPER-CHIP emulator.
-
-<!--more-->
-
 So you read my guide on how to make a CHIP-8 emulator! Good job. (If you haven't read it, read it now. It's required reading before you read this one.)
 
 Now what? Sure, you could go onto the daunting task of making a Game Boy emulator, or a NES emulator, or perhaps a PS5 emulator.

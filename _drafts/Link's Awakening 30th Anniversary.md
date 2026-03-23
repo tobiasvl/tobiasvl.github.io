@@ -1,6 +1,5 @@
 ---
 title: Link's Awakening 30th Anniversary
-excerpt_separator: <!--more-->
 header:
   teaser: /assets/images/
   og_image: /assets/images/

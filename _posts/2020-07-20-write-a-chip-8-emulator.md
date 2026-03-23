@@ -1,6 +1,6 @@
 ---
 title: Guide to making a CHIP-8 emulator
-excerpt_separator: <!--more-->
+description: A high-level guide to making a CHIP-8 emulator.
 header:
   teaser: /assets/images/cosmac-vip-manual.png
   og_image: /assets/images/cosmac-vip-manual.png
@@ -15,10 +15,6 @@ tags:
 published: true
 synced: true
 ---
-A high-level guide to making a CHIP-8 emulator.
-
-<!--more-->
-
 Do you want to get into emulator development? A common advice is to start out with [CHIP-8](https://en.wikipedia.org/wiki/CHIP-8). But how do you do that? And why are there so many different, conflicting specifications?
 
 This is a guide for you. It will tell you how to make a CHIP-8 emulator, but it won't give away the code. It will explain what each part should do, and use some pseudocode at times, but the actual implementation will be up to you.

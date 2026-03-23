@@ -1,6 +1,5 @@
 ---
 title: The Puzzling Simplicity of Obduction
-excerpt_separator: <!--more-->
 header:
   teaser: /assets/images/
   og_image: /assets/images/

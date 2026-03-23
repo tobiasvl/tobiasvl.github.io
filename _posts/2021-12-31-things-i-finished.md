@@ -1,6 +1,6 @@
 ---
 title: "Things I finished in 2021"
-excerpt_separator: "<!--more-->"
+description: A summary of things I "finished" in 2021, with comments.
 toc: true
 header:
   teaser: /assets/images/chipos_logo.png
@@ -12,10 +12,6 @@ tags:
 published: false
 synced: true
 ---
-A summary of things I "finished" in 2021, with comments.
-
-<!--more-->
-
 The list of things I _didn't_ finish in 2021 would be much longer. I pretty much stopped reading halfway through the year. Not uncommon for me, but usually I pick it up again in the fall. This year I replaced it with other hobbies, like running and making music (hopefully I'll have something of the latter to put on my 2021 list).
 
 ## Production

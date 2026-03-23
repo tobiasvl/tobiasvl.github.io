@@ -1,6 +1,6 @@
 ---
 title: Extending CHIPOS with more CHIP-8 instructions
-excerpt_separator: <!--more-->
+description: In which I learn 6800 assembly in order to hack CHIPOS.
 toc: true
 header:
   teaser: /assets/images/chipos_logo.png
@@ -16,10 +16,6 @@ tags:
 published: true
 synced: true
 ---
-In which I learn 6800 assembly in order to hack CHIPOS.
-
-<!--more-->
-
 This post is part of a series on writing an emulator for the DREAM 6800 computer. Read [the DREAM 6800 posts](/tags/dream-6800) and look at [the emulator's repository](https://github.com/tobiasvl/drom).
 {: .notice--info}
 

@@ -1,6 +1,5 @@
 ---
 title: Picolarium and Polarium passwords
-excerpt_separator: <!--more-->
 categories:
   - Blog
 tags:
