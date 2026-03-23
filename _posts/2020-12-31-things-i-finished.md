@@ -5,11 +5,7 @@ toc: true
 image:
   path: /assets/img/chipos_logo.png
 categories:
-  - Blog
-tags:
-  - year-in-review
-  - blog
-tags:
+  - Blogtags:
   - Year in Review
 published: false
 synced: true
