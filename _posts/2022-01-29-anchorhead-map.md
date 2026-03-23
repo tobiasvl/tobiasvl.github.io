@@ -4,9 +4,8 @@ description: A map I made for the interactive fiction game _Anchorhead_.
 image:
   path: /assets/img/anchorhead_map.png
 categories:
-  - Blogtags:
-  - Interactive Fiction
-published: true
+  - Blog
+jekyll_published: true
 synced: true
 cssclasses:
   - hide-header-image
