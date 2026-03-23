@@ -68,3 +68,45 @@ div[class^='language-'] {
     }
   }
 }
+
+:root {
+  --font-family-sans: "Alegreya Sans", sans-serif;
+  --font-family-serif: Alegreya, serif;
+}
+
+body {
+  font-family: var(--font-family-sans);
+}
+
+/* %heading { */
+header .post-desc, #toc-bar .label, #search-results a, h1, h2, h3, h4, h5 {
+  font-family: var(--font-family-serif);
+}
+
+#sidebar {
+  font-family: var(--font-family-serif);
+}
+
+#toc-solo-trigger {
+  .label {
+    font-family: var(--font-family-serif);
+  }
+}
+
+#notification {
+  .toast-body {
+    font-family: var(--font-family-serif);
+  }
+}
+
+#toc-popup {
+  .header {
+    .label {
+      font-family: var(--font-family-serif);
+    }
+  }
+
+  #toc-popup-content {
+    font-family: var(--font-family-serif);
+  }
+}
