@@ -4,10 +4,8 @@ description: The [RetroChallenge](http://www.retrochallenge.org) is over, and I 
 image:
   path: /assets/img/drom.png
 categories:
-  - Blogtags:
-  - DREAM 6800
-  - Emulation
-published: true
+  - Blog
+jekyll_published: true
 synced: true
 cssclasses:
   - hide-header-image
