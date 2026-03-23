@@ -3,11 +3,7 @@ title: Things I finished in 2019
 description: A summary of things I "finished" in 2019, with comments.
 toc: true
 categories:
-  - Blog
-tags:
-  - blog/published
-  - year-in-review
-tags:
+  - Blogtags:
   - Year in Review
 published: true
 synced: true
