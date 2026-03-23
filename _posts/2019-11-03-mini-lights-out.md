@@ -4,12 +4,7 @@ description: I've always thought games are shaped by their medium, so ever since
 image:
   path: /assets/img/mini-lights-out.gif
 categories:
-  - Blog
-tags:
-  - blog/published
-  - gamedev
-  - devlog
-tags:
+  - Blogtags:
   - CHIP-8
   - Game development
 published: true
