@@ -2,9 +2,8 @@
 title: Extending CHIPOS with more CHIP-8 instructions
 description: In which I learn 6800 assembly in order to hack CHIPOS.
 toc: true
-header:
-  teaser: /assets/images/chipos_logo.png
-  og_image: /assets/images/chipos_logo.png
+image:
+  path: /assets/images/chipos_logo.png
 categories:
   - Blog
 tags:
@@ -24,7 +23,7 @@ The source code and binary for the modified CHIPOS ("CHIPOSLO") can be downloade
 
 OK, this is a long post. There's a table of contents to the right. I'll get into the nitty-gritty of writing short 6800 assembly, and even though I'm an amateur on that subject, I'm apparently better at it than writing short posts.
 
-![CHIPOS logo](../../assets/images/chipos_logo.png)
+<!-- ![CHIPOS logo](../../assets/images/chipos_logo.png) -->
 
 Quick recap: The [DREAM 6800](http://www.mjbauer.biz/DREAM6800.htm) was created in 1978 by Michael J. Bauer, and it came with a small, 1024 byte operating system called <abbr title="Compact Hexadecimal Interpretive Programming and Operating System">CHIPOS</abbr>. CHIPOS incorporates an interpreter for a bytecode <abbr title="Virtual Machine">VM</abbr> called CHIP-8, which originally appeared on RCA's CDP1802-based COSMAC VIP computer in 1977. You can read more about [CHIP-8 on Wikipedia](https://en.wikipedia.org/wiki/CHIP-8).
 

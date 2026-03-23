@@ -1,9 +1,8 @@
 ---
 title: Guide to making a CHIP-8 emulator
 description: A high-level guide to making a CHIP-8 emulator.
-header:
-  teaser: /assets/images/cosmac-vip-manual.png
-  og_image: /assets/images/cosmac-vip-manual.png
+image:
+  path: /assets/images/cosmac-vip-manual.png
 toc: true
 categories:
   - Blog

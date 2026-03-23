@@ -1,9 +1,8 @@
 ---
 title: Motorola 6800 addressing modes
 description: The MC6800's addressing modes have a few things to be aware of.
-header:
-  teaser: /assets/images/m6800-logo.png
-  og_image: /assets/images/m6800-logo.png
+image:
+  path: /assets/images/m6800-logo.png
 categories:
   - Blog
 tags:

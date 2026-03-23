@@ -1,9 +1,8 @@
 ---
 title: An emulator UI
 description: The [RetroChallenge](http://www.retrochallenge.org) is over, and I finished my project, the [DREAM 6800](http://www.mjbauer.biz/DREAM6800.htm) emulator DRÖM.
-header:
-  teaser: /assets/images/drom.png
-  og_image: /assets/images/drom.png
+image:
+  path: /assets/images/drom.png
 categories:
   - Blog
 tags:
@@ -13,6 +12,8 @@ tags:
   - Emulation
 published: true
 synced: true
+cssclasses:
+  - hide-header-image
 ---
 This post is part of a series on writing an emulator for the DREAM 6800 computer. Read [the DREAM 6800 posts](/tags/dream-6800) and look at [the emulator's repository](https://github.com/tobiasvl/drom).
 {: .notice--info}

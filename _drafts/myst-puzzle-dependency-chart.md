@@ -1,9 +1,8 @@
 ---
 title: Myst Puzzle Dependency Chart
 description: A puzzle dependency chart for Myst, and how its plotholes affect it.
-header:
-  teaser: /assets/images/
-  og_image: /assets/images/
+image:
+  path: /assets/images/
 categories:
   - Blog
 tags:

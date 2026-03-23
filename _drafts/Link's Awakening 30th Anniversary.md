@@ -1,8 +1,7 @@
 ---
 title: Link's Awakening 30th Anniversary
-header:
-  teaser: /assets/images/
-  og_image: /assets/images/
+image:
+  path: /assets/images/
 categories:
   - Blog
 tags:

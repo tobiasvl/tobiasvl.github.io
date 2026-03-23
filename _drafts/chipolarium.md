@@ -1,9 +1,8 @@
 ---
 title: Chipolarium
 description: For this year's [Octojam](https://octojam.com), I made a CHIP-8 demake of _Polarium_.
-header:
-  teaser: /assets/images/dream_6800_ea.jpg
-  og_image: /assets/images/dream_6800_ea.jpg
+image:
+  path: /assets/images/dream_6800_ea.jpg
 categories:
   - Blog
 tags:
