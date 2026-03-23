@@ -5,9 +5,8 @@ toc: true
 image:
   path: /assets/img/chipos_logo.png
 categories:
-  - Blogtags:
-  - Year in Review
-published: false
+  - Blog
+jekyll_published: false
 synced: true
 ---
 The list of things I _didn't_ finish in 2020 would be much longer. I pretty much stopped reading halfway through the year. Not uncommon for me, but usually I pick it up again in the fall. This year I replaced it with other hobbies, like running and making music (hopefully I'll have something of the latter to put on my 2021 list).
