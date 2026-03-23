@@ -4,10 +4,8 @@ description: I've always thought games are shaped by their medium, so ever since
 image:
   path: /assets/img/mini-lights-out.gif
 categories:
-  - Blogtags:
-  - CHIP-8
-  - Game development
-published: true
+  - Blog
+jekyll_published: true
 synced: true
 ---
 [Octojam](https://itch.io/jam/octojam-6) was my chance.
