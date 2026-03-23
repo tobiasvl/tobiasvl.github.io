@@ -39,3 +39,19 @@
     }
   }
 }
+
+figure.half {
+  > a,
+  > img {
+    width: calc(50% - 0.5em);
+  }
+
+  figcaption {
+    width: 100%;
+  }
+}
+
+figcaption {
+  font-size: 90%;
+  text-align: center;
+}
