@@ -4,9 +4,8 @@ description: My attempt at making a _Space Invaders_ emulator look like the arca
 image:
   path: /assets/img/moon_invaders.png
 categories:
-  - Blogtags:
-  - Emulation
-published: true
+  - Blog
+jekyll_published: true
 synced: true
 cssclasses:
   - hide-header-image
