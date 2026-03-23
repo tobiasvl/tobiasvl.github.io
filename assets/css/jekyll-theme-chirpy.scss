@@ -55,3 +55,16 @@ figcaption {
   font-size: 90%;
   text-align: center;
 }
+
+div[class^='language-'] {
+  .code-header {
+    &::before {
+      content: none;
+    }
+
+    span {
+      // center the text of label
+      margin-left: 0;
+    }
+  }
+}
