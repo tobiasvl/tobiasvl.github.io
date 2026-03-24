@@ -10,7 +10,8 @@ jekyll_published: true
 synced: true
 ---
 > This post is part of a series on writing an emulator for the DREAM 6800 computer. Read [the DREAM 6800 posts](/tags/dream-6800) and look at [the emulator's repository](https://github.com/tobiasvl/drom).
-{: .prompt-info}\n\n> [!tip]
+{: .prompt-info}\r\r
+> [!tip]
 > The source code and binary for the modified CHIPOS ("CHIPOSLO") can be downloaded from [the CHIPOSLO GitHub repository](https://github.com/tobiasvl/chiposlo).
 
 OK, this is a long post. There's a table of contents to the right. I'll get into the nitty-gritty of writing short 6800 assembly, and even though I'm an amateur on that subject, I'm apparently better at it than writing short posts.
@@ -35,8 +36,8 @@ CHIP-8's arithmetic and logic instructions are two bytes (like all instructions)
 * `8XY5`: `VX = VX - VY` (VF is set to 0 if there's a borrow, and 1 if there's not)
 
 > Notice the inverted use of the carry flag for the subtraction. That's how the 1802's carry flag worked, but it's the opposite of the way it works on the 6800, necessitating some extra work later.
-{: .prompt-warning}\n\n> For the instructions that don't specify what happens to VF, the resulting value in VF is undefined. 1802's ALU would mangle it.
-{: .prompt-info}\n\nDue to the way the original CHIP-8 interpreter dispatches these instructions to the 1802's ALU ([details in this great blog post](https://laurencescotford.com/chip-8-on-the-cosmac-vip-arithmetic-and-logic-instructions/)), it actually had four undocumented instructions. They are as follows:
+{: .prompt-warning}\r\r> For the instructions that don't specify what happens to VF, the resulting value in VF is undefined. 1802's ALU would mangle it.
+{: .prompt-info}\r\rDue to the way the original CHIP-8 interpreter dispatches these instructions to the 1802's ALU ([details in this great blog post](https://laurencescotford.com/chip-8-on-the-cosmac-vip-arithmetic-and-logic-instructions/)), it actually had four undocumented instructions. They are as follows:
 
 * `8XY3`: `VX = VX XOR VY`
 * `8XY6`: `VX = VY - VX` (VF is set to 0 if there's a borrow, and 1 if there's not)
@@ -44,8 +45,8 @@ CHIP-8's arithmetic and logic instructions are two bytes (like all instructions)
 * `8XYE`: `VX = VY << 1` (VF is set to the bit that's shifted out)
 
 > Note that starting with the CHIP-48 and SUPER-CHIP interpreters in 1990, `8XY7` and `8XYE` were changed to do `VX >>= 1` and `VX <<= 1` respectively, ignoring the Y operand. For that reason, modern games should use the same V register as both operands to be cross-compatible.
-{: .prompt-warning}\n\n> The remaining instructions, `8XY8`–`8XYD` and `8XYF`, do not elicit useful functionality.
-{: .prompt-info}\n\nThese four undocumented instructions were discovered pretty early on, in 1978, and described in the COSMAC VIP's newsletter _VIPER_ ([issue #2](https://archive.org/details/viper_1_02/page/n2/mode/1up)), but Bauer apparently wasn't aware of them at the time he made the DREAM 6800. So his CHIP-8 interpreter in CHIPOS does not support them. My games, however, make heavy use of the shift instructions in particular.
+{: .prompt-warning}\r\r> The remaining instructions, `8XY8`–`8XYD` and `8XYF`, do not elicit useful functionality.
+{: .prompt-info}\r\rThese four undocumented instructions were discovered pretty early on, in 1978, and described in the COSMAC VIP's newsletter _VIPER_ ([issue #2](https://archive.org/details/viper_1_02/page/n2/mode/1up)), but Bauer apparently wasn't aware of them at the time he made the DREAM 6800. So his CHIP-8 interpreter in CHIPOS does not support them. My games, however, make heavy use of the shift instructions in particular.
 
 This meant I couldn't play my games in my DREAM emulator. I decided to take a little detour on my emulator development to see if I could cram them into CHIPOS. All I know about Motorola 6800 assembly is what I've learned from making this emulator, so this would be an interesting exercise.
 
@@ -58,7 +59,8 @@ CHIPOS code
 > You can download the CHIPOS code and ROM from [Michael J. Bauer's website](http://www.mjbauer.biz/DREAM6800.htm).
 
 > Here's a nice [opcode table for 6800 assembly](http://www.8bit-era.cz/6800.html) which I used as a reference during development.
-{: .prompt-info}\n\nThe original CHIPOS interpreter uses the first nibble in the CHIP-8 instruction to index a jump table, and it jumps here when it encounters an opcode that starts with 8 (labels are Michael J. Bauer's, comments are mine):
+{: .prompt-info}\r\r
+The original CHIPOS interpreter uses the first nibble in the CHIP-8 instruction to index a jump table, and it jumps here when it encounters an opcode that starts with 8 (labels are Michael J. Bauer's, comments are mine):
 
 ~~~
 LETVV: LDAA VX    ; A will be used as result
