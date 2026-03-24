@@ -9,7 +9,8 @@ jekyll_published: true
 synced: true
 ---
 > This post is part of a series on writing an emulator for the DREAM 6800 computer. Read [the DREAM 6800 posts](/tags/dream-6800) and look at [the emulator's repository](https://github.com/tobiasvl/drom).
-{: .prompt-info}\n\n<!-- ![M6800 logo](m6800-logo.png) -->
+{: .prompt-info}\r\r
+<!-- ![M6800 logo](m6800-logo.png) -->
 
 I've done a little homebrew for the Fairchild Channel F in the past, which was one of the earliest video game consoles. I'll probably write separate articles on that later. While developing for the Channel F's F8 CPU, I used a nice little assembler called [dasm](https://github.com/dasm-assembler/dasm).
 
@@ -23,7 +24,8 @@ So I started developing my MC6800 program, assembling it using dasm in MC6803 mo
 Not literally, of course. You can read about the [Undocumented M6800 Instructions](http://spivey.oriel.ox.ac.uk/wiki3/images/1/1a/Undoc6800.pdf) in this article from _BYTE_ Magazine, or in the article [Investigating the HCF (Halt & Catch Fire) instruction on Motorola 6800](https://x86.fr/investigating-the-halt-and-catch-fire-instruction-on-motorola-6800/). Among these instructions is the so-called "Halt and Catch Fire" or `HCF`, with opcodes `$9D` and `$DD`.
 
 > _Halt and Catch Fire_ is also the name of an excellent and criminally underrated TV show. You should watch it!
-{: .prompt-info}\n\nIf the MC6800 executed one of these, it would do something strange: It would stop responding to interrupts ("halt") and start quickly reading each memory address in turn by incrementing the program counter ("catch fire"). The only way to recover would be to turn off the power! Oof.
+{: .prompt-info}\r\r
+If the MC6800 executed one of these, it would do something strange: It would stop responding to interrupts ("halt") and start quickly reading each memory address in turn by incrementing the program counter ("catch fire"). The only way to recover would be to turn off the power! Oof.
 
 When I started making my emulator, I naturally included the `HCF` instruction in my MPU implementation. I wanted it to be an accurate emulator; plus, `HCF` is a fun and mythical instruction! Except now my own program caused my own emulator to, well, halt and catch fire.
 
