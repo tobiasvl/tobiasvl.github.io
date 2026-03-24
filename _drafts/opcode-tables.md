@@ -1,11 +1,8 @@
 ---
 title: Opcode Tables
-image:
-  path: /assets/img/
+image: /assets/img/
 categories:
   - Blog
-tags:
-  - blog/draft
 tags:
   - M6800
 published: false
