@@ -27,7 +27,8 @@ As you can see above, Link enters the shop and stands still while he lets the sh
 Let's try to figure out why this doesn't happen in the game. The following annotation is from the [the disassembly](https://github.com/zladx/LADX-Disassembly/blob/008d015/src/code/bank0.asm#L7214-L7251), documented by [@kemenaran](https://github.com/kemenaran):
 
 >  You can find the corresponding machine code (or "hex code" as ROM hackers sometimes call it) in your own copy of the game's ROM, in the memory location `$37B6` in bank 0 (at least in version 1.0 of the North American version of the ROM). The disassembly has comments on all lines of code with the corresponding bank number and memory address, but I've omitted those here for brevity.
-{: .prompt-info}\n\n```asm
+{: .prompt-info}\r\r
+```asm
 LoadObject_IndoorEntrance::
     ; This code is supposed to replace the Shop's indoor entrance
     ; by a closed door if Link has stolen from the shop
@@ -68,7 +69,7 @@ To summarize the code above: When a regular door entrance is loaded, this code c
 The code does nothing in the final game, because it checks the wrong `hMapRoom` ID, the internal identifier for the current screen you're on.
 
 > One interesting thing to note is that this defunct piece of code is run every time the `LoadObject_IndoorEntrance` subroutine is called, which is every time you enter a screen containing an `OBJECT_INDOOR_ENTRANCE`, which is every house in the game!
-{: .prompt-info}\n\nAt first glance, this seems easy enough to fix - just update the room ID from `$D3` to `$A1`, which is the actual ID for the shop interior. The comment in the code says this garbles the tiles around the door, but let's see what actually happens.
+{: .prompt-info}\r\rAt first glance, this seems easy enough to fix - just update the room ID from `$D3` to `$A1`, which is the actual ID for the shop interior. The comment in the code says this garbles the tiles around the door, but let's see what actually happens.
 
 ![zelda_fixed_room_number](../../assets/img/zelda_fixed_room_number.png)
 
@@ -205,7 +206,7 @@ Instead, I got an idea: We could script Link to walk far enough into the room fo
 ```
 
 > I changed Link's final Y position from `$74` to `$72`, because it avoids any clipping with the door, and because I actually think that lines him up even better with the laser blast than in the original game.
-{: .prompt-info}\n\n This is fairly straight forward, and I think it makes for a nice effect: Link enters the shop without a care in the world, but upon seeing the shopkeeper, he retreats instinctively only to back into the closed door. Boom!
+{: .prompt-info}\r\r This is fairly straight forward, and I think it makes for a nice effect: Link enters the shop without a care in the world, but upon seeing the shopkeeper, he retreats instinctively only to back into the closed door. Boom!
 
 ![zelda_wrong_palette](../../assets/img/zelda_wrong_palette.gif)
 
