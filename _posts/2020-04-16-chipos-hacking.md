@@ -2,12 +2,9 @@
 title: Extending CHIPOS with more CHIP-8 instructions
 description: In which I learn 6800 assembly in order to hack CHIPOS.
 toc: true
-image:
-  path: /assets/img/chipos_logo.png
+image: /assets/img/chipos_logo.png
 categories:
   - Blog
-tags:
-  - "#blog/published"
 tags:
   - CHIP-8
   - DREAM 6800
@@ -23,7 +20,7 @@ synced: true
 
 OK, this is a long post. There's a table of contents to the right. I'll get into the nitty-gritty of writing short 6800 assembly, and even though I'm an amateur on that subject, I'm apparently better at it than writing short posts.
 
-<!-- ![CHIPOS logo](../../assets/img/chipos_logo.png) -->
+<!-- ![CHIPOS logo](chipos_logo.png) -->
 
 Quick recap: The [DREAM 6800](http://www.mjbauer.biz/DREAM6800.htm) was created in 1978 by Michael J. Bauer, and it came with a small, 1024 byte operating system called <abbr title="Compact Hexadecimal Interpretive Programming and Operating System">CHIPOS</abbr>. CHIPOS incorporates an interpreter for a bytecode <abbr title="Virtual Machine">VM</abbr> called CHIP-8, which originally appeared on RCA's CDP1802-based COSMAC VIP computer in 1977. You can read more about [CHIP-8 on Wikipedia](https://en.wikipedia.org/wiki/CHIP-8).
 
@@ -45,8 +42,8 @@ CHIP-8's arithmetic and logic instructions are two bytes (like all instructions)
 > Notice the inverted use of the carry flag for the subtraction. That's how the 1802's carry flag worked, but it's the opposite of the way it works on the 6800, necessitating some extra work later.
 {: .prompt-warning }
 
-For the instructions that don't specify what happens to VF, the resulting value in VF is undefined. 1802's ALU would mangle it.
-{: .notice}
+> For the instructions that don't specify what happens to VF, the resulting value in VF is undefined. 1802's ALU would mangle it.
+{: .prompt-tip }
 
 Due to the way the original CHIP-8 interpreter dispatches these instructions to the 1802's ALU ([details in this great blog post](https://laurencescotford.com/chip-8-on-the-cosmac-vip-arithmetic-and-logic-instructions/)), it actually had four undocumented instructions. They are as follows:
 
@@ -58,8 +55,8 @@ Due to the way the original CHIP-8 interpreter dispatches these instructions to 
 > Note that starting with the CHIP-48 and SUPER-CHIP interpreters in 1990, `8XY7` and `8XYE` were changed to do `VX >>= 1` and `VX <<= 1` respectively, ignoring the Y operand. For that reason, modern games should use the same V register as both operands to be cross-compatible.
 {: .prompt-warning }
 
-The remaining instructions, `8XY8`–`8XYD` and `8XYF`, do not elicit useful functionality.
-{: .notice}
+> The remaining instructions, `8XY8`–`8XYD` and `8XYF`, do not elicit useful functionality.
+{: .prompt-tip }
 
 These four undocumented instructions were discovered pretty early on, in 1978, and described in the COSMAC VIP's newsletter _VIPER_ ([issue #2](https://archive.org/details/viper_1_02/page/n2/mode/1up)), but Bauer apparently wasn't aware of them at the time he made the DREAM 6800. So his CHIP-8 interpreter in CHIPOS does not support them. My games, however, make heavy use of the shift instructions in particular.
 
