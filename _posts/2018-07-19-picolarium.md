@@ -3,10 +3,6 @@ title: Picolarium and Polarium passwords
 categories:
   - Blog
 tags:
-  - "#blog/published"
-  - gamedev
-  - devlog
-tags:
   - Game development
   - PICO-8
 published: true
