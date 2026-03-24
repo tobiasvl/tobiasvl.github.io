@@ -4,8 +4,6 @@ description: When emulating various 8-bit computers, you might just stumble upon
 categories:
   - Blog
 tags:
-  - blog/draft
-tags:
   - M6800
   - DREAM 6800
   - Emulation
@@ -13,8 +11,7 @@ published: false
 synced: true
 ---
 > This post is part of a series on writing an emulator for the DREAM 6800 computer. Read [the DREAM 6800 posts](/tags/dream-6800) and look at [the emulator's repository](https://github.com/tobiasvl/drom).
-{: .prompt-info }
-
+{: .prompt-info }\n\n
 I spent quite some time implementing the PIA in my emulator, reading through different documentation to figure out how it all worked, so I decided to write down some high-level details on how I ended up doing it. I'm almost surely getting some details wrong, so please comment if you find any inaccuracies.
 
 PIA
