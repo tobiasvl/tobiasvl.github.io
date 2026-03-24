@@ -2,13 +2,9 @@
 title: Things I finished in 2020
 description: A summary of things I "finished" in 2020, with comments.
 toc: true
-image:
-  path: /assets/img/chipos_logo.png
+image: /assets/img/chipos_logo.png
 categories:
   - Blog
-tags:
-  - year-in-review
-  - blog
 tags:
   - Year in Review
 published: false
