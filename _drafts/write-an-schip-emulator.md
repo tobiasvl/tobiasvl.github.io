@@ -1,13 +1,10 @@
 ---
 title: Guide to making a SUPER-CHIP emulator
 description: A high-level guide to making a SUPER-CHIP emulator.
-image:
-  path: /assets/img/cosmac-vip-manual.png
+image: /assets/img/cosmac-vip-manual.png
 toc: true
 categories:
   - Blog
-tags:
-  - blog/draft
 tags:
   - CHIP-8
   - Emulation
@@ -178,7 +175,7 @@ For CHIP-8 emulators that run on modern PCs, it's customary to use the left side
 | <kbd>Z</kbd> | <kbd>X</kbd> | <kbd>C</kbd> | <kbd>V</kbd> |
 
 > You will probably want to use keyboard _scancodes_ rather than key string constants, so people who use different keyboard layouts (like AZERTY) can use your emulator.
-{: .prompt-tip }
+{: .prompt-info }
 
 Fetch/decode/execute loop
 -------------------------
@@ -215,7 +212,7 @@ CHIP-8 instructions are divided into broad categories by the first "nibble", or 
 If your language supports `switch` statements, that's by far the easiest way to go. Mask off (with a "binary AND") the first number in the instruction, and have one `case` per number. Some of these cases will need separate `switch` statements inside them to further decode the instruction.
 
 > In C or C++, remember to `break;` inside each case, or you'll "fall through" to the next.
-{: .prompt-warning }
+{: .prompt-info }
 
 Although every instruction will have a first nibble that tells you what kind of instruction it is, the rest of the nibbles will have different meanings. To differentiate these meanings, we usually call them different things, but all of them can be any hexadecimal number from 0 to F:
 
