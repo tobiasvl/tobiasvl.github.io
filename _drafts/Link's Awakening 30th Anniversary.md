@@ -1,13 +1,8 @@
 ---
 title: Link's Awakening 30th Anniversary
-image:
-  path: /assets/img/
+image: /assets/img/
 categories:
   - Blog
-tags:
-  - gamedev
-  - devlog
-  - blog/draft
 tags:
   - Game development
 synced: true
