@@ -1,9 +1,8 @@
 ---
-title: "Things I finished in 2021"
+title: Things I finished in 2021
 description: A summary of things I "finished" in 2021, with comments.
 toc: true
-image:
-  path: /assets/img/chipos_logo.png
+image: /assets/img/chipos_logo.png
 categories:
   - Blog
 tags:
