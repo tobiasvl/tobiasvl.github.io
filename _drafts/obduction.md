@@ -1,11 +1,8 @@
 ---
 title: The Puzzling Simplicity of Obduction
-image:
-  path: /assets/img/
+image: /assets/img/
 categories:
   - Blog
-tags:
-  - blog/draft
 tags:
   - Myst
 published: false
