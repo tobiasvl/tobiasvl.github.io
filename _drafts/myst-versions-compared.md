@@ -1,11 +1,8 @@
 ---
 title: Myst Versions Compared
-image:
-  path: /assets/img/
+image: /assets/img/
 categories:
   - Blog
-tags:
-  - blog/draft
 tags:
   - Myst
 published: false
