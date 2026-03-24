@@ -1,12 +1,9 @@
 ---
 title: Emulating the Space Invaders look and feel
 description: My attempt at making a _Space Invaders_ emulator look like the arcade cabinet.
-image:
-  path: /assets/img/moon_invaders.png
+image: /assets/img/moon_invaders.png
 categories:
   - Blog
-tags:
-  - blog/published
 tags:
   - Emulation
 published: true
@@ -15,8 +12,7 @@ cssclasses:
   - hide-header-image
 ---
 > Check out [the emulator's repository](https://github.com/tobiasvl/moon-invaders) if you're interested. It's called _Moon Invaders_, because the game seemingly takes place on the moon, and I wrote the emulator in Lua (which is the Portuguese name for the Moon).
-{: .prompt-info }
-
+{: .prompt-info }\n\n
 To me, emulation isn't just making a program that accurately performs the same computations that the original hardware did; it's also important to me that it captures the feeling of the original game.
 
 A popular first project for emulator developers is the original Taito/Midway _Space Invaders_ arcade machine from 1978. The hardware isn't very hard to emulate (except for the sound chip, which is usually not emulated; prerecorded sound files are played instead).
