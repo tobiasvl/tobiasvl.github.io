@@ -22,8 +22,7 @@ Along the way I'll put tips in green boxes, warnings in orange boxes (things to 
 
 If you have any suggestions for this guide, or just want to show off an emulator you've made, please leave a comment at the end of the page!
 
-History
--------
+## History
 
 CHIP-8 was created by RCA engineer Joe Weisbecker in 1977 for the COSMAC VIP microcomputer. It was intended as a simpler way to make small programs and games for the computer. Instead of using machine language for the VIP's CDP1802 processor, you could type in hexadecimal instructions (with the VIP's hex keypad) that resembled machine code, but which were more high-level, and interpreted on the fly by a small program (the CHIP-8 emulator/interpreter).
 
@@ -36,8 +35,7 @@ With so many different implementations over several decades, there are many inco
 > Michael J. Bauer, who made the DREAM 6800 computer and its CHIP-8 interpreter in 1978, invented the following backronym for CHIP-8: **Compact Hexadecimal Interpretive Programming – 8-bit**.
 {: .prompt-info }
 
-Prerequisites
--------------
+## Prerequisites
 
 This is a CHIP-8 tutorial, not a programming tutorial. You should already know some programming before making an emulator, in my opinion, or you'll have a rough time.
 
@@ -45,8 +43,7 @@ You will also need to have a basic understanding of the binary and hexadecimal n
 
 You will also need a way to draw graphics to the screen, and read keypresses. Many graphical libraries can do this for you, or you can use something like [SDL](https://www.libsdl.org) directly.
 
-Specifications
---------------
+## Specifications
 
 CHIP-8 has the following components:
 
@@ -62,8 +59,7 @@ CHIP-8 has the following components:
 
 That's it!
 
-Memory
-------
+## Memory
 
 The memory should be 4 kB (4 kilobytes, ie. 4096 bytes) large. CHIP-8's index register and program counter can only address 12 bits (conveniently), which is 4096 addresses.
 
@@ -77,8 +73,7 @@ All the memory is RAM and should be considered to be writable. CHIP-8 games can,
 
 The first CHIP-8 interpreter (on the COSMAC VIP computer) was also located in RAM, from address `000` to `1FF`. It would expect a CHIP-8 program to be loaded into memory after it, starting at address `200` (512 in decimal). Although modern interpreters are not in the same memory space, you should do the same to be able to run the old programs; you can just leave the initial space empty, except for the font.
 
-Font
-----
+## Font
 
 The CHIP-8 emulator should have a built-in font, with sprite data representing the hexadecimal numbers from `0` through `F`. Each font character should be 4 pixels wide by 5 pixels tall. These font sprites are drawn just like regular sprites (see below).
 
@@ -108,8 +103,7 @@ The font most people use is represented in bytes like this:
 > In theory you could design your own font; it's unlikely that any games rely on the shapes of the characters. Many of [the early computer implementations had their own fonts](https://github.com/mattmikolay/chip-8/issues/3).
 {: .prompt-info }
 
-Display
--------
+## Display
 
 The display is 64 pixels wide and 32 pixels tall. Each pixel can be _on_ or _off_. In other words, each pixel is a boolean value, or a bit.
 
@@ -123,8 +117,7 @@ The details of the drawing instruction `DXYN` are found below, but in short, it 
 > This method of drawing will inevitable cause some flickering objects; when a sprite is moved, it's first erased from the screen (by simply drawing it again, flipping all its lit pixels) and then re-drawn in the new position, so it will disappear for a little while, often causing a flickering effect. If you want, you can try to think of ways to mitigate this. For example, pixels that are erased could fade out instead of disappearing completely, giving an old phosphorous CRT-style effect.
 {: .prompt-info }
 
-Stack
------
+## Stack
 
 CHIP-8 has a [stack](https://en.wikipedia.org/wiki/Stack_(abstract_data_type)) (a common "last in, first out" data structure where you can either "push" data to it or "pop" the last piece of data you pushed). You can represent it however you'd like; a stack if your programming language has it, or an array. CHIP-8 uses it to call and return from subroutines ("functions") and nothing else, so you will be saving addresses there; 16-bit (or really only 12-bit) numbers.
 
@@ -132,8 +125,7 @@ Early interpreters reserved some memory for the stack, and some programs would u
 
 These original interpreters had limited space on the stack; usually at least 16 two-byte entries. You can limit the stack likewise, or just keep it unlimited. CHIP-8 programs usually don't nest subroutine calls too much since the stack was so small originally, so it doesn't really matter (unless you encounter a program with a bug that has an infinite call loop and causes a "stack overflow").
 
-Timers
-------
+## Timers
 
 There are two separate timer registers: The delay timer and the sound timer. They both work the same way; they're one byte in size, and as long as their value is above 0, they should be decremented by one 60 times per second (ie. at 60 Hz). This is independent of the speed of the fetch/decode/execute loop below.
 
@@ -141,8 +133,7 @@ The sound timer is special in that it should make the computer "beep" as long as
 
 Even though it's called the "delay" timer, your interpreter should run as normal while it's being decremented (the same goes for the sound timer). The CHIP-8 game will check the value of the timer and delay itself if it wants.
 
-Keypad
-------
+## Keypad
 
 The earliest computers that CHIP-8 were used with had hexadecimal keypads. These had 16 keys, labelled `0` through `F`, and were arranged in a 4x4 grid.
 
@@ -171,8 +162,7 @@ For CHIP-8 emulators that run on modern PCs, it's customary to use the left side
 > You will probably want to use keyboard _scancodes_ rather than key string constants, so people who use different keyboard layouts (like AZERTY) can use your emulator.
 {: .prompt-tip }
 
-Fetch/decode/execute loop
--------------------------
+## Fetch/decode/execute loop
 
 An emulator's main task is simple. It runs in an infinite loop, and does these three tasks in succession:
 
@@ -230,8 +220,7 @@ For CHIP-8, if you went with the `switch` approach (or similar), this won't real
 In emulators for other systems, you might have a whole bunch of instructions of the same type – say, to add two numbers together – where the operands can be registers, 
 memory locations, immediate values, etc. (these are called addressing modes). But for CHIP-8, that doesn't matter.
 
-Instructions
-------------
+## Instructions
 
 It's time to actually decode the instructions! Just go one by one.
 
@@ -485,8 +474,7 @@ However, modern interpreters (starting with CHIP48 and SUPER-CHIP in the early 9
 
 If you only pick one behavior, go with the modern one that doesn't actually change the value of `I`. This will let you run the common CHIP-8 games you find everywhere, and it's also what the common test ROMs depend on (the other behavior will fail the tests). But if you want your emulator to run older games from the 1970s or 1980s, you should consider making a configurable option in your emulator to toggle between these behaviors.
 
-Troubleshooting
----------------
+## Troubleshooting
 
 Your emulator is done! What's that? Something's not working?
 
@@ -501,8 +489,7 @@ If you're still stumped, you can of course ask for help in the comments to this 
 * [/r/EmuDev on reddit](https://reddit.com/r/EmuDev)
 * [The Emulation Development Discord server](https://discord.com/invite/7nuaqZ2) (there's a #chip-8 channel)
 
-What next
----------
+## What next
 
 If you're like most people, you are now done with your obligatory "Hello, world!" emulator, and are ready to tackle your dream project. You could move on to emulating the Intel 8080 Space Invaders arcade cabinet if you want to learn more. Or perhaps you want to make a Game Boy emulator next; it has a lot more instructions and the screen drawing is more complex, but it's still not too complicated to get a lot of games running.
 
