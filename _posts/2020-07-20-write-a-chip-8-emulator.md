@@ -325,7 +325,7 @@ These both subtract the value in one register from the other, and put the result
 
 `8XY7` sets `VX` to the result of `VY` - `VX`.
 
-This subtraction will also affect the carry flag, but note that it's opposite from what you might think. If the minuend (the first operand) is larger than the subtrahend (second operand), `VF` will be set to 1. If the subtrahend is larger, and we "underflow" the result, `VF` is set to 0. Another way of thinking of it is that `VF` is set to 1 before the subtraction, and then the subtraction either borrows from `VF` (setting it to 0) or not.
+This subtraction will also affect the carry flag, but note that it's opposite from what you might think. If the minuend (the first operand) is larger than or equal to the subtrahend (second operand), `VF` will be set to 1. If the subtrahend is larger, and we "underflow" the result, `VF` is set to 0. Another way of thinking of it is that `VF` is set to 1 before the subtraction, and then the subtraction either borrows from `VF` (setting it to 0) or not.
 
 #### `8XY6` and `8XYE`: Shift
 
