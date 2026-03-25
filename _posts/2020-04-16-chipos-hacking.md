@@ -28,8 +28,7 @@ Quick recap: The [DREAM 6800](http://www.mjbauer.biz/DREAM6800.htm) was created 
 
 ![Mini Lights Out, broken](../../assets/img/mini-lights-out-broken.png)
 
-Undocumented CHIP-8 instructions
---------------------------------
+## Undocumented CHIP-8 instructions
 
 CHIP-8's arithmetic and logic instructions are two bytes (like all instructions) and start with `8`, followed by two nibbles that refer to two of the 16 "V" variables/registers, and ending with one nibble which denotes the operation. They look like this, where X and Y can be any hexadecimal number:
 
@@ -64,8 +63,7 @@ This meant I couldn't play my games in my DREAM emulator. I decided to take a li
 
 The DREAM 6800's CHIP-8 interpreter and monitor program, CHIPOS, fits in 1K of memory. Naturally, I wanted to squeeze in these extra instructions in that space. Was it doable?
 
-CHIPOS code
------------
+## CHIPOS code
 
 > You can download the CHIPOS code and ROM from [Michael J. Bauer's website](http://www.mjbauer.biz/DREAM6800.htm).
 {: .prompt-tip }
@@ -109,8 +107,7 @@ This is basically a switch/case statement with fall through. First it sets up a 
 
 So, how could I squeeze in checks for `8XY3`, `8XY6`, `8XY7` and `8XYE` here, _and_ the code needed to execute those instructions, while not using a single byte? I tried a couple of approaches.
 
-First try: Shaving off bytes
-----------------------------
+## First try: Shaving off bytes
 
 In the code block above, `LDAB PIR+1` sets the B accumulator to the second byte of the CHIP-8 instruction (which in this case is used as a counter to execute the correct instruction based on the last nibble). I noticed quickly that many of the destinations from the major jump table did this, since a lot of instructions have operands in that last nibble. None of them expected B to hold any particular value first. So I moved the `LDAB PIR+1` to occur before the jump table, and removed it from all the destinations.
 
@@ -210,8 +207,7 @@ So there you have it: I'd successfully shaved off as many bytes as I could in CH
 
 **1025 bytes**. One byte over budget.
 
-Take two: Dynamic programming
------------------------------
+## Take two: Dynamic programming
 
 Try as I might, I wasn't able to find another byte to optimize away. And not all bytes are equal; if possible, I wanted to stay compatible with CHIPOS's subroutines and calling sequences (CHIPOS provides several of its subroutines for use by DREAM programs and games). There probably is one somewhere, but I can't find it. If you do, please leave a comment, because the above code is much cleaner and elegant than the monstrosity I'm about to unveil.
 
@@ -308,8 +304,7 @@ Whoo boy. Okay. So we build a subroutine in zero-page RAM that consists of the o
 
 Doesn't look like much, but that's not important. The moment of truth: Time to assemble this baby…
 
-Success
--------
+## Success
 
 **1024 bytes**! I'd done it!
 
