@@ -32,8 +32,7 @@ Obduction has this as well. Unfortunately
 
 SPOILERS
 
-The Villein number system
--------------------------
+## The Villein number system
 
 Cyan likes their number systems. In Riven, you had to figure out a base-5 number system. In Obduction, you have to figure out a base-4 number system.
 
@@ -56,8 +55,7 @@ I learned the number system anyway. The first time you encounter one of these pa
 Not only do you not need to learn the number system properly because of the two-way pad in the garage and the auto-correct feature, the only numbers you need to input after the initial one are 0 (empty pad) and 1023 (full pad). That's it. And you can brute-force the latter.
 
 
-The Compass Puzzle
-------------------
+## The Compass Puzzle
 
 This puzzle is also found early on. You need to find a 6-digit number, and you're given a hint: "The solution is left under the direction of the first mayor". The first mayor was named Luther Roscoe (as you find out easily in the mayor's office), and there are two compasses on the mayor's desk, one within a wooden box labelled "Roscoe".
 
@@ -67,8 +65,7 @@ The compasses were too intimately tied to "directions" to discount, and one of t
 
 Why, yes, it was. I didn't realize you could turn the compass around while holding it. There was a note "under" the compass with the solution. (Okay, not the direct solution, but the rest was fairly easy to solve.)
 
-The fake mayor
---------------
+## The fake mayor
 
 Cyan removed the screens
 
