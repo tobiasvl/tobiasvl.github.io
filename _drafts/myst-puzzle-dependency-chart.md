@@ -11,8 +11,7 @@ synced: true
 ---
 The original _Myst_ from 1993 has an intriguing setting, interesting puzzles, and an alluring backstory.
 
-The Plot
---------
+## The Plot
 
 The actual plot of the game goes a little like this (beware of spoilers!):
 
@@ -30,8 +29,7 @@ Inside the fireplace, the player finds the pages, but also a green book. Inside 
 
 There is much more backstory to this plot, of course. There are many journals written by Atrus in the game, which flesh out the lore. Each Age has its own, self-contained puzzle that you need to solve to return to Myst with its pages. But this is the overarching structure of the game.
 
-Myst Puzzle Dependency Chart
-----------------------------
+## Myst Puzzle Dependency Chart
 
 Inspired by the famous adventure game designer Rob Gilbert's [Puzzle Dependency Charts](https://grumpygamer.com/puzzle_dependency_charts), here's a puzzle dependency chart I made for Myst:
 
@@ -39,8 +37,7 @@ Inspired by the famous adventure game designer Rob Gilbert's [Puzzle Dependency 
 
 There are, however, some problems with the plot. Some aren't too significant, but some actually affect the puzzle dependency chart.
 
-The Prison Book Retcon
-----------------------
+## The Prison Book Retcon
 
 The first "plothole" is one that Cyan imposed upon themselves. In Myst, the red and blue books that trapped Sirrus and Achenar were special "Prison Books" that never led to any Age; they were designed to trap you in a void, but if you were trapped, you could see out of the book and communicate (talk) to anyone holding the book. Myst uses this to give the player the primary objective of the game: Sirrus and Achenar tell you to bring them red and blue pages. It also uses it to allow the player to solve the "Fireplace Code" part of the puzzle dependency chart above: Sirrus/Achenar tell you how to enter the secret fireplace room to retrieve the final page, which also leads you to Atrus. Confusingly, Atrus is _also_ able to see you and communicate with you through what is ostensibly a completely normal non-Prison Linking Book (did your head appear floating in front of him in the D'ni cave?).
 
@@ -52,8 +49,7 @@ This creates a plothole, though. If you the player never communicate with Sirrus
 
 Or to put it another way: If one were to "fix" Myst by plugging its plotholes and making it consistent with later Myst lore, how would one do that? It's clear that the fireplace puzzle needs to be shuffled around since Sirrus and Achenar can't give you the solution anymore, but it would still be desirable to gate the player, so you'd need to complete the four other Ages before you're able to enter the fireplace.
 
-The Events Prior to the Game's Start
-------------------------------------
+## The Events Prior to the Game's Start
 
 The second plothole concerns the events that occured before the player sets foot on Myst Island: What actually happened, and in what order?
 

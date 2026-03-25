@@ -17,13 +17,11 @@ Myst VR
 realMyst: ME Switch
 Myst for Android
 
-Myst (1993)
------------
+## Myst (1993)
 
 The original game, released on CD-ROM in 1993.
 
-Myst: Masterpiece Edition (1999)
---------------------------------
+## Myst: Masterpiece Edition (1999)
 
 This version is a remaster of the original. The images have been rendered in 24-bit colors, and the sound is higher quality.
 
@@ -31,8 +29,7 @@ Some Quality of Life additions have been made: There's now a "Zip Mode" where yo
 
 Unfortunately, a couple of bugs also snuck in.
 
-realMYST
---------
+## realMYST
 
 This is a full remake of Myst in realtime 3D, with free WASD movement.
 
@@ -44,8 +41,7 @@ A gravestone for Ti'ana is now located behind the cabin in the woods on Myst Isl
 
 And finally, a whole new Age is added as a bonus after completing the game: Rime. There's a new Rime journal in the Library (accessible from the beginning of the game), and after completing the game, a second Rime journal is on the floor in the Library (presumably dropped by Atrus as he burned the Red and Blue Books) which contains instructions on how to reach the Rime Linking Book in its Place of Protection.
 
-realMYST: Masterpiece Edition
------------------------------
+## realMYST: Masterpiece Edition
 
 After realMYST received a lukewarm reception, a new remake was released in 2013. Made in Unity, this is still a modern game by today's standards. It performs well.
 

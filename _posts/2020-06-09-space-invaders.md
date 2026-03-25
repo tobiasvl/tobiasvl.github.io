@@ -22,8 +22,7 @@ But _Space Invaders_ is more than its CPU. Inside the arcade cabinet, there's a 
 
 These elements give a look and feel that's missing from most basic _Space Invaders_ emulators out there. Let's go through the elements.
 
-Aspect ratio
-------------
+## Aspect ratio
 
 In most _Space Invaders_ emulators, one bit of graphical information is drawn as one pixel on the screen.
 
@@ -35,8 +34,7 @@ Usually, this means that one CRT "pixel" is slightly wider than it's tall. The h
 
 Note that since the CRT monitor in _Space Invaders_ is rotated, one pixel is in fact slightly _taller than wide_ instead, after rotation. This means that the iconic crab-like space invader looks too squat and flat in many emulators, for example. The enemies should look more or less square.
 
-Scanlines
----------
+## Scanlines
 
 Since _Space Invaders_ uses an old CRT monitor, the scanlines are actually visible. Because of the phosphorescent glow, they're not easily discernible, but the gel overlay mutes the bloom on the colored areas, making them stand out more there.
 
@@ -46,8 +44,7 @@ This is a common visual effect, which many emulators provide. However, they ofte
 
 In addition, the scanlines should only affect the image on the actual CRT monitor. This is projected onto artwork of a desolate moon. Some emulators apply the scanline effect to this image as well, which is incorrect.
 
-Gel overlay colors
-------------------
+## Gel overlay colors
 
 Most _Space Invaders_ emulators use bright, primary colors for its gel overlay, like shown above. The overlay is placed like this (image from [The Cutting Room Floor](https://tcrf.net/Space_Invaders_(Arcade\)):
 
@@ -75,8 +72,7 @@ This one is also too short to color more than three lives, as in the Midway vide
 
 At any rate, in my emulator I decided to go for a gel overlay with a gap for the dividing line, since that clearly existed, and I also decided to apply it perfectly to my digital CRT screen.
 
-Lighting
---------
+## Lighting
 
 Not too much to say here. The CRT's phosphorescent glow can be added with a simple glow/light bloom shader. In the one I used, a `min_luma` value of 0.4 (from 0 to 1) and a strength of 5 (the shader's default) gives a satisfying glow that blows out the scanlines in the invaders, but is less prominent in the colored areas, just like the case is in the cabinet (the colored gel overlays mask the glow somewhat).
 
@@ -84,8 +80,7 @@ The background of the moon is lit from within the cabinet. That's harder to emul
 
 The more muted moon in the Midway cabinet would need a different lighting shader to look natural. the only image I've found of it online is very dark; if anyone has a better one than MAME (unlikely) let me know!
 
-Sound
------
+## Sound
 
 Like I said at the start, the sound chip is pretty hard to emulate, and most people don't bother. I'd like to do it, but I haven't yet. So I just make my emulator play prerecorded sound effects at the right times. These sound effects can readily be downloaded online.
 
@@ -93,8 +88,7 @@ At least most of them can. There are 9 sound effects that can be found online ea
 
 Note also that some sound packs found online have seemingly swapped the file names of the "laser shot" sound and the "alien death" sound. They actually still fit somewhat when swapped, but look out for that if you want an authentic sound experience.
 
-How to emulate
---------------
+## How to emulate
 
 I emulate all this in [my _Space Invaders_ emulator](https://github.com/tobiasvl/moon-invaders) in this order:
 
