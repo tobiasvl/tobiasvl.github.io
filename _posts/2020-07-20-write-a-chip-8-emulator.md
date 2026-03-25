@@ -10,6 +10,7 @@ tags:
   - Emulation
 published: true
 synced: true
+pin: true
 ---
 Do you want to get into emulator development? A common advice is to start out with [CHIP-8](https://en.wikipedia.org/wiki/CHIP-8). But how do you do that? And why are there so many different, conflicting specifications?
 
