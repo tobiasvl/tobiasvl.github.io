@@ -19,8 +19,7 @@ I've done a little homebrew for the Fairchild Channel F in the past, which was o
 
 So when I recently did some Motorola 6800 development, which you can read about in my article about [extending CHIPOS with more CHIP-8 instructions](/blog/chipos-hacking), I initially used dasm for that too. I knew dasm already, and it supports one of the M6800 processors, the MC6803. All right, I was actually targeting the MC6800, not MC6803. But what's the difference, really? I read that MC6803 is both opcode and binary code compatible with the MC6800, it just adds some 10 new instructions, but I just wouldn't use them. (Note to self: Write an article later which compares the different MPUs in the M6800 family!)
 
-Halt and Catch Fire
--------------------
+## Halt and Catch Fire
 
 So I started developing my MC6800 program, assembling it using dasm in MC6803 mode, and running it in my MC6800 emulator. It worked fine, until I suddenly encountered a strange bug: My emulator would halt and catch fire!
 
@@ -33,8 +32,7 @@ If the MC6800 executed one of these, it would do something strange: It would sto
 
 When I started making my emulator, I naturally included the `HCF` instruction in my MPU implementation. I wanted it to be an accurate emulator; plus, `HCF` is a fun and mythical instruction! Except now my own program caused my own emulator to, well, halt and catch fire.
 
-The culprit
------------
+## The culprit
 
 In my program, I had the following line of assembly code:
 
@@ -56,8 +54,7 @@ I recently wrote an article about the [Motorola 6800 addressing modes](/blog/m68
 
 Not so for the MC6803! It adds a very convenient `JSR` with direct addressing. As you might already have guessed, its opcode is `$9D`, replacing the MC6800's undocumented "Halt and Catch Fire" opcode. The dasm assembler will of course notice that I'm trying to jump to the zero page, use direct addressing, and make a little trap for the MC6800 MPU.
 
-Picking another assembler
--------------------------
+## Picking another assembler
 
 Some assemblers allow you to force a particular addressing mode, but dasm does not. I could continue to use dasm but hardcode the bytes in the assembly code, preferably with a macro, but that's still pretty hacky. I opened [an issue suggesting to add forced addressing modes](https://github.com/dasm-assembler/dasm/issues/41), and started looking at alternative assemblers.
 
