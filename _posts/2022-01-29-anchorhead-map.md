@@ -1,12 +1,9 @@
 ---
 title: Anchorhead map
 description: A map I made for the interactive fiction game _Anchorhead_.
-image:
-  path: /assets/img/anchorhead_map.png
+image: /assets/img/anchorhead_map.png
 categories:
   - Blog
-tags:
-  - blog/published
 tags:
   - Interactive Fiction
 published: true

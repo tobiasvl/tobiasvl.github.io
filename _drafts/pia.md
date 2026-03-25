@@ -4,8 +4,6 @@ description: When emulating various 8-bit computers, you might just stumble upon
 categories:
   - Blog
 tags:
-  - blog/draft
-tags:
   - M6800
   - DREAM 6800
   - Emulation

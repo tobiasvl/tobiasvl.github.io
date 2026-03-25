@@ -1,11 +1,8 @@
 ---
 title: Obsidian
-image:
-  path: /assets/img/
+image: /assets/img/
 categories:
   - Blog
-tags:
-  - blog/draft
 tags:
   - PKM
 published: false

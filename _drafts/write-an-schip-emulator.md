@@ -1,13 +1,10 @@
 ---
 title: Guide to making a SUPER-CHIP emulator
 description: A high-level guide to making a SUPER-CHIP emulator.
-image:
-  path: /assets/img/cosmac-vip-manual.png
+image: /assets/img/cosmac-vip-manual.png
 toc: true
 categories:
   - Blog
-tags:
-  - blog/draft
 tags:
   - CHIP-8
   - Emulation

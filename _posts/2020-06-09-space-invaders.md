@@ -1,12 +1,9 @@
 ---
 title: Emulating the Space Invaders look and feel
 description: My attempt at making a _Space Invaders_ emulator look like the arcade cabinet.
-image:
-  path: /assets/img/moon_invaders.png
+image: /assets/img/moon_invaders.png
 categories:
   - Blog
-tags:
-  - blog/published
 tags:
   - Emulation
 published: true

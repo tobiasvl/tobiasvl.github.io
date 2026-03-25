@@ -5,9 +5,6 @@ toc: true
 categories:
   - Blog
 tags:
-  - blog/published
-  - year-in-review
-tags:
   - Year in Review
 published: true
 synced: true
