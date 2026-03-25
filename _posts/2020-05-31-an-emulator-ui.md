@@ -30,8 +30,7 @@ To sum up [my first DRÖM blog post](/blog/drom), here are the main issues I had
 
 In other words – mostly usability issues. So here's a rundown of how I decided to solve them.
 
-Running and loading files
--------------------------
+## Running and loading files
 
 When I tried to run MAME's DREAM 6800 emulator, I had a hard time even figuring out where to put the CHIPOS ROM file! MAME doesn't ship with ROM files that are protected by copyright, which is understandable, but its documentation on how to actually get it running if you do have the ROM file is hard to find.
 
@@ -39,8 +38,7 @@ I reached out to Michael J. Bauer, the creator of the DREAM 6800 computer and th
 
 I also ended up patching CHIPOS, and it's this patched version which comes with my emulator. [You can read more about that here.](/blog/chipos-hacking)
 
-Display
--------
+## Display
 
 I originally criticized MAME for a blurry display when scaling the window. Apparently it uses linear interpolation when scaling, making the pixels very washed out.
 
@@ -52,8 +50,7 @@ I ended up adding some shaders for an "authentic" CRT-style display, but with si
 
 ![](../../assets/img/drom-shaders.png)
 
-Windowing
----------
+## Windowing
 
 MAME uses several windows for its debugging UI. That's fine; sometimes I just want to see the disassembly and single step through execution, without needing to see the memory viewer.
 
@@ -63,8 +60,7 @@ Instead of doing it like this, I decided to use dear-imgui, an immediate mode GU
 
 ![](../../assets/img/drom.png)
 
-Keypad
-------
+## Keypad
 
 The DREAM 6800 used a hexadecimal keypad (keys labeled 0 through F), arranged in a 4x4 grid. Games for the DREAM would use keys adjacent to each other on this keypad for controls.
 
@@ -97,8 +93,7 @@ But I did want to let the user select any of the above keypad layouts, in order 
 
 ![](../../assets/img/drom-keypad.png)
 
-What's next
------------
+## What's next
 
 The RetroChallenge is over, and I feel like I succeeded.
 
