@@ -48,7 +48,7 @@ When I decided to add a level editor, I needed to make room for it. I had to sto
 
 I really wanted to support _Polarium_'s password system too, where you can export and import 30-digit passwords to share custom levels with each other. Otherwise, there really wouldn't be any point in having a level editor. So why not just store the levels internally as _Polarium_ passwords?
 
-Googling around, I found [a blog post by Johnathan Roatch](https://jroatch.xyz/2011/blog/polarium-password-encoding) that explains _Polarium_'s password algorithm. I'll sum it up here. To encode a level as a password:
+Googling around, I found [a blog post by Johnathan Roatch](https://web.archive.org/web/20180511172040/https://jroatch.xyz/2011/blog/polarium-password-encoding) that explains _Polarium_'s password algorithm. I'll sum it up here. To encode a level as a password:
 
 1. Convert each row of the puzzle to a binary byte (8 bits): A black tile is 1, a white tile is 0.
   1. If a line is shorter than 8 tiles, pad it (with anything) at the end so it's 8 bits.
