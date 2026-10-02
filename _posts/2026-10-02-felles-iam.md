@@ -1,6 +1,6 @@
 ---
 title: Felles IAM i media
-description: A collection of links to Norwegian news stories about Identity and Access Management.
+description: A collection of links to Norwegian news stories about IAM.
 categories:
   - Blog
 tags:
@@ -10,10 +10,10 @@ cssclasses:
 ---
 > **Sorry, this post is in 🇳🇴Norwegian🇳🇴.**
 > 
-> It’s a collection of Norwegian news stories about the Norwegian Ministry of Education imposing a new <abbr title=”Identity and Access Management”>IAM</abbr> system on the <abbr title=”Higher Education”>HE</abbr> sector in Norway, which is what I do for work. Riveting stuff, to be sure – but in Norwegian.
+> It’s a collection of Norwegian news stories about the Norwegian Ministry of Education imposing a new <abbr title="Identity and Access Management">IAM</abbr> system on the <abbr title="Higher Education">HE</abbr> sector in Norway, which is what I do for work. Riveting stuff, to be sure – but in Norwegian.
 {: .prompt-info }
 
-Jeg [jobber](https://www.usit.uio.no/om/organisasjon/iti/int/ansatte/tvl/) med «<abbr title=”Identity and Access Management”>IAM</abbr>», altså «identitets- og tilgangsstyring», ved Universitetet i Oslo. Det har jeg gjort i ca. 15 år, og det har alltid vært et ganske rolig fagområde. Sommeren/høsten 2026 ble imidlertid IAM-tjenester i <abbr title=”Universitets- og høgskole”>UH</abbr>-sektoren plutselig gjenstand for et noenlunde heftig offentlig ordskifte, både på Stortinget og i media.
+Jeg [jobber](https://www.usit.uio.no/om/organisasjon/iti/int/ansatte/tvl/) med «<abbr title="Identity and Access Management">IAM</abbr>», altså «identitets- og tilgangsstyring», ved Universitetet i Oslo. Det har jeg gjort i ca. 15 år, og det har alltid vært et ganske rolig fagområde. Sommeren/høsten 2026 ble imidlertid IAM-tjenester i <abbr title="Universitets- og høgskole">UH</abbr>-sektoren plutselig gjenstand for et noenlunde heftig offentlig ordskifte, både på Stortinget og i media.
 
 Dette er en liste over mediesaker og andre offentlige utspill om «Felles IAM»-prosjektet fra denne perioden, i forsøksvis kronologisk rekkefølge. Noen saker er bak betalingsmur🔒. Hvis det mangler noe på lista, si gjerne fra i kommentarfeltet nederst på siden.
 
