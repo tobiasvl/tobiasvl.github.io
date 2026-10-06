@@ -82,3 +82,4 @@ Dette er en liste over mediesaker og andre offentlige utspill om «Felles IAM»-
 - [Skriftlig spørsmål fra Hege Bae Nyholt (R) til Torgeir Michaelsen](https://www.stortinget.no/no/Saker-og-publikasjoner/Sporsmal/Skriftlige-sporsmal-og-svar/Skriftlig-sporsmal/?qnid=127315) (Stortinget)
 - [Jussprofessor meiner Kunnskapsdepartementet kan ha brote personvernreglane](https://www.uniforum.uio.no/nyheter/2026/10/intervju-med-mads-andenes.html) (Uniforum)
 - [Sikt varsler opprydding i økonomiske bindinger. — Utrolig samrøre, sier Rødt](https://www.khrono.no/sikt-varsler-opprydding-i-okonomiske-bindinger-utrolig-samrore-sier-rodt/1084073) (Khrono)
+- [Rødt og SV krever at stats­råden svarer på 25 spørsmål om IT-system](https://www.khrono.no/rodt-og-sv-krever-at-statsraden-svarer-pa-25-sporsmal-om-it-system/1089404) (Khrono)
