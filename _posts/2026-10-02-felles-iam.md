@@ -84,3 +84,4 @@ Dette er en liste over mediesaker og andre offentlige utspill om «Felles IAM»-
 - [Sikt varsler opprydding i økonomiske bindinger. — Utrolig samrøre, sier Rødt](https://www.khrono.no/sikt-varsler-opprydding-i-okonomiske-bindinger-utrolig-samrore-sier-rodt/1084073) (Khrono)
 - [Rødt og SV krever at stats­råden svarer på 25 spørsmål om IT-system](https://www.khrono.no/rodt-og-sv-krever-at-statsraden-svarer-pa-25-sporsmal-om-it-system/1089404) (Khrono)
 - [Statsråden må svare kontroll- og konstitusjons­komiteen](https://www.khrono.no/statsraden-ma-svare-kontroll-og-konstitusjonskomiteen/1092065) (Khrono)
+- [Vedr. løsning for identitets- og tilgangsstyring (IAM) på universiteter og høyskoler](https://www.stortinget.no/no/Representanter-og-komiteer/Komiteene/Kontroll--og-konstitusjonskomiteen/undersokelser-20252029/vedr.-losning-for-identitets--og-tilgangsstyring-iam-pa-universiteter-og-hoyskoler/) (Stortinget)
