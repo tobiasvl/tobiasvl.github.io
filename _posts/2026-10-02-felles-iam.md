@@ -7,6 +7,7 @@ tags:
 published: true
 synced: true
 cssclasses:
+show_last_modified: true
 ---
 > **Sorry, this post is in 🇳🇴Norwegian🇳🇴.**
 > 
