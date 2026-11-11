@@ -88,3 +88,4 @@ Dette er en liste over mediesaker og andre offentlige utspill om «Felles IAM»-
 - [Vedr. løsning for identitets- og tilgangsstyring (IAM) på universiteter og høyskoler](https://www.stortinget.no/no/Representanter-og-komiteer/Komiteene/Kontroll--og-konstitusjonskomiteen/undersokelser-20252029/vedr.-losning-for-identitets--og-tilgangsstyring-iam-pa-universiteter-og-hoyskoler/) (Stortinget)
 - [Strammer inn på konsulent­rutiner etter Khrono-avsløring](https://www.khrono.no/strammer-inn-pa-konsulentrutiner-etter-khrono-avsloring/1096086) (Khrono)
 - [Kontrollkomiteen med nye spørsmål til statsråden om Felles IAM](https://www.khrono.no/kontrollkomiteen-med-nye-sporsmal-til-statsraden-om-felles-iam/1099287) (Khrono)
+- [Akademisk forum: Gjennomsnittsalder i styret over 70 - Uniforum](https://www.uniforum.uio.no/nyheter/2026/11/akademisk-forum-vil%20ha%20yngre%20krefter.med.html) (Uniforum)
