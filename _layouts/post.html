@@ -13,6 +13,8 @@ script_includes:
 
 {% include toc-status.html %}
 
+<div id="reading-progress" aria-hidden="true"></div>
+
 <article class="px-1 {{ page.cssclasses | join: ' ' }}" data-toc="{{ enable_toc }}">
   <header>
     <h1 data-toc-skip>{{ page.title }}</h1>
@@ -182,3 +184,5 @@ script_includes:
   </div>
   <!-- div.post-tail-wrapper -->
 </article>
+
+<script defer src="{{ '/assets/js/reading-progress.js' | relative_url }}"></script>
