@@ -89,3 +89,5 @@ Dette er en liste over mediesaker og andre offentlige utspill om «Felles IAM»-
 - [Strammer inn på konsulent­rutiner etter Khrono-avsløring](https://www.khrono.no/strammer-inn-pa-konsulentrutiner-etter-khrono-avsloring/1096086) (Khrono)
 - [Akademisk forum: Gjennomsnittsalder i styret over 70 - Uniforum](https://www.uniforum.uio.no/nyheter/2026/11/akademisk-forum-vil%20ha%20yngre%20krefter.med.html) (Uniforum)
 - [Kontrollkomiteen med nye spørsmål til statsråden om Felles IAM](https://www.khrono.no/kontrollkomiteen-med-nye-sporsmal-til-statsraden-om-felles-iam/1099287) (Khrono)
+- [UiO og NTNU nektar å fylgja pålegget om å innføra omstridt IT-system](https://www.uniforum.uio.no/nyheter/2026/11/uio-og-ntnu-nektar-a-fylgja-palegget-fra-kd-om-a-i.html) (Uniforum)
+- [NTNU og UiO seier nei til IT-system: Risikoen er for høg](https://www.universitetsavisa.no/arne-benjaminsen-bjorn-haugstad-datasikkerhet/ntnu-og-uio-seier-nei-til-it-system-risikoen-er-for-hog/470770) (Universitetsavisa)
